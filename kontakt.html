@@ -274,7 +274,7 @@
   .socials a:hover{color:var(--bg);background:var(--blue-deep);border-color:var(--blue-deep)}
   .socials-dark a{border-color:rgba(247,243,238,.28);color:var(--blue)}
   .socials-dark a:hover{color:var(--ink);background:var(--blue);border-color:var(--blue)}
-  iframe[title="Mapa — Studio Piegus"]{filter:grayscale(1) sepia(.55) hue-rotate(165deg) saturate(1.2) brightness(.96) contrast(.98)}
+  iframe[title="Mapa — Studio Piegus"]{filter:grayscale(1) sepia(.72) hue-rotate(-6deg) saturate(.82) brightness(.9) contrast(.98)}
   .speck{display:none}
 
   /* ---- location card (map) ---- */
@@ -306,6 +306,8 @@
   }
 
   @media(max-height:560px){ .hero-full{padding-top:84px} .hero-full h1{font-size:clamp(30px,6vw,48px)} }
+
+  .map-frame{width:100%;height:440px;border:0;border-radius:16px;display:block;box-shadow:0 26px 54px -30px rgba(46,44,42,.5)}
 </style>
 </head>
 <body class="foto">
@@ -334,12 +336,12 @@
 
 <!-- ===== PAGE HEAD ===== -->
 <header class="pagehead hero-full">
-  <img class="hero-bg" src="img/b5d4847250a5.jpg" alt="" aria-hidden="true" style="object-position:50% 50%;transform:scale(1.25) translate(9%,7%)">
+  <img class="hero-bg" src="img/eb364f726716.jpg" alt="" aria-hidden="true" style="object-position:50% 48%">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-inner reveal in">
       <h1 data-pl="Napisz<br>do <em>nas.</em>" data-en="Get<br>in <em>touch.</em>">Napisz<br>do <em>nas.</em></h1>
-      <p class="lead" data-pl="Masz pytanie o zajęcia, sesję jednorazową, voucher albo warsztat dla firmy? Zostaw wiadomość — odpiszemy z propozycją terminu. Możesz też zadzwonić." data-en="A question about classes, a one-off session, a voucher or a workshop for your team? Leave a message — we'll come back with a suggested slot. You can also call us.">Masz pytanie o zajęcia, sesję jednorazową, voucher albo warsztat dla firmy? Zostaw wiadomość — odpiszemy z propozycją terminu. Możesz też zadzwonić.</p>
+      <p class="lead" data-pl="Masz pytanie o zajęcia, sesję jednorazową, voucher albo warsztat dla firmy? Zadzwoń lub napisz wiadomość." data-en="A question about classes, a one-off session, a voucher or a workshop for your team? Call us or send a message.">Masz pytanie o zajęcia, sesję jednorazową, voucher albo warsztat dla firmy? Zadzwoń lub napisz wiadomość.</p>
     </div>
   </div>
 </header>
@@ -419,7 +421,7 @@
           <h3 data-pl="Złap nas bezpośrednio" data-en="Reach us directly">Złap nas bezpośrednio</h3>
           <div class="info-row">
             <div class="lbl" data-pl="Adres" data-en="Address">Adres</div>
-            <p>ul. Jana III Sobieskiego 22<br>Warszawa</p>
+            <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa</p>
           </div>
           <div class="info-row">
             <div class="lbl" data-pl="Telefon" data-en="Phone">Telefon</div>
@@ -429,9 +431,6 @@
             <div class="lbl">E-mail</div>
             <a href="mailto:kontakt@studiopiegus.pl">kontakt@studiopiegus.pl</a>
           </div>
-          <div class="info-row">
-            <div class="lbl">Instagram</div>
-              </div>
           <div class="socials socials-dark">
           <a href="https://www.instagram.com/studio.piegus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://www.facebook.com/Studio.Piegus/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M13.6 21v-8h2.62l.39-3h-3.01V8.09c0-.87.24-1.46 1.49-1.46h1.59V3.96c-.28-.04-1.22-.12-2.32-.12-2.3 0-3.87 1.4-3.87 3.98V10H8.06v3h2.42v8z"/></svg></a>
@@ -451,16 +450,9 @@
       <h2 data-pl="Jak do nas trafić" data-en="How to find us">Jak do nas trafić</h2>
     </div>
     <div class="map-wrap reveal">
-      <a class="map-card" href="https://www.google.com/maps/search/?api=1&query=ul.%20Jana%20III%20Sobieskiego%2022%2C%20Warszawa" target="_blank" rel="noopener" aria-label="Otwórz lokalizację w Google Maps">
-        <span class="mc-grid"></span>
-        <span class="mc-pin"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor" aria-hidden="true"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
-        <span class="mc-txt">
-          <b data-pl="Otwórz w Google Maps" data-en="Open in Google Maps">Otwórz w Google Maps</b>
-          <span data-pl="ul. Jana III Sobieskiego 22 · Sadyba, Warszawa" data-en="Jana III Sobieskiego 22 · Sadyba, Warsaw">ul. Jana III Sobieskiego 22 · Sadyba, Warszawa</span>
-        </span>
-      </a>
+      <iframe class="map-frame" title="Mapa — Studio Piegus" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2446.7032138631926!2d21.05986857669665!3d52.176089271973055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4719332aec2512ad%3A0x1394556abd8e3d85!2sStudio%20Piegus%20-%20warsztaty%20i%20zaj%C4%99cia%20z%20ceramiki!5e0!3m2!1sen!2sde!4v1786990589531!5m2!1sen!2sde" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       <div class="map-cap">
-        <p>ul. Jana III Sobieskiego 22, Warszawa</p>
+        <p>ul. Jana III Sobieskiego 22, 02-930 Warszawa</p>
         <a class="map-open" href="https://www.google.com/maps/search/?api=1&query=ul.+Jana+III+Sobieskiego+22,+Warszawa" target="_blank" rel="noopener" data-pl="Otwórz w Google Maps" data-en="Open in Google Maps">Otwórz w Google Maps <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M5 3h8v8M13 3 4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
