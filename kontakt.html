@@ -573,5 +573,12 @@
   } else { document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); }); }
 })();
 </script>
+<script>
+(function(){try{
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ try{localStorage.setItem('piegus_lang', b.getAttribute('data-lang'));}catch(e){} }); });
+  var L=null; try{L=localStorage.getItem('piegus_lang');}catch(e){}
+  if(L && L!=='pl'){ var btn=document.querySelector('.lang button[data-lang="'+L+'"]'); if(btn) btn.click(); }
+}catch(e){}})();
+</script>
 </body>
 </html>
