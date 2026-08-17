@@ -447,11 +447,15 @@
 </script>
 <script>(function(){var n=document.getElementById("nav");if(!n)return;function o(){n.classList.toggle("solid",window.scrollY>24);}o();window.addEventListener("scroll",o,{passive:true});})();</script>
 <script>
-(function(){try{
+(function(){
+  function apply(l){
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-pl]').forEach(function(el){ var v=el.getAttribute('data-'+l); if(v!==null) el.innerHTML=v; });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); });
+  }
+  try{ var L=localStorage.getItem('piegus_lang'); if(L && L!=='pl') apply(L); }catch(e){}
   document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ try{localStorage.setItem('piegus_lang', b.getAttribute('data-lang'));}catch(e){} }); });
-  var L=null; try{L=localStorage.getItem('piegus_lang');}catch(e){}
-  if(L && L!=='pl'){ var btn=document.querySelector('.lang button[data-lang="'+L+'"]'); if(btn) btn.click(); }
-}catch(e){}})();
+})();
 </script>
 </body>
 </html>
