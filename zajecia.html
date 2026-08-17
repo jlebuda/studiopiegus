@@ -316,6 +316,27 @@
 
   .fine{margin-top:36px;max-width:76ch;border-top:1px solid var(--line);padding-top:22px}
   .fine p{font-size:13px;line-height:1.65;color:#6a6560;margin:0 0 12px}
+
+  /* ---- workshop info (variant 2) ---- */
+  .wsplit{margin-top:36px;border-top:1px solid var(--line);padding-top:26px}
+  .w-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:32px}
+  .w-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .w-card .w-k{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-deep);display:block;margin-bottom:12px}
+  .w-card h3{font-family:var(--serif);font-weight:600;font-size:22px;margin:0 0 8px}
+  .w-card p{color:#4a4744;font-size:15px;margin:0}
+  .w-title{font-family:var(--serif);font-weight:700;font-size:26px;margin:22px 0 16px}
+  .w-timeline{margin:0}
+  .w-tl{position:relative;padding:0 0 26px 66px}
+  .w-tl:not(:last-child)::before{content:"";position:absolute;left:22px;top:46px;bottom:0;width:1px;background:var(--line)}
+  .w-num{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:999px;border:1px solid var(--clay);color:var(--clay);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:20px}
+  .w-tl h4{font-family:var(--serif);font-weight:600;font-size:20px;margin:6px 0 4px}
+  .w-tl p{color:#4a4744;font-size:15px;margin:0;max-width:62ch}
+  .w-note{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-top:28px}
+  .w-note h4{font-family:var(--sans);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-deep);margin:0 0 12px}
+  .w-note ul{margin:0;padding-left:18px}
+  .w-note li{font-size:14px;color:#4a4744;margin:8px 0}
+  .w-note li b{color:var(--ink)}
+  @media(max-width:680px){ .w-cards{grid-template-columns:1fr} }
 </style>
 </head>
 <body class="foto">
@@ -394,7 +415,8 @@
       <div class="format-text reveal">
         <span class="eyebrow" data-pl="Warsztat (1 lub 2 spotkania)" data-en="Workshop (1 or 2 sessions)">Warsztat (1 lub 2 spotkania)</span>
         <h2 data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</h2>
-        <p data-pl="Ulepcie coś razem — bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie." data-en="Make something together — without signing up for a whole term. Great as a gift, a date, a get-together with friends or a family afternoon.">Ulepcie coś razem — bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie.</p>
+        <p data-pl="Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie." data-en="A one-off meeting, without signing up for a whole term. Great as a gift, a date, a get-together with friends or a family afternoon.">Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie.</p>
+        <p data-pl="Poziom zaawansowania nie ma znaczenia — zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot." data-en="Your level doesn't matter — I welcome those who've never touched clay and those who know exactly what grog is.">Poziom zaawansowania nie ma znaczenia — zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot.</p>
         <div class="format-cta">
           <a href="kontakt.html" class="btn btn-fill" data-pl="Zarezerwuj sesję dla siebie" data-en="Book a session for yourself">Zarezerwuj sesję dla siebie</a>
           <a href="voucher.html" class="btn btn-ghost" data-pl="Podaruj voucher" data-en="Give a voucher">Podaruj voucher</a>
@@ -410,16 +432,25 @@
         </dl>
       </div>
     </div>
-  <div class="fine reveal">
-        <p data-pl="Praca stworzona podczas warsztatu należy do Ciebie." data-en="The piece you make during the workshop is yours.">Praca stworzona podczas warsztatu należy do Ciebie.</p>
-        <p data-pl="Poziom zaawansowania nie ma znaczenia — warsztaty są dla tych, którzy nigdy nie lepili, i dla tych, którzy wiedzą, co to jest szamot." data-en="Your level doesn't matter — the workshops are for those who've never touched clay and for those who know what grog is.">Poziom zaawansowania nie ma znaczenia — warsztaty są dla tych, którzy nigdy nie lepili, i dla tych, którzy wiedzą, co to jest szamot.</p>
-        <p data-pl="Podczas warsztatów stworzysz w pełni użytkowe naczynie (np. do codziennego mycia w zmywarce) wg swojego pomysłu. W czasie zajęć opowiadam trochę o technikach lepienia i ciekawostkach technologicznych." data-en="During the workshop you'll make a fully functional vessel (dishwasher-safe, for everyday use) of your own design. Along the way I share a bit about building techniques and technical curiosities.">Podczas warsztatów stworzysz w pełni użytkowe naczynie (np. do codziennego mycia w zmywarce) wg swojego pomysłu. W czasie zajęć opowiadam trochę o technikach lepienia i ciekawostkach technologicznych.</p>
-        <p data-pl="Jak wygląda proces tworzenia ceramiki podczas pojedynczych warsztatów? Lepisz, a następnie malujesz mokrą glinę angobami (płynna glina z pigmentem), farbami podszkliwnymi lub szkliwami uniwersalnymi. Na powierzchni pomalowanej gliny można wykonać różne drapania (technika sgraffito). Praca zostaje w pracowni do wyschnięcia (ok. 10 dni), następnie wypalam ją w 900°C na tzw. biskwit, pokrywam szkliwem transparentnym i wypalam kolejny raz, w 1240°C. Gotowa praca będzie czekała na odbiór po ok. 3–4 tyg. od warsztatu." data-en="What does making ceramics during a single workshop look like? You build a piece, then paint the wet clay with engobes (liquid clay with pigment), underglaze paints or universal glazes. You can scratch patterns into the painted surface (sgraffito). The piece stays in the studio to dry (about 10 days); then I fire it at 900°C to bisque, cover it with a transparent glaze and fire again at 1240°C. Your finished piece will be ready for pick-up about 3–4 weeks after the workshop.">Jak wygląda proces tworzenia ceramiki podczas pojedynczych warsztatów? Lepisz, a następnie malujesz mokrą glinę angobami (płynna glina z pigmentem), farbami podszkliwnymi lub szkliwami uniwersalnymi. Na powierzchni pomalowanej gliny można wykonać różne drapania (technika sgraffito). Praca zostaje w pracowni do wyschnięcia (ok. 10 dni), następnie wypalam ją w 900°C na tzw. biskwit, pokrywam szkliwem transparentnym i wypalam kolejny raz, w 1240°C. Gotowa praca będzie czekała na odbiór po ok. 3–4 tyg. od warsztatu.</p>
-        <p data-pl="Fartuch dostaniesz na miejscu." data-en="You'll get an apron on site.">Fartuch dostaniesz na miejscu.</p>
-        <p data-pl="Jeśli musisz odwołać udział w warsztacie, daj znać najpóźniej 48 h przed terminem — ustalimy inny termin. W razie braku informacji o nieobecności warsztat przepada. W uzasadnionych przypadkach, po poinformowaniu Studia Piegus o nieobecności w krótszym czasie niż 48 h przed terminem, prowadzący może zaproponować inny termin." data-en="If you need to cancel, let us know at least 48 h before the workshop — we'll arrange another date. Without notice of absence, the workshop is forfeited. In justified cases, after informing Studio Piegus of an absence less than 48 h before the date, the instructor may propose another date.">Jeśli musisz odwołać udział w warsztacie, daj znać najpóźniej 48 h przed terminem — ustalimy inny termin. W razie braku informacji o nieobecności warsztat przepada. W uzasadnionych przypadkach, po poinformowaniu Studia Piegus o nieobecności w krótszym czasie niż 48 h przed terminem, prowadzący może zaproponować inny termin.</p>
-        <p data-pl="Studio Piegus zastrzega sobie prawo do odwołania warsztatu (choroba prowadzącego, awaria w pracowni itp.). W takim wypadku ustalany jest nowy termin w porozumieniu z uczestnikami." data-en="Studio Piegus reserves the right to cancel a workshop (instructor's illness, a studio breakdown, etc.). In that case a new date is agreed with the participants.">Studio Piegus zastrzega sobie prawo do odwołania warsztatu (choroba prowadzącego, awaria w pracowni itp.). W takim wypadku ustalany jest nowy termin w porozumieniu z uczestnikami.</p>
+  <div class="wsplit reveal">
+        <h3 class="w-title" data-pl="Szczegóły warsztatu" data-en="Workshop details">Szczegóły warsztatu</h3>
+        <div class="w-timeline">
+          <div class="w-tl"><div class="w-num">1</div><h4 data-pl="Co stworzysz" data-en="What you'll make">Co stworzysz</h4><p data-pl="W pełni użytkowe naczynie według własnego pomysłu (do codziennego użytku i mycia w zmywarce). Gotowa praca jest Twoją własnością." data-en="A fully functional vessel of your own design (dishwasher-safe, for everyday use). The finished piece is yours.">W pełni użytkowe naczynie według własnego pomysłu (do codziennego użytku i mycia w zmywarce). Gotowa praca jest Twoją własnością.</p></div>
+          <div class="w-tl"><div class="w-num">2</div><h4 data-pl="Tworzenie i zdobienie" data-en="Making &amp; decorating">Tworzenie i zdobienie</h4><p data-pl="Lepisz naczynie, a następnie malujesz mokrą glinę angobami, farbami podszkliwnymi lub szkliwami uniwersalnymi. Możesz też wykonać zdobienia techniką sgraffito (drapanie w pomalowanej powierzchni)." data-en="You build a piece, then paint the wet clay with engobes, underglaze paints or universal glazes. You can also decorate with sgraffito (scratching into the painted surface).">Lepisz naczynie, a następnie malujesz mokrą glinę angobami, farbami podszkliwnymi lub szkliwami uniwersalnymi. Możesz też wykonać zdobienia techniką sgraffito (drapanie w pomalowanej powierzchni).</p></div>
+          <div class="w-tl"><div class="w-num">3</div><h4 data-pl="Suszenie i pierwsze wypalanie" data-en="Drying &amp; first firing">Suszenie i pierwsze wypalanie</h4><p data-pl="Twoja praca zostaje w pracowni i schnie przez ok. 10 dni. Następnie wypalam ją na tzw. biskwit w temperaturze 900°C." data-en="Your piece stays in the studio and dries for about 10 days. Then I fire it to bisque at 900°C.">Twoja praca zostaje w pracowni i schnie przez ok. 10 dni. Następnie wypalam ją na tzw. biskwit w temperaturze 900°C.</p></div>
+          <div class="w-tl"><div class="w-num">4</div><h4 data-pl="Szkliwienie i drugi wypał" data-en="Glazing &amp; second firing">Szkliwienie i drugi wypał</h4><p data-pl="Pokrywam naczynie szkliwem transparentnym i wypalam ponownie w 1240°C." data-en="I cover the piece with a transparent glaze and fire it again at 1240°C.">Pokrywam naczynie szkliwem transparentnym i wypalam ponownie w 1240°C.</p></div>
+          <div class="w-tl"><div class="w-num">5</div><h4 data-pl="Odbiór" data-en="Pick-up">Odbiór</h4><p data-pl="Gotowa praca czeka na Ciebie po około 3–4 tygodniach od warsztatu." data-en="Your finished piece will be ready for pick-up about 3–4 weeks after the workshop.">Gotowa praca czeka na Ciebie po około 3–4 tygodniach od warsztatu.</p></div>
+        </div>
+        <div class="w-note">
+          <h4 data-pl="Informacje organizacyjne" data-en="Good to know">Informacje organizacyjne</h4>
+          <ul>
+            <li data-pl="Fartuch roboczy i napoje dostaniesz na miejscu." data-en="You'll get a work apron and drinks on site.">Fartuch roboczy i napoje dostaniesz na miejscu.</li>
+            <li data-pl="<b>Zmiana terminu przez uczestnika:</b> daj znać najpóźniej 48 godzin przed zajęciami — ustalimy nowy termin. W przypadku braku wcześniejszej informacji warsztat przepada." data-en="<b>Changing your date:</b> let us know at least 48 hours before the class — we'll arrange a new one. Without prior notice, the workshop is forfeited."><b>Zmiana terminu przez uczestnika:</b> daj znać najpóźniej 48 godzin przed zajęciami — ustalimy nowy termin. W przypadku braku wcześniejszej informacji warsztat przepada.</li>
+            <li data-pl="<b>Odwołanie zajęć przez pracownię:</b> Studio Piegus zastrzega sobie prawo do odwołania warsztatów z przyczyn niezależnych (np. choroba, awaria). W takim przypadku nowy termin ustalamy wspólnie z uczestnikami." data-en="<b>Cancellation by the studio:</b> Studio Piegus reserves the right to cancel workshops for reasons beyond its control (e.g. illness, a breakdown). In that case we agree a new date together."><b>Odwołanie zajęć przez pracownię:</b> Studio Piegus zastrzega sobie prawo do odwołania warsztatów z przyczyn niezależnych (np. choroba, awaria). W takim przypadku nowy termin ustalamy wspólnie z uczestnikami.</li>
+          </ul>
+        </div>
       </div>
-      </div>
+    </div>
 </section>
 
 <!-- ===== CLOSING CTA ===== -->
