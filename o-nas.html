@@ -6,7 +6,7 @@
 <title>O nas — Studio Piegus</title>
 <link rel="icon" type="image/png" href="img/f9b4173410a0.png">
 <link rel="apple-touch-icon" href="img/cef246f17d5a.png">
-<meta name="description" content="O Studiu Piegus — pracowni ceramiki na warszawskiej Sadybie. Poznaj Zuzannę, filozofię pracowni i historię nazwy Piegus.">
+<meta name="description" content="O Studiu Piegus — kameralnej pracowni ceramiki na warszawskiej Sadybie. Poznaj Zuzę, opinie kursantów i naszą przestrzeń.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -260,17 +260,31 @@
 
   @media(max-height:560px){ .hero-full{padding-top:84px} .hero-full h1{font-size:clamp(30px,6vw,48px)} }
 
-  .page-head{padding:150px 0 6px;position:relative}
-  .page-head h1{font-size:clamp(44px,7vw,82px);margin:12px 0 0;line-height:1.03}
-  .page-head .lead{font-size:20px;max-width:52ch;margin:22px 0 0;color:#4a4744}
-  #about .about-grid .reveal p{margin:0 0 16px}
+  /* testimonials carousel */
+  .op-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin:0 0 22px}
+  .op-nav{display:flex;gap:8px}
+  .op-nav button{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:22px;line-height:1;cursor:pointer;transition:.2s;font-family:var(--sans)}
+  .op-nav button:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .op-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .op-track::-webkit-scrollbar{height:0;display:none}
+  .op-card{flex:0 0 min(430px,86%);scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 28px 24px;display:flex;flex-direction:column}
+  .op-stars{display:flex;gap:3px;color:var(--clay);margin:0 0 14px}
+  .op-text{font-size:15.5px;line-height:1.62;color:#4a4744;margin:0 0 16px;flex:1}
+  .op-name{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink)}
+  /* photo grid */
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .pg-item{aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:var(--surface)}
+  .pg-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+  .pg-item:hover img{transform:scale(1.05)}
+  @media(max-width:720px){ .pgrid{grid-template-columns:repeat(2,1fr)} }
 
+  .page-head h1{font-size:clamp(44px,7vw,82px);margin:12px 0 0;line-height:1.03}
 </style>
 </head>
 <body class="foto">
-<nav class="nav solid" id="nav">
+<nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="index.html" class="brand" aria-label="Studio Piegus — strona główna"><img src="img/f9b4173410a0.png" alt="Studio Piegus"></a>
+    <a href="index.html" class="brand" aria-label="Studio Piegus — strona główna"><img src="img/0037b320eb11.png" alt="Studio Piegus"></a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navlinks">
       <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
@@ -285,25 +299,56 @@
 </nav>
 
 <main>
-  <section class="page-head">
-    <div class="wrap reveal in">
-      <h1 data-pl="O nas." data-en="About us.">O nas.</h1>
-      <p class="lead" data-pl="Kilka słów o pracowni, glinie i o tym, skąd wzięła się nazwa Piegus." data-en="A few words about the studio, the clay, and where the name Piegus comes from.">Kilka słów o pracowni, glinie i o tym, skąd wzięła się nazwa Piegus.</p>
+  <section class="page-head hero-full">
+  <img class="hero-bg" src="img/9d311463e0ea.jpg" alt="" aria-hidden="true" style="object-position:50% 42%">
+  <div class="hero-scrim"></div>
+  <div class="wrap">
+    <div class="hero-inner reveal in">
+      <h1 data-pl="Tu tworzy się spokojnie<br>i <em>po swojemu.</em>" data-en="A calm place to make things<br>your <em>own way.</em>">Tu tworzy się spokojnie<br>i <em>po swojemu.</em></h1>
+      <p class="hero-sub" data-pl="Kameralna pracownia ceramiki na warszawskiej Sadybie." data-en="A small ceramics studio in Sadyba, Warsaw.">Kameralna pracownia ceramiki na warszawskiej Sadybie.</p>
+    </div>
+  </div>
+</section>
+
+  <section class="sec" id="about" style="padding-top:64px">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="ph reveal" style="height:560px"><img src="img/e94c165083d6.jpg" alt="Zuzanna Muraszkiewicz — Studio Piegus" style="object-position:50% 26%"></div>
+        <div class="reveal">
+          <p data-pl="Nazywam się Zuza i założyłam Studio Piegus w 2023 roku. Od tego czasu pracownia działa na warszawskiej Sadybie. Studio jest bardzo kameralne i przytulne. Grupy są 4 osobowe. Zapraszamy młodzież od lat 15 i dorosłych." data-en="I'm Zuza and I founded Studio Piegus in 2023. Since then the studio has been running in Sadyba, Warsaw. It's a very small, cosy place. Groups are up to 4 people. We welcome teens from 15 and adults.">Nazywam się Zuza i założyłam Studio Piegus w 2023 roku. Od tego czasu pracownia działa na warszawskiej Sadybie. Studio jest bardzo kameralne i przytulne. Grupy są 4 osobowe. Zapraszamy młodzież od lat 15 i dorosłych.</p>
+          <p data-pl="Tworzenie ceramiki uspokaja ciało i ducha. Ręce w glinie nie pozwalają sięgać za często po telefon. Czas płynie wolno i twórczo. Ale zdarzają się i momenty euforii — te, w których odbierasz swoją pracę po wypale!" data-en="Working with clay calms the body and the mind. With your hands in the clay you don't reach for your phone too often. Time flows slowly and creatively. And there are moments of pure joy — collecting your piece after the firing!">Tworzenie ceramiki uspokaja ciało i ducha. Ręce w glinie nie pozwalają sięgać za często po telefon. Czas płynie wolno i twórczo. Ale zdarzają się i momenty euforii — te, w których odbierasz swoją pracę po wypale!</p>
+          <p data-pl="A dlaczego Piegus? Powodów jest kilka: moja ulubiona glina jest piegowata, wiele dałabym, żeby na mój nos wróciły piegi z dzieciństwa, a <em>Niewiarygodne przygody Marka Piegusa</em> Edmunda Niziurskiego to najlepsza książka na świecie!" data-en="And why Piegus? A few reasons: my favourite clay is freckled, I'd give a lot to bring back my childhood freckles, and Edmund Niziurski's <em>The Incredible Adventures of Marek Piegus</em> is the best book in the world!">A dlaczego Piegus? Powodów jest kilka: moja ulubiona glina jest piegowata, wiele dałabym, żeby na mój nos wróciły piegi z dzieciństwa, a <em>Niewiarygodne przygody Marka Piegusa</em> Edmunda Niziurskiego to najlepsza książka na świecie!</p>
+          <p class="signature" style="font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);margin:14px 0 0" data-pl="Do zobaczenia na zajęciach — Zuza" data-en="See you at a class — Zuza">Do zobaczenia na zajęciach — Zuza</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="sec" id="about" style="padding-top:14px">
+  <section class="sec" id="opinie" style="padding-top:0">
     <div class="wrap">
-      <div class="about-grid">
-        <div class="ph reveal" style="height:520px"><img src="img/e94c165083d6.jpg" alt="Zuzanna Muraszkiewicz — Studio Piegus" style="object-position:50% 28%"></div>
-        <div class="reveal">
-          <span class="eyebrow" data-pl="Cześć!" data-en="Hi!">Cześć!</span>
-          <h2 data-pl="Tu tworzy się spokojnie i po swojemu." data-en="A calm, unhurried place to make things.">Tu tworzy się spokojnie i po swojemu.</h2>
-          <p data-pl="Tworzenie ceramiki uspokaja ciało i ducha. Ręce w glinie nie pozwalają sięgać za często po telefon — czas płynie spokojnie i twórczo. Ale zdarzają się i momenty euforii: te, w których odbierasz swoją pracę po wypale!" data-en="Working with clay calms the body and the mind. With your hands in the clay you don't reach for your phone too often — time flows slowly and creatively. And then come moments of pure joy: collecting your piece after the firing!">Tworzenie ceramiki uspokaja ciało i ducha. Ręce w glinie nie pozwalają sięgać za często po telefon — czas płynie spokojnie i twórczo. Ale zdarzają się i momenty euforii: te, w których odbierasz swoją pracę po wypale!</p>
-          <p data-pl="Uczę w małych grupach, bez pośpiechu — tak, żeby każdy miał swoje miejsce przy stole i pełną uwagę prowadzącej." data-en="I teach in small groups, unhurried — so everyone has their own spot at the table and full attention.">Uczę w małych grupach, bez pośpiechu — tak, żeby każdy miał swoje miejsce przy stole i pełną uwagę prowadzącej.</p>
-          <p data-pl="A dlaczego Piegus? Powodów jest kilka: moja ulubiona glina jest piegowata, wiele dałabym, żeby na mój nos wróciły piegi z dzieciństwa, a „Niewiarygodne przygody Marka Piegusa” Edmunda Niziurskiego to najlepsza książka na świecie!" data-en="Why Piegus? A few reasons: my favourite clay is freckled, I'd give a lot to bring back my childhood freckles, and Edmund Niziurski's „The Incredible Adventures of Marek Piegus” is the best book in the world!">A dlaczego Piegus? Powodów jest kilka: moja ulubiona glina jest piegowata, wiele dałabym, żeby na mój nos wróciły piegi z dzieciństwa, a „Niewiarygodne przygody Marka Piegusa” Edmunda Niziurskiego to najlepsza książka na świecie!</p>
-          <p class="signature" style="font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);margin:10px 0 4px" data-pl="— Zuzanna" data-en="— Zuzanna">— Zuzanna</p>
-        </div>
+      <div class="op-head">
+        <h2 data-pl="Opinie uczestników" data-en="What participants say">Opinie uczestników</h2>
+        <div class="op-nav"><button class="op-prev" aria-label="Poprzednia">‹</button><button class="op-next" aria-label="Następna">›</button></div>
+      </div>
+      <div class="op-track" id="opTrack">
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text">Rewelacyjne studio, prowadząca z dużą wiedzą, umie zarażać pasją, doradzić i uratować, gdy ktoś przeceni swoje możliwości 🙂 W Piegusie można się rozwinąć w rękodziele, w różnych technikach i poszlifować też umiejętności towarzyskie, bo trafiają tam bardzo ciekawi ludzie. …</p><div class="op-name">Katarzyna</div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text">This little pottery studio is such a warm and inviting space for learning and creativity. Zuza, the owner, is such a patient teacher and really lets everyone explore and create anything their hearts desire. I also appreciate that she guides me in English. I look forward to the workshop all week and can really see the improvements in my skills.</p><div class="op-name">Lauren</div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text">Cudowne miejsce na naukę lepienia z gliny. Cierpliwa prowadząca, która podpowie, pokaże i przekaże ogrom wiedzy. Nie ma lepszego miejsca na spędzenie wolnego czasu!</p><div class="op-name">Katarzyna</div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text">Klimatyczna pracownia, gdzie w kameralnym gronie i pod okiem super właścicielki Zuzy możesz wyczarować piękną ceramikę :) Na duży plus jest też duży wybór gliny, szkliw i przeróżnych akcesoriów, potrzebnych do pracy. Bardzo polecam!</p><div class="op-name">Agata</div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text">Z całego serca polecam! Wspaniała Prowadząca - prawdziwa Profesjonalistka z ogromem wiedzy, doświadczeniem i pasją do tego, co robi. Na zajęciach zawsze jest super atmosfera i przestrzeń do tworzenia najróżniejszych prac z gliny. Jak dla mnie najlepszy sposób na spędzanie wolnego czasu 🥰 …</p><div class="op-name">Aleksandra</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="galeria" style="padding-top:0">
+    <div class="wrap">
+      <div class="pgrid">
+        <div class="pg-item reveal"><img src="img/d7c65544bbae.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
+        <div class="pg-item reveal"><img src="img/4f6cd1d1d3d9.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
+        <div class="pg-item reveal"><img src="img/cbc23edfb874.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
+        <div class="pg-item reveal"><img src="img/f09496979554.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
+        <div class="pg-item reveal"><img src="img/1cb52010de94.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
+        <div class="pg-item reveal"><img src="img/f4486b32c84a.jpg" alt="Studio Piegus — pracownia" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -314,7 +359,7 @@
         <div class="v-inner">
           <div>
             <h2 data-pl="Chodź polepić." data-en="Come and make something.">Chodź polepić.</h2>
-            <p data-pl="Zapisz się na zajęcia albo wpadnij na pojedynczy warsztat — reszty nauczysz się przy stole." data-en="Sign up for classes or drop by for a single workshop — you'll learn the rest at the table.">Zapisz się na zajęcia albo wpadnij na pojedynczy warsztat — reszty nauczysz się przy stole.</p>
+            <p data-pl="Zapisz się na zajęcia albo wpadnij na pojedynczy warsztat." data-en="Sign up for classes or drop by for a single workshop.">Zapisz się na zajęcia albo wpadnij na pojedynczy warsztat.</p>
           </div>
           <div class="v-cta"><a href="zajecia.html" class="btn btn-blue" data-pl="Zobacz zajęcia" data-en="See the classes">Zobacz zajęcia</a></div>
         </div>
@@ -327,7 +372,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand"><img src="img/cef246f17d5a.png" alt="Studio Piegus"></div>
+        <div class="brand"><img src="img/e8dd5a2f4b17.png" alt="Studio Piegus"></div>
         <p class="foot-desc" data-pl="Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie." data-en="Ceramics classes for teens and adults in Sadyba, Warsaw. Small groups, a cosy studio. Creative time for yourself.">Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie.</p>
         <div class="socials socials-dark">
           <a href="https://www.instagram.com/studio.piegus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></a>
@@ -336,7 +381,7 @@
       </div>
       <div class="foot-col">
         <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
-        <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa — Sadyba</p>
+        <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa</p>
         <a href="tel:+48509744773">+48 509 744 773</a>
         <a href="mailto:kontakt@studiopiegus.pl">kontakt@studiopiegus.pl</a>
       </div>
@@ -355,6 +400,9 @@
 </footer>
 <script>
 (function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ if(nav) nav.classList.toggle('solid', window.scrollY>10); };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
   var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
   if(burger&&links){ burger.addEventListener('click',function(){links.classList.toggle('open');});
     links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});}); }
@@ -364,6 +412,11 @@
   document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));}); });
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  var track=document.getElementById('opTrack');
+  if(track){ var step=function(){var c=track.querySelector('.op-card');return c?c.offsetWidth+20:400;};
+    var pv=document.querySelector('.op-prev'), nx=document.querySelector('.op-next');
+    if(pv) pv.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+    if(nx) nx.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});}); }
 })();
 </script>
 </body>
