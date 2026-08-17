@@ -76,8 +76,8 @@
     padding:11px 20px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);
     transition:transform .2s ease, background .2s ease, color .2s ease;
   }
-  .btn-fill{background:var(--ink);color:var(--bg)}
-  .btn-fill:hover{transform:translateY(-2px);background:var(--clay);border-color:var(--clay)}
+  .btn-fill{background:var(--clay);color:var(--bg);border-color:var(--clay)}
+  .btn-fill:hover{transform:translateY(-2px);background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .btn-ghost:hover{background:var(--ink);color:var(--bg)}
   .btn-blue{background:var(--blue);border-color:var(--blue);color:var(--bg)}
   .btn-blue:hover{transform:translateY(-2px);background:var(--blue-deep);border-color:var(--blue-deep)}
@@ -160,7 +160,7 @@
   .corp p{color:#4a4744;max-width:50ch;margin:0 auto 30px}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink);color:var(--bg);margin-top:96px;padding:72px 0 40px}
+  footer{background:var(--clay);color:var(--bg);margin-top:96px;padding:72px 0 40px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
   footer .brand{color:var(--bg)}
   footer .brand img{height:64px}
@@ -217,10 +217,10 @@
   .hero-full .wrap{position:relative;z-index:2;width:100%}
   .hero-full .hero-inner{max-width:640px}
   .hero-full h1{color:#F7F3EE;margin:0;font-weight:700;text-shadow:0 2px 20px rgba(20,16,14,.4)}
-  .hero-full h1 em{color:#9E4A2C}
+  .hero-full h1 em{color:#F7F3EE}
   .hero-full .hero-sub{color:rgba(247,243,238,.92);max-width:34ch}
-  .hero-full .btn-fill{background:#F7F3EE;color:var(--ink);border-color:#F7F3EE}
-  .hero-full .btn-fill:hover{background:var(--clay);color:#F7F3EE;border-color:var(--clay)}
+  .hero-full .btn-fill{background:var(--clay);color:#F7F3EE;border-color:var(--clay)}
+  .hero-full .btn-fill:hover{background:var(--ink);color:#F7F3EE;border-color:var(--ink)}
   .hero-full .btn-ghost{color:#F7F3EE;border-color:rgba(247,243,238,.6)}
   .hero-full .btn-ghost:hover{background:rgba(247,243,238,.14);border-color:#F7F3EE}
   /* nav over the photo until scrolled */
@@ -312,7 +312,7 @@
   .hero-full .wrap{position:relative;z-index:2;width:100%}
   .hero-full .hero-inner{max-width:640px}
   .hero-full h1{color:#F7F3EE;margin:0;font-weight:700;text-shadow:0 2px 20px rgba(20,16,14,.4)}
-  .hero-full h1 em{color:#9E4A2C}
+  .hero-full h1 em{color:#F7F3EE}
   .hero-full .lead{color:rgba(247,243,238,.92);max-width:46ch}
   body.foto .nav:not(.solid) .brand img{filter:brightness(0) invert(1)}
   body.foto .nav:not(.solid) .burger span{background:#F7F3EE}
@@ -490,9 +490,10 @@
       <div class="foot-col">
         <h4 data-pl="Strona" data-en="Site">Strona</h4>
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
-      <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
+        <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
         <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
         <a href="dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
+        <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
         <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       </div>
     </div>

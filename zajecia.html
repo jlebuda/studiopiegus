@@ -74,8 +74,8 @@
     padding:11px 20px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);
     transition:transform .2s ease, background .2s ease, color .2s ease;
   }
-  .btn-fill{background:var(--ink);color:var(--bg)}
-  .btn-fill:hover{transform:translateY(-2px);background:var(--clay);border-color:var(--clay)}
+  .btn-fill{background:var(--clay);color:var(--bg);border-color:var(--clay)}
+  .btn-fill:hover{transform:translateY(-2px);background:var(--ink);color:var(--bg);border-color:var(--ink)}
   .btn-ghost:hover{background:var(--ink);color:var(--bg)}
   .btn-blue{background:var(--blue);border-color:var(--blue);color:var(--bg)}
   .btn-blue:hover{transform:translateY(-2px);background:var(--blue-deep);border-color:var(--blue-deep)}
@@ -158,7 +158,7 @@
   .corp p{color:#4a4744;max-width:50ch;margin:0 auto 30px}
 
   /* ---------- footer ---------- */
-  footer{background:var(--ink);color:var(--bg);margin-top:96px;padding:72px 0 40px}
+  footer{background:var(--clay);color:var(--bg);margin-top:96px;padding:72px 0 40px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
   footer .brand{color:var(--bg)}
   footer .brand img{height:64px}
@@ -302,7 +302,7 @@
   .hero-full .wrap{position:relative;z-index:2;width:100%}
   .hero-full .hero-inner{max-width:640px}
   .hero-full h1{color:#F7F3EE;margin:0;font-weight:700;text-shadow:0 2px 20px rgba(20,16,14,.4)}
-  .hero-full h1 em{color:#9E4A2C}
+  .hero-full h1 em{color:#F7F3EE}
   .hero-full .lead{color:rgba(247,243,238,.92);max-width:46ch}
   body.foto .nav:not(.solid) .brand img{filter:brightness(0) invert(1)}
   body.foto .nav:not(.solid) .burger span{background:#F7F3EE}
@@ -413,7 +413,7 @@
   <div class="wrap">
     <div class="format-grid">
       <div class="format-text reveal">
-        <span class="eyebrow" data-pl="Warsztat (1 lub 2 spotkania)" data-en="Workshop (1 or 2 sessions)">Warsztat (1 lub 2 spotkania)</span>
+        <span class="eyebrow" data-pl="Warsztat" data-en="Workshop">Warsztat</span>
         <h2 data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</h2>
         <p data-pl="Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie." data-en="A one-off meeting, without signing up for a whole term. Great as a gift, a date, a get-together with friends or a family afternoon.">Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie.</p>
         <p data-pl="Poziom zaawansowania nie ma znaczenia — zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot." data-en="Your level doesn't matter — I welcome those who've never touched clay and those who know exactly what grog is.">Poziom zaawansowania nie ma znaczenia — zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot.</p>
@@ -428,7 +428,7 @@
           <div class="row"><dt data-pl="Dla kogo" data-en="For whom">Dla kogo</dt><dd data-pl="1–4 osób" data-en="1–4 people">1–4 osób</dd></div>
           <div class="row"><dt data-pl="Czas trwania" data-en="Duration">Czas trwania</dt><dd data-pl="ok. 3,5 godziny" data-en="approx. 3.5 hours">ok. 3,5 godziny</dd></div>
           <div class="row"><dt data-pl="Idealne na" data-en="Great for">Idealne na</dt><dd data-pl="prezent, randkę, spotkanie ze znajomymi" data-en="a gift, a date, a get-together">prezent, randkę, spotkanie ze znajomymi</dd></div>
-          <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="Opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje" data-en="Instructor's care, all materials and tools to make your piece, firing, drinks">Opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje</dd></div>
+          <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje" data-en="Instructor's care, all materials and tools to make your piece, firing, drinks">opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje</dd></div>
         </dl>
       </div>
     </div>
@@ -457,9 +457,8 @@
 <section class="sec" style="padding-top:20px">
   <div class="wrap">
     <div class="corp reveal">
-      <span class="eyebrow" data-pl="Nie wiesz, co wybrać?" data-en="Not sure which to pick?">Nie wiesz, co wybrać?</span>
-      <h2 data-pl="Pomożemy Ci." data-en="We'll help you.">Pomożemy Ci.</h2>
-      <p data-pl="Napisz do nas kilka słów o tym, dla kogo i kiedy — odpiszemy z propozycją terminu." data-en="Send us a few words about who it's for and when — we'll come back with a suggested slot.">Napisz do nas kilka słów o tym, dla kogo i kiedy — odpiszemy z propozycją terminu.</p>
+      <span class="eyebrow" data-pl="Nie wiesz co wybrać?" data-en="Not sure which to pick?">Nie wiesz co wybrać?</span>
+      <h2 data-pl="Pomożemy Ci" data-en="We'll help you.">Pomożemy Ci</h2>
       <a href="kontakt.html" class="btn btn-fill" data-pl="Napisz do nas" data-en="Get in touch">Napisz do nas</a>
     </div>
   </div>
@@ -499,6 +498,8 @@
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
         <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
         <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
+        <a href="dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
+        <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
         <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       </div>
     </div>
