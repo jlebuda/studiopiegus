@@ -556,8 +556,27 @@
       mark(topic, topic.value !== '');
       if(consent.checked){ cWrap.classList.remove('err-consent'); } else { cWrap.classList.add('err-consent'); ok=false; }
       if(!ok){ var first = form.querySelector('.err'); if(first){ first.focus(); } return; }
-      form.style.display = 'none';
-      document.getElementById('formMsg').classList.add('show');
+      var btn = form.querySelector('button[type="submit"]');
+      if(btn){ btn.disabled = true; }
+      var fd = new FormData(form);
+      fd.append('access_key', '6969241a-67b4-4066-b926-8bf60b319f2b');
+      fd.append('subject', 'Nowe zapytanie ze strony Studio Piegus');
+      fd.append('from_name', 'Formularz Studio Piegus');
+      var errMsg = (document.documentElement.lang === 'en')
+        ? 'Sending failed. Please try again or email us directly.'
+        : 'Nie udało się wysłać. Spróbuj ponownie lub napisz do nas bezpośrednio.';
+      fetch('https://api.web3forms.com/submit', { method: 'POST', body: fd })
+        .then(function(r){ return r.json(); })
+        .then(function(data){
+          if(data && data.success){
+            form.style.display = 'none';
+            document.getElementById('formMsg').classList.add('show');
+          } else {
+            if(btn){ btn.disabled = false; }
+            alert(errMsg);
+          }
+        })
+        .catch(function(){ if(btn){ btn.disabled = false; } alert(errMsg); });
     });
     form.querySelectorAll('input,select,textarea').forEach(function(el){
       el.addEventListener('input', function(){ el.classList.remove('err'); document.getElementById('consentWrap').classList.remove('err-consent'); });
