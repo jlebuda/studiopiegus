@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<script>try{if(localStorage.getItem('piegus_unlocked')==='1')document.documentElement.className+=' unlocked';}catch(e){}</script>
+
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem('sp_ok')!=='1')location.replace('index.html');}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dla firm — Studio Piegus</title>
 <link rel="icon" type="image/png" href="img/f9b4173410a0.png">
@@ -315,9 +318,23 @@
   body.foto .nav .nav-links.open .lang{border-color:rgba(46,44,42,.35);background:transparent}
   body.foto .nav .nav-links.open .lang button{color:var(--ink);opacity:.7}
   body.foto .nav .nav-links.open .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
+
+  /* password gate */
+  #gate{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--sans)}
+  #gate .gate-card{max-width:400px;width:100%;text-align:center}
+  #gate .gate-logo{height:120px;width:auto;margin:0 auto 20px;display:block}
+  #gate h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,36px);margin:0 0 8px;color:var(--ink)}
+  #gate p{color:#6a6560;margin:0 0 22px}
+  #gate form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  #gate input{flex:1;min-width:180px;max-width:240px;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+  #gate button{padding:13px 22px;border:0;border-radius:10px;background:var(--clay);color:var(--bg);font:inherit;font-weight:600;cursor:pointer;transition:.2s}
+  #gate button:hover{background:var(--ink)}
+  #gate .gate-err{color:var(--clay);margin-top:14px;font-size:14px;min-height:18px}
+  html.unlocked #gate{display:none}
 </style>
 </head>
 <body class="foto">
+<div id="gate"><div class="gate-card"><img class="gate-logo" src="img/0037b320eb11.png" alt="Studio Piegus"><h1>Strona w przygotowaniu</h1><p>Wpisz hasło, aby zobaczyć podgląd.</p><form id="gateForm" autocomplete="off"><input type="password" id="gatePass" placeholder="Hasło" aria-label="Hasło"><button type="submit">Wejdź</button></form><div class="gate-err" id="gateErr"></div></div></div>
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="brand" aria-label="Studio Piegus — strona główna">
@@ -461,6 +478,18 @@
   }
   try{ var L=localStorage.getItem('piegus_lang'); if(L && L!=='pl') apply(L); }catch(e){}
   document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ try{localStorage.setItem('piegus_lang', b.getAttribute('data-lang'));}catch(e){} }); });
+})();
+</script>
+<script>
+(function(){
+  var PASS='piegus2026';
+  var f=document.getElementById('gateForm'); if(!f) return;
+  var inp=document.getElementById('gatePass'), err=document.getElementById('gateErr');
+  f.addEventListener('submit',function(e){ e.preventDefault();
+    if(inp.value===PASS){ try{localStorage.setItem('piegus_unlocked','1');}catch(e){} document.documentElement.classList.add('unlocked'); }
+    else { err.textContent='Nieprawidłowe hasło'; inp.value=''; inp.focus(); }
+  });
+  if(!document.documentElement.classList.contains('unlocked')){ try{inp.focus();}catch(e){} }
 })();
 </script>
 </body>

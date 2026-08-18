@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<script>try{if(localStorage.getItem('piegus_unlocked')==='1')document.documentElement.className+=' unlocked';}catch(e){}</script>
+
 <meta charset="UTF-8">
+<script>try{if(localStorage.getItem('sp_ok')==='1')document.documentElement.classList.add('sp-ok');}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Studio Piegus — pracownia ceramiki w Warszawie</title>
 <link rel="icon" type="image/png" href="img/f9b4173410a0.png">
@@ -263,9 +266,48 @@
   body.foto .nav .nav-links.open .lang{border-color:rgba(46,44,42,.35);background:transparent}
   body.foto .nav .nav-links.open .lang button{color:var(--ink);opacity:.7}
   body.foto .nav .nav-links.open .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
+
+  /* password gate */
+  #gate{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--sans)}
+  #gate .gate-card{max-width:400px;width:100%;text-align:center}
+  #gate .gate-logo{height:120px;width:auto;margin:0 auto 20px;display:block}
+  #gate h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,36px);margin:0 0 8px;color:var(--ink)}
+  #gate p{color:#6a6560;margin:0 0 22px}
+  #gate form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  #gate input{flex:1;min-width:180px;max-width:240px;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+  #gate button{padding:13px 22px;border:0;border-radius:10px;background:var(--clay);color:var(--bg);font:inherit;font-weight:600;cursor:pointer;transition:.2s}
+  #gate button:hover{background:var(--ink)}
+  #gate .gate-err{color:var(--clay);margin-top:14px;font-size:14px;min-height:18px}
+  html.unlocked #gate{display:none}
+
+  /* ---- login gate (start screen) ---- */
+  .sp-gate{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+  .sp-ok .sp-gate{display:none}
+  .sp-gate .box{max-width:440px;width:100%;text-align:center}
+  .sp-gate img{height:150px;width:auto;margin:0 auto 24px;display:block}
+  .sp-gate .lead{font-family:var(--serif);font-weight:600;font-size:27px;color:var(--ink);margin:0 0 6px}
+  .sp-gate .sub{color:#6a6560;margin:0 0 26px}
+  .sp-gate form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .sp-gate input{flex:1;min-width:180px;max-width:230px;padding:13px 16px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+  .sp-gate button{padding:13px 24px;border:1px solid var(--clay);background:var(--clay);color:var(--bg);border-radius:10px;font:inherit;font-weight:600;cursor:pointer;transition:.2s}
+  .sp-gate button:hover{background:var(--ink);border-color:var(--ink)}
+  .sp-gate .err{color:#b23c2c;margin:14px 0 0;font-size:14px;min-height:18px}
 </style>
 </head>
 <body class="foto">
+<div class="sp-gate" id="spGate">
+  <div class="box">
+    <img src="img/0037b320eb11.png" alt="Studio Piegus">
+    <p class="lead" data-pl="Strona w przygotowaniu" data-en="Site in progress">Strona w przygotowaniu</p>
+    <p class="sub" data-pl="Wpisz hasło, aby wejść." data-en="Enter the password to continue.">Wpisz hasło, aby wejść.</p>
+    <form id="spGateForm" autocomplete="off">
+      <input type="password" id="spGatePass" placeholder="Hasło" aria-label="Hasło" autocomplete="off">
+      <button type="submit" data-pl="Wejdź" data-en="Enter">Wejdź</button>
+    </form>
+    <p class="err" id="spGateErr"></p>
+  </div>
+</div>
+<div id="gate"><div class="gate-card"><img class="gate-logo" src="img/0037b320eb11.png" alt="Studio Piegus"><h1>Strona w przygotowaniu</h1><p>Wpisz hasło, aby zobaczyć podgląd.</p><form id="gateForm" autocomplete="off"><input type="password" id="gatePass" placeholder="Hasło" aria-label="Hasło"><button type="submit">Wejdź</button></form><div class="gate-err" id="gateErr"></div></div></div>
 
 <!-- ===== NAV ===== -->
 <nav class="nav" id="nav">
@@ -509,6 +551,30 @@
   }
   try{ var L=localStorage.getItem('piegus_lang'); if(L && L!=='pl') apply(L); }catch(e){}
   document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ try{localStorage.setItem('piegus_lang', b.getAttribute('data-lang'));}catch(e){} }); });
+})();
+</script>
+<script>
+(function(){
+  var PASS='piegus2026';
+  var f=document.getElementById('gateForm'); if(!f) return;
+  var inp=document.getElementById('gatePass'), err=document.getElementById('gateErr');
+  f.addEventListener('submit',function(e){ e.preventDefault();
+    if(inp.value===PASS){ try{localStorage.setItem('piegus_unlocked','1');}catch(e){} document.documentElement.classList.add('unlocked'); }
+    else { err.textContent='Nieprawidłowe hasło'; inp.value=''; inp.focus(); }
+  });
+  if(!document.documentElement.classList.contains('unlocked')){ try{inp.focus();}catch(e){} }
+})();
+</script>
+<script>
+(function(){
+  var g=document.getElementById('spGate'); if(!g) return;
+  try{ if(localStorage.getItem('sp_ok')==='1'){ g.style.display='none'; return; } }catch(e){}
+  var f=document.getElementById('spGateForm'), p=document.getElementById('spGatePass'), er=document.getElementById('spGateErr');
+  f.addEventListener('submit', function(e){ e.preventDefault();
+    if(p.value==='SP2026'){ try{localStorage.setItem('sp_ok','1');}catch(e){} g.style.display='none'; }
+    else{ er.textContent=(document.documentElement.lang==='en'?'Wrong password':'Nieprawidłowe hasło'); p.value=''; p.focus(); }
+  });
+  try{p.focus();}catch(e){}
 })();
 </script>
 </body>
