@@ -312,7 +312,7 @@
   }
   @media(max-width:760px){ .hero-full{min-height:100svh} }
 
-  @media(max-height:560px){ .hero-full{padding-top:84px} .hero-full h1{font-size:clamp(30px,6vw,48px)} }
+  @media(max-height:560px){ body.foto .nav .brand img,body.foto .nav.solid .brand img{height:52px} .hero-full{padding-top:92px} .hero-full h1{font-size:clamp(28px,5.5vw,44px)} .hero-full .hero-sub{font-size:15px} }
 
   .fine{margin-top:36px;max-width:76ch;border-top:1px solid var(--line);padding-top:22px}
   .fine p{font-size:13px;line-height:1.65;color:#6a6560;margin:0 0 12px}
@@ -338,6 +338,12 @@
   .w-note li{font-size:14px;color:#4a4744;margin:8px 0}
   .w-note li b{color:var(--ink)}
   @media(max-width:680px){ .w-cards{grid-template-columns:1fr} }
+
+  /* mobile open-menu: dark text on cream dropdown */
+  body.foto .nav .nav-links.open a{color:var(--ink)}
+  body.foto .nav .nav-links.open .lang{border-color:rgba(46,44,42,.35);background:transparent}
+  body.foto .nav .nav-links.open .lang button{color:var(--ink);opacity:.7}
+  body.foto .nav .nav-links.open .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
 </style>
 </head>
 <body class="foto">
