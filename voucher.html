@@ -258,7 +258,7 @@
   .v-fig figcaption{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);margin-top:14px}
   .v-intro h2{font-size:clamp(28px,4vw,42px);margin:0 0 14px}
   .v-intro p{color:#4a4744;max-width:50ch;margin:0 0 22px}
-  .price{display:flex;align-items:baseline;gap:12px;margin:6px 0 6px}
+  .price{display:flex;align-items:baseline;gap:12px;margin:6px 0 20px}
   .price .amt{font-family:var(--serif);font-weight:700;font-size:58px;line-height:1;color:var(--ink)}
   .price .per{font-family:var(--sans);font-size:14px;color:#6a6560}
   .pay-note{font-size:14px;color:#6a6560;max-width:46ch;margin:0 0 26px}
@@ -350,6 +350,24 @@
   
 
   
+
+  #zamowienie{scroll-margin-top:90px}
+  .oform{max-width:720px;margin-top:8px}
+  .oform .fgroup{margin-bottom:18px}
+  .oform label{display:block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin-bottom:7px}
+  .oform label .opt{font-weight:400;color:#8a847d;text-transform:none;letter-spacing:0}
+  .oform input,.oform select{width:100%;padding:13px 15px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:15px;background:#fff;color:var(--ink);box-sizing:border-box}
+  .oform input:focus,.oform select:focus{outline:none;border-color:var(--blue-deep);box-shadow:0 0 0 3px rgba(123,167,188,.18)}
+  .oform .fieldset{border:1px solid var(--line);border-radius:16px;padding:22px 22px 6px;margin:26px 0 18px;background:var(--surface)}
+  .oform .fieldset legend{font-family:var(--serif);font-weight:700;font-size:20px;padding:0 10px;color:var(--ink)}
+  .oform .fine{font-size:13px;color:#6a6560;line-height:1.5;margin:6px 0 22px}
+  .oform .btn-fill{border:none;cursor:pointer;font-size:15px}
+  .oform .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){ .oform .row2{grid-template-columns:1fr} }
+  #orderMsg{display:none}
+  #orderMsg.show{display:block;padding:20px 0}
+  #orderMsg h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,38px);color:var(--ink);margin:0 0 12px}
+  #orderMsg p{color:#4a4744;max-width:46ch}
 </style>
 </head>
 <body class="foto">
@@ -377,12 +395,12 @@
 
 <main>
   <section class="page-head hero-full">
-  <img class="hero-bg" src="img/322e2363050b.jpg" alt="" aria-hidden="true" style="object-position:50% 50%">
+  <img class="hero-bg" src="img/760f2dea64d8.jpg" alt="" aria-hidden="true" style="object-position:50% 50%">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-inner reveal in">
-      <h1 data-pl="Podaruj popołudnie w&nbsp;<em>glinie.</em>" data-en="Give an afternoon in&nbsp;<em>clay.</em>">Podaruj popołudnie w&nbsp;<em>glinie.</em></h1>
-      <p class="lead" data-pl="Elegancki prezent na każdą okazję — do wykorzystania na dowolne zajęcia lub sesję w pracowni na Sadybie." data-en="An elegant gift for any occasion — redeemable for any class or session at our Sadyba studio.">Elegancki prezent na każdą okazję — do wykorzystania na dowolne zajęcia lub sesję w pracowni na Sadybie.</p>
+      <h1 data-pl="Pomysł na <em>oryginalny</em> prezent" data-en="An <em>original</em> gift idea">Pomysł na <em>oryginalny</em> prezent</h1>
+      <p class="lead" data-pl="Do wykorzystania na warsztat w pracowni na Sadybie." data-en="To use for a workshop at the studio in Sadyba.">Do wykorzystania na warsztat w pracowni na Sadybie.</p>
     </div>
   </div>
 </section>
@@ -396,101 +414,67 @@
         </figure>
         <div class="v-intro reveal">
           <h2 data-pl="Prezent, który zostaje w rękach." data-en="A gift that stays in the hands.">Prezent, który zostaje w rękach.</h2>
-          <p data-pl="Voucher możemy przesłać w formie elektronicznej — gotowy plik na e-mail, do wydrukowania lub wysłania dalej od ręki. Możemy też przygotować piękny wydruk na kartce, gotowy do wręczenia bliskiej osobie." data-en="We can send the voucher electronically — a ready file by e-mail, to print or forward right away. Or we can prepare a beautiful printed card, ready to hand to someone you love.">Voucher możemy przesłać w formie elektronicznej — gotowy plik na e-mail, do wydrukowania lub wysłania dalej od ręki. Możemy też przygotować piękny wydruk na kartce, gotowy do wręczenia bliskiej osobie.</p>
+          <p data-pl="Warsztat ceramiczny to idealna okazja do spróbowania swoich sił w nowym rzemiośle. Doświadczenie nie jest wymagane. Osoba obdarowana tworzy z pomocą instruktora w pełni użytkowe naczynie według własnego pomysłu. Po warsztacie praca zostaje w pracowni, gdzie schnie, jest wypalana i gotowa do odbioru po około 3–4 tygodniach." data-en="A ceramics workshop is a perfect chance to try your hand at a new craft. No experience needed. With the instructor&#39;s help, the recipient makes a fully functional vessel of their own idea. After the workshop the piece stays in the studio, where it dries, is fired and ready to collect after about 3–4 weeks.">Warsztat ceramiczny to idealna okazja do spróbowania swoich sił w nowym rzemiośle. Doświadczenie nie jest wymagane. Osoba obdarowana tworzy z pomocą instruktora w pełni użytkowe naczynie według własnego pomysłu. Po warsztacie praca zostaje w pracowni, gdzie schnie, jest wypalana i gotowa do odbioru po około 3–4 tygodniach.</p>
+          <p data-pl="Voucher uprawnia do udziału w jednorazowym warsztacie ceramicznym (ok. 3,5 h, mała grupa). Może być papierowy (odbiór osobisty / wysyłka paczkomatem) lub elektroniczny." data-en="The voucher entitles the holder to a single ceramics workshop (about 3.5 h, small group). It can be printed (personal pick-up / InPost parcel locker) or electronic.">Voucher uprawnia do udziału w jednorazowym warsztacie ceramicznym (ok. 3,5 h, mała grupa). Może być papierowy (odbiór osobisty / wysyłka paczkomatem) lub elektroniczny.</p>
           <div class="price">
-            <span class="amt">400&nbsp;zł</span>
-            <span class="per" data-pl="/ voucher na zajęcia lub sesję" data-en="/ voucher for a class or session">/ voucher na zajęcia lub sesję</span>
+            <span class="amt">350&nbsp;zł</span>
           </div>
-          <p class="pay-note" data-pl="Płatność BLIK-iem lub przelewem na konto — po wcześniejszym zamówieniu mailowym. Voucher wysyłamy po zaksięgowaniu wpłaty." data-en="Payment by BLIK or bank transfer — after ordering by e-mail in advance. We send the voucher once the payment arrives.">Płatność BLIK-iem lub przelewem na konto — po wcześniejszym zamówieniu mailowym. Voucher wysyłamy po zaksięgowaniu wpłaty.</p>
-          <p class="note-line" data-pl="Standardowo voucher dla 1 osoby to udział w zajęciach w grupie 2–4 osób. Wolisz spotkanie tylko dla siebie? Zapytaj o warsztat lub sesję jednoosobową — 600 zł/spotkanie." data-en="By default, a 1-person voucher means a class in a group of 2–4. Prefer time just for yourself? Ask about a private one-person workshop or session — 600 zł per meeting.">Standardowo voucher dla 1 osoby to udział w zajęciach w grupie 2–4 osób. Wolisz spotkanie tylko dla siebie? Zapytaj o warsztat lub sesję jednoosobową — 600 zł/spotkanie.</p>
+          <p class="pay-note" data-pl="Płatność przelewem na konto na podstawie wystawionej faktury — po wcześniejszym zamówieniu mailowym." data-en="Payment by bank transfer based on an issued invoice — after ordering by e-mail.">Płatność przelewem na konto na podstawie wystawionej faktury — po wcześniejszym zamówieniu mailowym.</p>
           <div class="v-btns">
-            <a class="btn btn-fill" href="mailto:studiopiegus@gmail.com?subject=Zam%C3%B3wienie%20vouchera%20Studio%20Piegus" data-pl="Zamów voucher" data-en="Order a voucher">Zamów voucher</a>
+            <a class="btn btn-fill" href="#zamowienie" data-pl="Zamów voucher" data-en="Order a voucher">Zamów voucher</a>
             <a class="btn btn-ghost" href="kontakt.html" data-pl="Mam pytanie" data-en="I have a question">Mam pytanie</a>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="sec" style="padding-top:0">
+  <section class="sec" id="zamowienie" style="padding-top:8px">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow" data-pl="Forma" data-en="Format">Forma</span>
-        <h2 data-pl="Dwie formy do wyboru." data-en="Two formats to choose from.">Dwie formy do wyboru.</h2>
-      </div>
-      <div class="v-cards">
-        <div class="v-card reveal">
-          <span class="k" data-pl="Elektroniczny" data-en="Digital">Elektroniczny</span>
-          <h3 data-pl="Plik na e-mail" data-en="File by e-mail">Plik na e-mail</h3>
-          <p data-pl="Dostajesz gotowy voucher w PDF — możesz go wydrukować sam albo przesłać dalej. Wygodny, kiedy prezent potrzebny jest na już." data-en="You get a ready PDF voucher — print it yourself or forward it on. Handy when the gift is needed right now.">Dostajesz gotowy voucher w PDF — możesz go wydrukować sam albo przesłać dalej. Wygodny, kiedy prezent potrzebny jest na już.</p>
+      <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 22px" data-pl="Zamówienie vouchera" data-en="Order a voucher">Zamówienie vouchera</h2>
+      <form id="orderForm" class="oform reveal" autocomplete="on" novalidate>
+        <div class="fgroup">
+          <label for="of-name" data-pl="Imię i nazwisko Zamawiającego" data-en="Full name of the buyer">Imię i nazwisko Zamawiającego</label>
+          <input id="of-name" name="Zamawiający" type="text" required>
         </div>
-        <div class="v-card reveal">
-          <span class="k" data-pl="Drukowany" data-en="Printed">Drukowany</span>
-          <h3 data-pl="Kartka do wręczenia" data-en="A card to hand over">Kartka do wręczenia</h3>
-          <p data-pl="Piękny wydruk na papierze, gotowy do wręczenia bliskiej osobie. Do odbioru w pracowni lub wysyłki — ustalimy przy zamówieniu." data-en="A beautiful printed card, ready to hand to someone dear. Pick-up at the studio or by post — we settle it when you order.">Piękny wydruk na papierze, gotowy do wręczenia bliskiej osobie. Do odbioru w pracowni lub wysyłki — ustalimy przy zamówieniu.</p>
+        <div class="fgroup">
+          <label for="of-email" data-pl="E-mail <span class='opt'>(na ten adres wyślemy fakturę)</span>" data-en="E-mail <span class='opt'>(we'll send the invoice here)</span>">E-mail <span class="opt">(na ten adres wyślemy fakturę)</span></label>
+          <input id="of-email" name="E-mail" type="email" required>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="eyebrow" data-pl="Zasady" data-en="How it works">Zasady</span>
-        <h2 data-pl="Jak działa voucher." data-en="How the voucher works.">Jak działa voucher.</h2>
-      </div>
-      <ol class="v-steps reveal">
-        <li><b data-pl="Unikalny numer" data-en="A unique number">Unikalny numer</b><span data-pl="Każdy voucher ma swój unikalny numer, po którym go rozpoznajemy przy rezerwacji." data-en="Every voucher has its own unique number, which we use to identify it when booking.">Każdy voucher ma swój unikalny numer, po którym go rozpoznajemy przy rezerwacji.</span></li>
-        <li><b data-pl="Może być imienny" data-en="Can be personalised">Może być imienny</b><span data-pl="Na życzenie wpiszemy imię osoby obdarowanej — miły akcent, jeśli voucher ma być prezentem." data-en="On request we can add the recipient's name — a nice touch when it is a gift.">Na życzenie wpiszemy imię osoby obdarowanej — miły akcent, jeśli voucher ma być prezentem.</span></li>
-        <li><b data-pl="Rezerwacja terminu" data-en="Booking a date">Rezerwacja terminu</b><span data-pl="Właściciel vouchera umawia spotkanie telefonicznie lub mailowo. Zaproponujemy kilka dostępnych dat do wyboru." data-en="The voucher holder books a session by phone or e-mail. We will offer several available dates to choose from.">Właściciel vouchera umawia spotkanie telefonicznie lub mailowo. Zaproponujemy kilka dostępnych dat do wyboru.</span></li>
-        <li><b data-pl="Ważny 6 miesięcy" data-en="Valid for 6 months">Ważny 6 miesięcy</b><span data-pl="Na wykorzystanie vouchera jest 6 miesięcy od daty zakupu — spokojnie, bez presji." data-en="You have 6 months from purchase to use the voucher — calmly, without pressure.">Na wykorzystanie vouchera jest 6 miesięcy od daty zakupu — spokojnie, bez presji.</span></li>
-      </ol>
-      <p class="note-line" data-pl="Voucher można wykorzystać na dowolne zajęcia lub sesję z naszej oferty." data-en="The voucher can be used for any class or session from our offer.">Voucher można wykorzystać na dowolne zajęcia lub sesję z naszej oferty.</p>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap two-col">
-      <div class="reveal">
-        <span class="eyebrow" data-pl="Dla większej paczki" data-en="For a bigger group">Dla większej paczki</span>
-        <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 14px" data-pl="Vouchery na warsztaty kilkuosobowe." data-en="Vouchers for small-group workshops.">Vouchery na warsztaty kilkuosobowe.</h2>
-        <p style="color:#4a4744;max-width:52ch" data-pl="Chcesz podarować wspólne popołudnie kilku osobom — rodzinie, przyjaciołom, parze? Przygotujemy voucher na warsztat dla małej grupy. Napisz, ile osób masz na myśli, a dobierzemy odpowiednią formę i termin." data-en="Want to gift a shared afternoon to a few people — family, friends, a couple? We will prepare a voucher for a small-group workshop. Tell us how many people you have in mind and we will match the format and date.">Chcesz podarować wspólne popołudnie kilku osobom — rodzinie, przyjaciołom, parze? Przygotujemy voucher na warsztat dla małej grupy. Napisz, ile osób masz na myśli, a dobierzemy odpowiednią formę i termin.</p>
-        <div class="occ">
-          <span data-pl="Urodziny" data-en="Birthday">Urodziny</span>
-          <span data-pl="Święta" data-en="Holidays">Święta</span>
-          <span data-pl="Podziękowanie" data-en="Thank-you">Podziękowanie</span>
-          <span data-pl="Wieczór we dwoje" data-en="Date night">Wieczór we dwoje</span>
-          <span data-pl="Spotkanie ze znajomymi" data-en="Friends' get-together">Spotkanie ze znajomymi</span>
-        </div>
-        <p class="note-line" data-pl="Szukasz warsztatu dla zespołu lub firmy? Zajrzyj do sekcji dla firm." data-en="Looking for a workshop for a team or company? See the corporate section.">Szukasz warsztatu dla zespołu lub firmy? <a href="dla-firm.html" style="border-bottom:1px solid var(--ink)">Zajrzyj do sekcji dla firm.</a></p>
-      </div>
-      <div class="reveal">
-        <span class="eyebrow" data-pl="Dobrze wiedzieć" data-en="Good to know">Dobrze wiedzieć</span>
-        <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 14px" data-pl="Częste pytania." data-en="Common questions.">Częste pytania.</h2>
-        <div class="faq">
-          <details><summary data-pl="Co jest w cenie zajęć?" data-en="What is included?">Co jest w cenie zajęć?</summary><p data-pl="Glina, szkliwa oraz wypał gotowych prac — voucher pokrywa udział w wybranych zajęciach lub sesji. Szczegóły przy konkretnych zajęciach na stronie Zajęcia." data-en="Clay, glazes and firing of finished pieces — the voucher covers taking part in the chosen class or session. Details are listed per class on the Classes page.">Glina, szkliwa oraz wypał gotowych prac — voucher pokrywa udział w wybranych zajęciach lub sesji. Szczegóły przy konkretnych zajęciach na stronie Zajęcia.</p></details>
-          <details><summary data-pl="Czy mogę dopłacić do droższych zajęć?" data-en="Can I top up for a pricier class?">Czy mogę dopłacić do droższych zajęć?</summary><p data-pl="Tak. Jeśli wybrane zajęcia kosztują więcej niż wartość vouchera, można dopłacić różnicę przy rezerwacji." data-en="Yes. If the chosen class costs more than the voucher value, you can pay the difference when booking.">Tak. Jeśli wybrane zajęcia kosztują więcej niż wartość vouchera, można dopłacić różnicę przy rezerwacji.</p></details>
-          <details><summary data-pl="Czy voucher można przekazać dalej?" data-en="Can the voucher be passed on?">Czy voucher można przekazać dalej?</summary><p data-pl="Można. Voucher jest na okaziciela, chyba że poprosisz o wersję imienną — wtedy przypisujemy go do konkretnej osoby." data-en="It can. The voucher is to the bearer, unless you ask for a personalised version tied to a specific person.">Można. Voucher jest na okaziciela, chyba że poprosisz o wersję imienną — wtedy przypisujemy go do konkretnej osoby.</p></details>
-          <details><summary data-pl="Co, jeśli nie zdążę wykorzystać w 6 miesięcy?" data-en="What if I miss the 6-month window?">Co, jeśli nie zdążę wykorzystać w 6 miesięcy?</summary><p data-pl="Napisz do nas przed upływem terminu — postaramy się znaleźć rozwiązanie i wspólnie ustalić dogodną datę." data-en="Write to us before the date passes — we will do our best to find a solution and agree on a convenient date together.">Napisz do nas przed upływem terminu — postaramy się znaleźć rozwiązanie i wspólnie ustalić dogodną datę.</p></details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="voucher reveal" id="order">
-        <div id="voucher-speck" aria-hidden="true"></div>
-        <div class="v-inner">
-          <div>
-            <span class="eyebrow" data-pl="Zamówienie" data-en="Order">Zamówienie</span>
-            <h2 data-pl="Gotowi, żeby podarować?" data-en="Ready to give it?">Gotowi, żeby podarować?</h2>
-            <p data-pl="Napisz do nas mailowo — potwierdzimy dostępność, prześlemy dane do płatności i przygotujemy voucher w wybranej formie." data-en="Drop us an e-mail — we will confirm availability, send payment details and prepare the voucher in your chosen format.">Napisz do nas mailowo — potwierdzimy dostępność, prześlemy dane do płatności i przygotujemy voucher w wybranej formie.</p>
+        <div class="row2">
+          <div class="fgroup">
+            <label for="of-qty" data-pl="Ilość voucherów" data-en="Number of vouchers">Ilość voucherów</label>
+            <input id="of-qty" name="Ilość voucherów" type="number" min="1" value="1" required>
           </div>
-          <div class="v-cta">
-            <a class="btn btn-fill" href="mailto:studiopiegus@gmail.com?subject=Zam%C3%B3wienie%20vouchera%20Studio%20Piegus" data-pl="Napisz do nas" data-en="E-mail us">Napisz do nas</a>
+          <div class="fgroup">
+            <label for="of-form" data-pl="Forma vouchera" data-en="Voucher format">Forma vouchera</label>
+            <select id="of-form" name="Forma vouchera" required>
+              <option value="drukowany - odbiór osobisty" data-pl="drukowany - odbiór osobisty" data-en="printed - personal pick-up">drukowany - odbiór osobisty</option>
+              <option value="drukowany - wysyłka inPost (+15 zł)" data-pl="drukowany - wysyłka inPost (+15 zł)" data-en="printed - InPost delivery (+15 zł)">drukowany - wysyłka inPost (+15 zł)</option>
+              <option value="elektroniczna (PDF na e-mail)" data-pl="elektroniczna (PDF na e-mail)" data-en="electronic (PDF by e-mail)">elektroniczna (PDF na e-mail)</option>
+            </select>
           </div>
         </div>
+        <fieldset class="fieldset">
+          <legend data-pl="Dane do faktury" data-en="Invoice details">Dane do faktury</legend>
+          <div class="fgroup">
+            <label for="of-fname" data-pl="Imię i nazwisko lub nazwa firmy" data-en="Full name or company name">Imię i nazwisko lub nazwa firmy</label>
+            <input id="of-fname" name="Faktura - nazwa" type="text" required>
+          </div>
+          <div class="fgroup">
+            <label for="of-addr" data-pl="Adres" data-en="Address">Adres</label>
+            <input id="of-addr" name="Faktura - adres" type="text" required>
+          </div>
+          <div class="fgroup">
+            <label for="of-nip" data-pl="NIP <span class='opt'>(jeśli zamawiasz na firmę)</span>" data-en="Tax ID <span class='opt'>(if ordering for a company)</span>">NIP <span class="opt">(jeśli zamawiasz na firmę)</span></label>
+            <input id="of-nip" name="Faktura - NIP" type="text" inputmode="numeric">
+          </div>
+        </fieldset>
+        <p class="fine" data-pl="Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia." data-en="Payment based on a pro forma invoice (transfer/BLIK) sent to your e-mail after ordering.">Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia.</p>
+        <button type="submit" class="btn btn-fill" data-pl="Zamów" data-en="Order">Zamów</button>
+      </form>
+      <div id="orderMsg">
+        <h2 data-pl="Dziękujemy za zamówienie." data-en="Thank you for your order.">Dziękujemy za zamówienie.</h2>
+        <p data-pl="Wkrótce otrzymasz e-mail z fakturą pro forma." data-en="You'll receive an e-mail with a pro forma invoice shortly.">Wkrótce otrzymasz e-mail z fakturą pro forma.</p>
       </div>
     </div>
   </section>
@@ -579,5 +563,24 @@
 })();
 </script>
 
+<script>
+(function(){
+  var form=document.getElementById('orderForm'); if(!form) return;
+  form.addEventListener('submit',function(e){ e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var btn=form.querySelector('button[type="submit"]'); if(btn) btn.disabled=true;
+    var fd=new FormData(form);
+    fd.append('access_key','6969241a-67b4-4066-b926-8bf60b319f2b');
+    fd.append('subject','Nowe zamówienie vouchera — Studio Piegus');
+    fd.append('from_name','Formularz voucherów Studio Piegus');
+    var err=(document.documentElement.lang==='en')?'Sending failed. Please try again or email us directly.':'Nie udało się wysłać. Spróbuj ponownie lub napisz do nas bezpośrednio.';
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
+      .then(function(r){return r.json();})
+      .then(function(d){ if(d&&d.success){ form.style.display='none'; document.getElementById('orderMsg').classList.add('show'); document.getElementById('zamowienie').scrollIntoView({behavior:'smooth'}); }
+        else { if(btn) btn.disabled=false; alert(err); } })
+      .catch(function(){ if(btn) btn.disabled=false; alert(err); });
+  });
+})();
+</script>
 </body>
 </html>
