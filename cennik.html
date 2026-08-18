@@ -335,21 +335,50 @@
   body.foto .nav .nav-links.open .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
 
   /* password gate */
-  #gate{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px;font-family:var(--sans)}
-  #gate .gate-card{max-width:400px;width:100%;text-align:center}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  html
+
+  /* ---- access gate (hero style) ---- */
+  #gate{position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:28px;overflow:hidden}
+  #gate .gate-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;z-index:0}
+  #gate .gate-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(26,22,20,.5),rgba(26,22,20,.5)),linear-gradient(90deg,rgba(26,22,20,.45) 0%,rgba(26,22,20,.28) 60%,rgba(26,22,20,.28) 100%)}
+  #gate .gate-card{position:relative;z-index:2;max-width:520px;width:100%;text-align:center}
   #gate .gate-logo{height:120px;width:auto;margin:0 auto 20px;display:block}
-  #gate h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,5vw,36px);margin:0 0 8px;color:var(--ink)}
-  #gate p{color:#6a6560;margin:0 0 22px}
+  #gate h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,64px);line-height:1.04;margin:0 0 12px;color:#F7F3EE;text-shadow:0 2px 20px rgba(20,16,14,.4)}
+  #gate h1 em{color:#F7F3EE}
+  #gate p{color:rgba(247,243,238,.92);margin:0 0 22px}
   #gate form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  #gate input{flex:1;min-width:180px;max-width:240px;padding:13px 15px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
-  #gate button{padding:13px 22px;border:0;border-radius:10px;background:var(--clay);color:var(--bg);font:inherit;font-weight:600;cursor:pointer;transition:.2s}
-  #gate button:hover{background:var(--ink)}
-  #gate .gate-err{color:var(--clay);margin-top:14px;font-size:14px;min-height:18px}
-  html.unlocked #gate{display:none}
+  #gate input{flex:1;min-width:180px;max-width:260px;padding:13px 16px;border:1px solid rgba(247,243,238,.5);border-radius:12px;font:inherit;background:rgba(255,255,255,.94);color:var(--ink)}
+  #gate button{padding:13px 24px;border:1px solid var(--clay);background:var(--clay);color:var(--bg);border-radius:12px;font:inherit;font-weight:600;cursor:pointer;transition:.2s}
+  #gate button:hover{background:#F7F3EE;color:var(--ink);border-color:#F7F3EE}
+  #gate .gate-err{color:#ffd9d0;margin-top:14px;font-size:14px;min-height:18px}
+  .unlocked #gate{display:none}
+  html:not(.unlocked) body>*:not(#gate){display:none}
 </style>
 </head>
 <body class="foto">
-<div id="gate"><div class="gate-card"><img class="gate-logo" src="img/0037b320eb11.png" alt="Studio Piegus"><h1>Strona w przygotowaniu</h1><p>Wpisz hasło, aby zobaczyć podgląd.</p><form id="gateForm" autocomplete="off"><input type="password" id="gatePass" placeholder="Hasło" aria-label="Hasło"><button type="submit">Wejdź</button></form><div class="gate-err" id="gateErr"></div></div></div>
+<div id="gate">
+  <img class="gate-bg" src="img/8dd4afa3d45d.jpg" alt="" aria-hidden="true">
+  <div class="gate-scrim"></div>
+  <div class="gate-card">
+    <img class="gate-logo" src="img/e8dd5a2f4b17.png" alt="Studio Piegus">
+    <h1>Budujemy dla Was <em>stronę</em>.</h1>
+    <form id="gateForm" autocomplete="off">
+      <input type="password" id="gatePass" placeholder="Hasło" aria-label="Hasło">
+      <button type="submit">Wejdź</button>
+    </form>
+    <p class="gate-err" id="gateErr"></p>
+  </div>
+</div>
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="brand" aria-label="Studio Piegus — strona główna">
@@ -503,7 +532,7 @@
         <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
         <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa</p>
         <a href="tel:+48509744773">+48 509 744 773</a>
-        <a href="mailto:kontakt@studiopiegus.pl">kontakt@studiopiegus.pl</a>
+        <a href="mailto:studiopiegus@gmail.com">studiopiegus@gmail.com</a>
         <div class="socials socials-dark">
           <a href="https://www.instagram.com/studio.piegus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></a>
           <a href="https://www.facebook.com/Studio.Piegus/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M13.6 21v-8h2.62l.39-3h-3.01V8.09c0-.87.24-1.46 1.49-1.46h1.59V3.96c-.28-.04-1.22-.12-2.32-.12-2.3 0-3.87 1.4-3.87 3.98V10H8.06v3h2.42v8z"/></svg></a>
