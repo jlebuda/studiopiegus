@@ -1,3 +1,3 @@
 # Studio Piegus
-Zdjecia w img/. CNAME=domena. Haslo bramki: piegus2026. Email: studiopiegus@gmail.com
-Wgraj .html + img + CNAME do korzenia repo. Pages: main /(root).
+Zdjecia w img/. Bez bramki, bez CNAME (podglad na github.io). Email: studiopiegus@gmail.com
+Wgraj .html + img do korzenia repo. Pages: main /(root).
