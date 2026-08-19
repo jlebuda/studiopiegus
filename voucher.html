@@ -351,7 +351,7 @@
 
   
 
-  #zamowienie{scroll-margin-top:90px}
+  #zamowienie{scroll-margin-top:120px}
   .oform{max-width:720px;margin-top:8px}
   .oform .fgroup{margin-bottom:18px}
   .oform label{display:block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.02em;color:var(--ink);margin-bottom:7px}
@@ -368,6 +368,9 @@
   #orderMsg.show{display:block;padding:20px 0}
   #orderMsg h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,38px);color:var(--ink);margin:0 0 12px}
   #orderMsg p{color:#4a4744;max-width:46ch}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0 22px;font-size:13px;color:#56524e;line-height:1.5;cursor:pointer}
+  .consent input{margin-top:2px;flex:none;width:17px;height:17px;accent-color:var(--blue-deep)}
+  .oform label.consent{font-weight:400;letter-spacing:normal;color:#56524e;margin:4px 0 32px}
 </style>
 </head>
 <body class="foto">
@@ -454,6 +457,10 @@
             </select>
           </div>
         </div>
+        <div class="fgroup">
+          <label for="of-inpost" data-pl="Adres wysyłki lub kod paczkomatu InPost <span class='opt'>(w przypadku wyboru wysyłki InPost)</span>" data-en="Delivery address or InPost locker code <span class='opt'>(if you chose InPost delivery)</span>">Adres wysyłki lub kod paczkomatu InPost <span class="opt">(w przypadku wyboru wysyłki InPost)</span></label>
+          <input id="of-inpost" name="Adres/paczkomat InPost" type="text">
+        </div>
         <fieldset class="fieldset">
           <legend data-pl="Dane do faktury" data-en="Invoice details">Dane do faktury</legend>
           <div class="fgroup">
@@ -470,6 +477,10 @@
           </div>
         </fieldset>
         <p class="fine" data-pl="Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia." data-en="Payment based on a pro forma invoice (transfer/BLIK) sent to your e-mail after ordering.">Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia.</p>
+        <label class="consent">
+          <input type="checkbox" name="Zgoda" required>
+          <span data-pl="Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie." data-en="I agree to my data being processed in order to respond to my enquiry.">Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</span>
+        </label>
         <button type="submit" class="btn btn-fill" data-pl="Zamów" data-en="Order">Zamów</button>
       </form>
       <div id="orderMsg">
