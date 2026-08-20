@@ -1,2 +1,3 @@
 # Studio Piegus
-Zdjecia w img/. Formularze: Web3Forms. Email: studiopiegus@gmail.com
+Zdjecia w img/. CNAME=domena studiopiegus.pl. Formularze: Web3Forms. Email: studiopiegus@gmail.com
+Wgraj WSZYSTKO (.html + img + CNAME) do korzenia repo. Pages: main /(root).
