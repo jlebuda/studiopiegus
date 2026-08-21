@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nie znaleziono strony — Studio Piegus</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/png" href="/img/f9b4173410a0.png">
+<link rel="apple-touch-icon" href="/img/cef246f17d5a.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+
+
+:root{
+    --bg:#F7F3EE;
+    --ink:#2E2C2A;
+    --blue:#7BA7BC;
+    --blue-deep:#5C8799;
+    --clay:#9E4A2C;
+    --pink:#C9998F;
+    --surface:#EDE8E0;
+    --line:rgba(46,44,42,.14);
+    --serif:"Cormorant Garamond",Georgia,serif;
+    --sans:"DM Sans",system-ui,sans-serif;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  a{color:inherit;text-decoration:none}
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--blue-deep);
+    display:inline-block;
+  }
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.04;letter-spacing:-.01em}
+
+  /* ---------- speckle / freckle signature ---------- */
+  .speck{position:absolute;border-radius:50%;pointer-events:none;will-change:transform,opacity}
+  @keyframes settle{from{opacity:0;transform:scale(.2) translateY(-6px)}to{opacity:var(--o);transform:scale(1) translateY(0)}}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:background .35s ease, box-shadow .35s ease, padding .35s ease;
+    padding:22px 0;
+  }
+  .nav.solid{background:rgba(247,243,238,.9);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:14px 0}
+  .nav-inner{display:flex;align-items:center;gap:28px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:23px;letter-spacing:.01em}
+  .brand img{height:48px;width:auto;display:block;flex:none}
+  .nav-links{display:flex;gap:26px;margin-left:auto;align-items:center}
+  .nav-links a{font-size:14px;font-weight:500;letter-spacing:.01em;position:relative;padding:4px 0}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--ink);transition:right .3s ease}
+  .nav-links a:hover::after{right:0}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;font-size:12px;font-weight:600;letter-spacing:.08em}
+  .lang button{background:none;border:0;padding:6px 11px;cursor:pointer;color:var(--ink);font:inherit;opacity:.5;transition:.2s}
+  .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:.01em;
+    padding:11px 20px;border-radius:999px;cursor:pointer;border:1px solid var(--ink);
+    transition:transform .2s ease, background .2s ease, color .2s ease;
+  }
+  .btn-fill{background:var(--clay);color:var(--bg);border-color:var(--clay)}
+  .btn-fill:hover{transform:translateY(-2px);background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--bg)}
+  .btn-blue{background:var(--blue);border-color:var(--blue);color:var(--bg)}
+  .btn-blue:hover{transform:translateY(-2px);background:var(--blue-deep);border-color:var(--blue-deep)}
+  .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .burger span{width:24px;height:2px;background:var(--ink);display:block;transition:.3s}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:172px 0 96px;overflow:hidden}
+  #freckles{position:absolute;inset:0;z-index:0}
+  .hero .wrap{position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(56px,9vw,116px);margin:14px 0 0}
+  .hero h1 em{font-style:italic;color:var(--blue-deep)}
+  .hero-sub{font-size:20px;max-width:30ch;margin:26px 0 34px;color:#4a4744}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .glaze-card{
+    position:relative;border-radius:18px;background:var(--surface);
+    border:1px solid var(--line);padding:30px;min-height:340px;
+    display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;
+  }
+  .glaze-card .cap{position:relative;z-index:2}
+  .glaze-card .cap h3{font-size:27px;line-height:1.1}
+  .glaze-card .cap p{font-size:14px;color:#56524e;margin-top:8px}
+  #glaze-speck{position:absolute;inset:0;z-index:1}
+
+  /* ---------- generic section ---------- */
+  .sec{padding:96px 0}
+  .sec-head{max-width:62ch;margin-bottom:48px}
+  .sec-head h2{font-size:clamp(34px,5vw,52px);margin-top:12px}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- offer tiles ---------- */
+  .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .tile{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;
+    padding:34px 30px 28px;transition:transform .3s ease,box-shadow .3s ease;
+    position:relative;overflow:hidden;
+  }
+  .tile:hover{transform:translateY(-4px);box-shadow:0 18px 40px -28px rgba(46,44,42,.5)}
+  .tile .dotcluster{position:absolute;top:18px;right:18px;width:54px;height:54px;opacity:.85}
+  .tile h3{font-size:30px;margin-bottom:10px;padding-right:50px}
+  .tile p{font-size:15.5px;color:#56524e;max-width:34ch}
+  .tile .more{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+  .tile .more svg{transition:transform .25s ease}
+  .tile:hover .more svg{transform:translateX(5px)}
+
+  /* ---------- voucher band ---------- */
+  .voucher{background:var(--clay);color:var(--bg);border-radius:22px;padding:64px 56px;position:relative;overflow:hidden}
+  #voucher-speck{position:absolute;inset:0;opacity:.55}
+  .voucher .v-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:center}
+  .voucher .eyebrow{color:var(--blue)}
+  .voucher h2{font-size:clamp(32px,4.5vw,50px);color:var(--bg);margin:12px 0 16px}
+  .voucher p{color:rgba(247,243,238,.78);max-width:46ch}
+  .voucher .v-cta{display:flex;justify-content:flex-end}
+  @media(max-width:760px){.voucher .v-cta{justify-content:flex-start}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .about-grid h2{font-size:clamp(32px,4.5vw,50px);margin:14px 0 20px}
+  .about-grid p{color:#4a4744;margin-bottom:16px;max-width:50ch}
+  .about-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;font-weight:600;font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+  /* ---------- photo placeholders ---------- */
+  .ph{
+    position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;display:flex;align-items:center;justify-content:center;
+  }
+  .ph .ph-speck{position:absolute;inset:0;opacity:.5}
+  .ph .ph-label{position:relative;z-index:2;text-align:center;color:#7a756f;padding:18px}
+  .ph .ph-label .tag{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-deep);display:block;margin-bottom:6px}
+  .ph .ph-label .what{font-family:var(--serif);font-size:20px;color:#5b5650}
+  .gallery{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:200px 200px;gap:16px}
+  .gallery .ph:nth-child(1){grid-row:1 / span 2}
+
+  /* ---------- corporate teaser ---------- */
+  .corp{background:linear-gradient(180deg,var(--surface),var(--bg));border-radius:22px;border:1px solid var(--line);padding:60px 56px;text-align:center}
+  .corp .eyebrow{color:var(--clay)}
+  .corp h2{font-size:clamp(32px,4.5vw,52px);margin:14px auto 16px;max-width:18ch}
+  .corp p{color:#4a4744;max-width:50ch;margin:0 auto 30px}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--clay);color:var(--bg);margin-top:96px;padding:72px 0 40px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer .brand{color:var(--bg)}
+  footer .brand img{height:64px}
+  .foot-desc{color:rgba(247,243,238,.65);font-size:15px;max-width:32ch;margin-top:18px}
+  .foot-col h4{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+  .foot-col a,.foot-col p{display:block;color:rgba(247,243,238,.82);font-size:15px;margin-bottom:10px;transition:color .2s}
+  .foot-col a:hover{color:var(--bg)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid rgba(247,243,238,.16);font-size:13px;color:rgba(247,243,238,.55)}
+  footer .lang{border-color:rgba(247,243,238,.3)}
+  footer .lang button{color:rgba(247,243,238,.7)}
+  footer .lang button.on{background:var(--bg);color:var(--ink);opacity:1}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    .glaze-card{min-height:240px}
+    .about-grid{grid-template-columns:1fr;gap:32px}
+    .voucher .v-inner{grid-template-columns:1fr;gap:24px}
+  }
+  @media(max-width:760px){
+    body{font-size:16px}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:22px 28px;gap:18px;box-shadow:0 12px 30px -20px rgba(0,0,0,.4);margin-left:0}
+    .nav-links.open .lang{margin-top:8px}
+    .burger{display:flex}
+    .tiles{grid-template-columns:1fr}
+    .voucher,.corp{padding:44px 28px}
+    .gallery{grid-template-columns:1fr;grid-template-rows:none}
+    .gallery .ph{height:200px}
+    .gallery .ph:nth-child(1){grid-row:auto}
+    .foot-grid{grid-template-columns:1fr;gap:32px}
+    .sec{padding:68px 0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1;transform:none}
+  }
+
+/* ---------- page: kontakt ---------- */
+.nav-links a.active::after{right:0}
+
+.pagehead{position:relative;padding:150px 0 56px;overflow:hidden}
+#freckles{position:absolute;inset:0;z-index:0}
+.pagehead .wrap{position:relative;z-index:2}
+.pagehead h1{font-size:clamp(44px,7vw,84px);margin:14px 0 0}
+.pagehead h1 em{font-style:italic;color:var(--blue-deep)}
+.pagehead .lead{font-size:19px;max-width:52ch;margin:22px 0 0;color:#4a4744}
+
+.contact-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:40px;align-items:start;padding-bottom:24px}
+
+.formcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:36px;position:relative;overflow:hidden}
+.fc-speck{position:absolute;inset:0;opacity:.32}
+.form-inner{position:relative;z-index:2}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-deep);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .2s ease,box-shadow .2s ease}
+.field textarea{min-height:118px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(123,167,188,.22)}
+.field .err{border-color:var(--clay);box-shadow:0 0 0 3px rgba(196,113,74,.16)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.consent{display:flex;gap:10px;align-items:flex-start;margin:4px 0 22px;font-size:13px;color:#56524e;line-height:1.5;cursor:pointer}
+.consent input{margin-top:2px;flex:none;width:17px;height:17px;accent-color:var(--blue-deep)}
+.consent.err-consent span{color:var(--clay)}
+.note{font-size:12px;color:#7a756f;margin-top:12px}
+.form-msg{display:none;text-align:center;padding:30px 10px}
+.form-msg.show{display:block}
+.form-msg .ok{width:54px;height:54px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.form-msg h3{font-family:var(--serif);font-weight:500;font-size:30px;margin-bottom:8px}
+.form-msg p{color:#56524e;max-width:38ch;margin:0 auto}
+
+.info-card{background:var(--ink);color:var(--bg);border-radius:18px;padding:34px;position:relative;overflow:hidden}
+.info-card .ic-speck{position:absolute;inset:0;opacity:.5}
+.info-card .ic-in{position:relative;z-index:2}
+.info-card h3{font-family:var(--serif);font-weight:500;font-size:25px;margin-bottom:22px;color:var(--bg)}
+.info-row{margin-bottom:18px}
+.info-row .lbl{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:5px}
+.info-row a,.info-row p{color:rgba(247,243,238,.92);font-size:16px;line-height:1.5}
+.info-row a{transition:color .2s ease}
+.info-row a:hover{color:var(--bg);text-decoration:underline}
+.info-tip{margin-top:24px;padding-top:20px;border-top:1px solid rgba(247,243,238,.18);font-size:14px;color:rgba(247,243,238,.7);line-height:1.55}
+
+.map-sec{padding:8px 0 0}
+.map-head{margin-bottom:24px}
+.map-head h2{font-size:clamp(30px,4.4vw,46px);margin-top:12px}
+.map-wrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--surface)}
+.map-wrap iframe{width:100%;height:420px;border:0;display:block;filter:saturate(.92) contrast(.98)}
+.map-cap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:18px 22px;border-top:1px solid var(--line);background:var(--surface)}
+.map-cap p{font-size:15px;color:#4a4744}
+.map-open{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;border-bottom:1px solid var(--ink);padding-bottom:3px}
+
+@media(max-width:920px){
+  .contact-grid{grid-template-columns:1fr;gap:28px}
+}
+@media(max-width:760px){
+  .pagehead{padding:128px 0 40px}
+  .formcard{padding:26px}
+  .field-row{grid-template-columns:1fr}
+  .map-wrap iframe{height:320px}
+}
+
+  /* ---- unified menu (uppercase / 2x logo / language chip) ---- */
+  body.foto .nav-links a{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600}
+  body.foto .nav .brand img{height:129px}
+  body.foto .nav.solid .brand img{height:98px}
+  @media(max-width:760px){ body.foto .nav .brand img{height:87px} body.foto .nav.solid .brand img{height:76px} }
+  body.foto .lang{border-width:2px;border-color:rgba(46,44,42,.5);background:rgba(30,26,24,.6)}
+  body.foto .lang button{color:#fff;background:transparent;opacity:.82}
+  body.foto .lang button.on{background:rgba(247,243,238,.26);color:#fff;opacity:1}
+
+  /* ---- social icons + monochrome map ---- */
+  .socials{display:flex;gap:12px;margin-top:16px}
+  .socials a{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);color:var(--blue-deep);transition:background .2s ease,color .2s ease,border-color .2s ease}
+  .socials a:hover{color:var(--bg);background:var(--blue-deep);border-color:var(--blue-deep)}
+  .socials-dark a{border-color:rgba(247,243,238,.28);color:var(--blue)}
+  .socials-dark a:hover{color:var(--ink);background:var(--blue);border-color:var(--blue)}
+  iframe[title="Mapa — Studio Piegus"]{filter:grayscale(1) contrast(1.02)}
+  .speck{display:none}
+
+  /* ---- location card (map) ---- */
+  .map-card{position:relative;display:flex;align-items:center;gap:22px;min-height:340px;padding:40px;border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#5C8799,#7BA7BC);color:#F7F3EE;text-decoration:none;box-shadow:0 26px 54px -30px rgba(46,44,42,.5)}
+  .map-card .mc-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(247,243,238,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(247,243,238,.16) 1px,transparent 1px);background-size:40px 40px;opacity:.55}
+  .map-card .mc-pin{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;width:66px;height:66px;border-radius:999px;background:rgba(247,243,238,.16);flex:none}
+  .map-card .mc-txt{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px}
+  .map-card .mc-txt b{font-family:var(--serif);font-weight:700;font-size:26px;line-height:1.1}
+  .map-card .mc-txt span{font-family:var(--sans);font-size:14px;opacity:.86}
+  .map-card:hover{filter:brightness(1.05)}
+
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:700}
+  h1 em,h2 em,h3 em{color:var(--clay);font-style:italic}
+
+  /* ---- hero full-screen (photo) ---- */
+  .hero-full{min-height:100svh;display:flex;align-items:center;padding:132px 0 44px;overflow:hidden;position:relative}
+  .hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-full .hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(26,22,20,.66) 0%,rgba(26,22,20,.34) 46%,rgba(26,22,20,.08) 100%),linear-gradient(180deg,rgba(26,22,20,.5) 0%,rgba(26,22,20,0) 30%,rgba(26,22,20,0) 68%,rgba(26,22,20,.34) 100%)}
+  .hero-full .wrap{position:relative;z-index:2;width:100%}
+  .hero-full .hero-inner{max-width:640px}
+  .hero-full h1{color:#F7F3EE;margin:0;font-weight:700;text-shadow:0 2px 20px rgba(20,16,14,.4)}
+  .hero-full h1 em{color:#F7F3EE}
+  .hero-full .lead{color:rgba(247,243,238,.92);max-width:46ch}
+  body.foto .nav:not(.solid) .brand img{filter:brightness(0) invert(1)}
+  body.foto .nav:not(.solid) .burger span{background:#F7F3EE}
+  @media(min-width:761px){
+    body.foto .nav:not(.solid) .nav-links a{color:#F7F3EE}
+    body.foto .nav:not(.solid) .nav-links a::after{background:#F7F3EE}
+  }
+
+  @media(max-height:560px){ body.foto .nav .brand img,body.foto .nav.solid .brand img{height:52px} .hero-full{padding-top:92px} .hero-full h1{font-size:clamp(28px,5.5vw,44px)} .hero-full .hero-sub{font-size:15px} }
+
+  .map-frame{width:100%;height:440px;border:0;border-radius:16px;display:block;box-shadow:0 26px 54px -30px rgba(46,44,42,.5)}
+
+  /* mobile open-menu: dark text on cream dropdown */
+  body.foto .nav .nav-links.open a{color:var(--ink)}
+  body.foto .nav .nav-links.open .lang{border-color:rgba(46,44,42,.35);background:transparent}
+  body.foto .nav .nav-links.open .lang button{color:var(--ink);opacity:.7}
+  body.foto .nav .nav-links.open .lang button.on{background:var(--ink);color:var(--bg);opacity:1}
+
+  /* password gate */
+
+  
+
+  
+
+  
+  
+  html
+
+  
+
+  
+
+  
+
+  
+
+  
+  .voucher .btn-fill{border-color:#F7F3EE}
+  .voucher .btn-fill:hover{border-color:#F7F3EE}
+
+  .legal{max-width:780px}
+  .legal h2{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3vw,30px);color:var(--ink);margin:38px 0 12px}
+  .legal h3{font-family:var(--sans);font-weight:600;font-size:16px;color:var(--ink);margin:22px 0 8px}
+  .legal p,.legal li{color:#4a4744;line-height:1.7;font-size:15.5px}
+  .legal ul{padding-left:20px;margin:8px 0 16px}
+  .legal li{margin-bottom:7px}
+  .legal .meta{font-size:14px;color:#6a6560;margin-bottom:6px}
+  .legal .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin:14px 0 8px}
+  .legal .card p{margin:4px 0}
+  .legal a{color:var(--clay);text-decoration:underline;text-underline-offset:3px}
+
+
+  .e404{min-height:72vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:140px 0 80px}
+  .e404 .num{font-family:var(--serif);font-weight:700;font-size:clamp(78px,16vw,170px);line-height:.9;color:var(--clay);margin:0 0 6px;opacity:.92}
+  .e404 h1{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.4vw,46px);color:var(--ink);margin:0 0 14px}
+  .e404 p{color:#4a4744;max-width:44ch;margin:0 auto 28px;line-height:1.7}
+  .e404 .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+</style>
+<!-- Cookiebot CMP -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
+<!-- End Cookiebot CMP -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K9HF6BFL');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K9HF6BFL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="/index.html" class="brand" aria-label="Studio Piegus — strona główna">
+      <img src="/img/0037b320eb11.png" alt="Studio Piegus">
+    </a>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navlinks">
+      <a href="/zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+      <a href="/cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
+      <a href="/voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
+      <a href="/dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
+      <a href="/o-nas.html" data-pl="O nas" data-en="About">O nas</a>
+      <a href="/kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+      <div class="lang" role="group" aria-label="Język">
+        <button class="on" data-lang="pl">PL</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="sec e404">
+    <div class="wrap">
+      <div class="reveal in">
+        <p class="num">404</p>
+        <h1 data-pl="Ta strona gdzieś się zapodziała." data-en="This page has gone missing.">Ta strona gdzieś się zapodziała.</h1>
+        <p data-pl="Może pękła przy wypale, a może po prostu zmieniliśmy adres. Wróć na stronę główną albo zajrzyj do zajęć." data-en="Maybe it cracked in the kiln, or maybe we simply changed the address. Head back home or take a look at our classes.">Może pękła przy wypale, a może po prostu zmieniliśmy adres. Wróć na stronę główną albo zajrzyj do zajęć.</p>
+        <div class="acts">
+          <a href="/" class="btn btn-fill" data-pl="Strona główna" data-en="Home">Strona główna</a>
+          <a href="/zajecia.html" class="btn btn-ghost" style="border-color:var(--line);color:var(--ink)" data-pl="Zobacz zajęcia" data-en="See the classes">Zobacz zajęcia</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand"><img src="/img/e8dd5a2f4b17.png" alt="Studio Piegus"></div>
+        <p class="foot-desc" data-pl="Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie." data-en="Ceramics classes for teens and adults in Sadyba, Warsaw. Small groups, a cosy studio. Creative time for yourself.">Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
+        <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa</p>
+        <a href="tel:+48509744773">+48 509 744 773</a>
+        <a href="mailto:studiopiegus@gmail.com">studiopiegus@gmail.com</a>
+        <div class="socials socials-dark">
+          <a href="https://www.instagram.com/studio.piegus" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://www.facebook.com/Studio.Piegus/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M13.6 21v-8h2.62l.39-3h-3.01V8.09c0-.87.24-1.46 1.49-1.46h1.59V3.96c-.28-.04-1.22-.12-2.32-.12-2.3 0-3.87 1.4-3.87 3.98V10H8.06v3h2.42v8z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-pl="Strona" data-en="Site">Strona</h4>
+        <a href="/zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+        <a href="/cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
+        <a href="/voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
+        <a href="/dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
+        <a href="/o-nas.html" data-pl="O nas" data-en="About">O nas</a>
+        <a href="/kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Studio Piegus Sp. z o.o.</span><a href="/polityka-prywatnosci.html" style="margin-left:18px;color:inherit;opacity:.85;text-decoration:underline;text-underline-offset:3px" data-pl="Polityka prywatności" data-en="Privacy policy">Polityka prywatności</a>
+      <a href="javascript:Cookiebot.renew()" style="margin-left:18px;color:inherit;opacity:.85;text-decoration:underline;text-underline-offset:3px" data-pl="Ustawienia cookies" data-en="Cookie settings">Ustawienia cookies</a></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ if(nav) nav.classList.toggle('solid', window.scrollY>10); };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  var burger=document.getElementById('burger'), links=document.getElementById('navlinks');
+  if(burger&&links){ burger.addEventListener('click',function(){links.classList.toggle('open');});
+    links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open');});}); }
+  function setLang(l){ document.documentElement.lang=l;
+    document.querySelectorAll('[data-pl]').forEach(function(el){ var v=el.getAttribute('data-'+l); if(v!==null) el.innerHTML=v; });
+    document.querySelectorAll('.lang button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===l); }); }
+  document.querySelectorAll('.lang button').forEach(function(b){ b.addEventListener('click',function(){ try{localStorage.setItem('piegus_lang',b.getAttribute('data-lang'));}catch(e){} setLang(b.getAttribute('data-lang')); }); });
+  try{ var L=localStorage.getItem('piegus_lang'); if(L&&L!=='pl') setLang(L); }catch(e){}
+})();
+</script>
+</body>
+</html>
