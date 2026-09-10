@@ -477,6 +477,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <label for="of-inpost" data-pl="Adres wysyłki lub kod paczkomatu InPost <span class='opt'>(w przypadku wyboru wysyłki InPost)</span>" data-en="Delivery address or InPost locker code <span class='opt'>(if you chose InPost delivery)</span>">Adres wysyłki lub kod paczkomatu InPost <span class="opt">(w przypadku wyboru wysyłki InPost)</span></label>
           <input id="of-inpost" name="Adres/paczkomat InPost" type="text">
         </div>
+        <div class="fgroup">
+          <label for="of-src" data-pl="Skąd wiesz o naszym Studio? <span class='opt'>(opcjonalnie)</span>" data-en="How did you hear about our studio? <span class='opt'>(optional)</span>">Skąd wiesz o naszym Studio? <span class="opt">(opcjonalnie)</span></label>
+          <select id="of-src" name="Skad wiesz o studio">
+            <option value="" data-pl="— wybierz —" data-en="— choose —">— wybierz —</option>
+              <option value="maps" data-pl="Google Maps" data-en="Google Maps">Google Maps</option>
+              <option value="search" data-pl="Wyszukiwarka Google" data-en="Google Search">Wyszukiwarka Google</option>
+              <option value="ai" data-pl="Asystent AI (ChatGPT, Gemini, Claude…)" data-en="AI assistant (ChatGPT, Gemini, Claude…)">Asystent AI (ChatGPT, Gemini, Claude…)</option>
+              <option value="friend" data-pl="Rekomendacja znajomej osoby" data-en="Recommendation from a friend">Rekomendacja znajomej osoby</option>
+              <option value="meta" data-pl="Facebook lub Instagram" data-en="Facebook or Instagram">Facebook lub Instagram</option>
+              <option value="linkedin" data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</option>
+              <option value="passby" data-pl="Przechodziłem/am obok" data-en="I walked past the studio">Przechodziłem/am obok</option>
+              <option value="other" data-pl="Inne" data-en="Other">Inne</option>
+          </select>
+        </div>
+        <div class="fgroup" id="ofSrcOtherWrap" style="display:none">
+          <label for="of-src-other" data-pl="Napisz skąd" data-en="Please tell us where">Napisz skąd</label>
+          <input type="text" id="of-src-other" name="Skad wiesz - inne">
+        </div>
+
         <fieldset class="fieldset">
           <legend data-pl="Dane do faktury" data-en="Invoice details">Dane do faktury</legend>
           <div class="fgroup">
@@ -611,6 +630,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         else { if(btn) btn.disabled=false; alert(err); } })
       .catch(function(){ if(btn) btn.disabled=false; alert(err); });
   });
+})();
+</script>
+<script>
+(function(){
+  var sel=document.getElementById('of-src'), wrap=document.getElementById('ofSrcOtherWrap');
+  if(!sel||!wrap) return;
+  function upd(){ wrap.style.display=(sel.value==='other')?'':'none'; if(sel.value!=='other'){var i=document.getElementById('of-src-other'); if(i) i.value='';} }
+  sel.addEventListener('change',upd); upd();
 })();
 </script>
 </body>

@@ -424,7 +424,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <option value="other" data-pl="Inne / pytanie ogólne" data-en="Other / general question">Inne / pytanie ogólne</option>
               </select>
             </div>
-            <div class="field-row">
+                        <div class="field">
+              <label data-pl="Skąd wiesz o naszym Studio?" data-en="How did you hear about our studio?">Skąd wiesz o naszym Studio?</label>
+              <select name="Skad wiesz o studio" id="srcSelect">
+                <option value="" data-pl="— wybierz —" data-en="— choose —">— wybierz —</option>
+                <option value="maps" data-pl="Google Maps" data-en="Google Maps">Google Maps</option>
+                <option value="search" data-pl="Wyszukiwarka Google" data-en="Google Search">Wyszukiwarka Google</option>
+                <option value="ai" data-pl="Asystent AI (ChatGPT, Gemini, Claude…)" data-en="AI assistant (ChatGPT, Gemini, Claude…)">Asystent AI (ChatGPT, Gemini, Claude…)</option>
+                <option value="friend" data-pl="Rekomendacja znajomej osoby" data-en="Recommendation from a friend">Rekomendacja znajomej osoby</option>
+                <option value="meta" data-pl="Facebook lub Instagram" data-en="Facebook or Instagram">Facebook lub Instagram</option>
+                <option value="linkedin" data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</option>
+                <option value="passby" data-pl="Przechodziłem/am obok" data-en="I walked past the studio">Przechodziłem/am obok</option>
+                <option value="other" data-pl="Inne" data-en="Other">Inne</option>
+              </select>
+            </div>
+            <div class="field" id="srcOtherWrap" style="display:none">
+              <label data-pl="Napisz skąd" data-en="Please tell us where">Napisz skąd</label>
+              <input type="text" name="Skad wiesz - inne" id="srcOther" data-ph-pl="np. z ulotki, z pracy…" data-ph-en="e.g. a flyer, from work…">
+            </div>
+<div class="field-row">
               <div class="field">
                 <label data-pl="Preferowana data" data-en="Preferred date">Preferowana data</label>
                 <input type="date" name="date">
@@ -651,5 +669,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
+<script>
+(function(){
+  var sel=document.getElementById('srcSelect'), wrap=document.getElementById('srcOtherWrap');
+  if(!sel||!wrap) return;
+  function upd(){ wrap.style.display = (sel.value==='other') ? '' : 'none'; if(sel.value!=='other'){var i=document.getElementById('srcOther'); if(i) i.value='';} }
+  sel.addEventListener('change',upd); upd();
+})();
+</script>
 </body>
 </html>
