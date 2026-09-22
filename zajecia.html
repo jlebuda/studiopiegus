@@ -368,6 +368,21 @@
   
   .voucher .btn-fill{border-color:#F7F3EE}
   .voucher .btn-fill:hover{border-color:#F7F3EE}
+
+  /* harmonogram */
+  .sched{margin-top:10px}
+  .sched-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+  table.sched-t{width:100%;border-collapse:collapse;min-width:560px;font-family:var(--sans)}
+  table.sched-t th,table.sched-t td{padding:13px 16px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line)}
+  table.sched-t thead th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;background:rgba(255,255,255,.5)}
+  table.sched-t tbody tr:last-child td{border-bottom:none}
+  table.sched-t .day{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink);white-space:nowrap}
+  table.sched-t .hrs{white-space:nowrap;color:var(--ink);font-weight:500}
+  table.sched-t .grp{color:#4a4744}
+  .sched-t .tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em}
+  .tag-a{background:rgba(158,74,44,.12);color:var(--clay)}
+  .tag-k{background:rgba(123,167,188,.2);color:var(--blue-deep)}
+  .sched-note2{font-size:13.5px;color:#6a6560;margin:14px 0 0;line-height:1.6}
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -430,7 +445,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 data-pl="Dla dorosłych i młodzieży" data-en="For adults and teens">Dla dorosłych i młodzieży</h2>
         <p data-pl="Przez cały czas jesteś pod opieką instruktora. Jeśli dopiero zaczynasz, krok po kroku pokażemy ci możliwości gliny. Wszystkie pojęcia (szkliwa, angoby, farby podszkliwne) wytłumaczymy i pokażemy w praktyce." data-en="You're supported by the instructor the whole time. If you're just starting out, we'll show you the possibilities of clay step by step. We explain every term (glazes, engobes, underglaze paints) and show it in practice.">Przez cały czas jesteś pod opieką instruktora. Jeśli dopiero zaczynasz, krok po kroku pokażemy ci możliwości gliny. Wszystkie pojęcia (szkliwa, angoby, farby podszkliwne) wytłumaczymy i pokażemy w praktyce.</p>
         <p data-pl="Tworzysz to, na co masz ochotę — naczynia użytkowe (nadające się do mycia w zmywarce), dekoracje, mozaiki, lampy i wiele innych obiektów. Techniki poznajesz w trakcie pracy nad własnymi projektami." data-en="You make whatever you like — functional vessels (dishwasher-safe), decorations, mosaics, lamps and many other objects. You learn techniques while working on your own projects.">Tworzysz to, na co masz ochotę — naczynia użytkowe (nadające się do mycia w zmywarce), dekoracje, mozaiki, lampy i wiele innych obiektów. Techniki poznajesz w trakcie pracy nad własnymi projektami.</p>
-        <p class="sched-note" data-pl="Pracujemy nad harmonogramem zajęć — konkretne dni i godziny ustalimy już wkrótce." data-en="We're working on the class schedule — exact days and times will be confirmed soon.">Pracujemy nad harmonogramem zajęć — konkretne dni i godziny ustalimy już wkrótce.</p>
         <div class="format-cta">
           <a href="kontakt.html" class="btn btn-fill" data-pl="Zapisz się" data-en="Sign up">Zapisz się</a>
           <a href="voucher.html" class="btn btn-ghost" data-pl="Podaruj voucher" data-en="Give a voucher">Podaruj voucher</a>
@@ -440,7 +454,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="ic-speck" aria-hidden="true"></div>
         <dl class="dl">
           <div class="row"><dt data-pl="Format" data-en="Format">Format</dt><dd data-pl="co tydzień lub co dwa tygodnie" data-en="weekly or every two weeks">co tydzień lub co dwa tygodnie</dd></div>
-          <div class="row"><dt data-pl="Grupa" data-en="Group">Grupa</dt><dd data-pl="maks. 4 osoby" data-en="up to 4 people">maks. 4 osoby</dd></div>
+          <div class="row"><dt data-pl="Grupa" data-en="Group">Grupa</dt><dd data-pl="maks. 8 osób" data-en="up to 8 people">maks. 8 osób</dd></div>
           <div class="row"><dt data-pl="Czas" data-en="Duration">Czas</dt><dd data-pl="2 godziny" data-en="2 hours">2 godziny</dd></div>
           <div class="row"><dt data-pl="Poziom" data-en="Level">Poziom</dt><dd data-pl="każdy" data-en="any">każdy</dd></div>
           <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, własny fartuch, opieka instruktora" data-en="clays, glazes, underglaze paints, engobes, bisque firing, your own apron, instructor's care">gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, własny fartuch, opieka instruktora</dd></div>
@@ -457,6 +471,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+
+  <section class="sec" id="dzieci" style="padding-top:0">
+    <div class="wrap">
+      <div class="format-grid">
+        <div class="format-text reveal">
+          <span class="eyebrow" data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</span>
+          <h2 data-pl="Dla dzieci" data-en="For children">Dla dzieci</h2>
+          <p data-pl="Zajęcia dla dzieci od 7 lat. Pracujemy w małej grupie, przy jednym stole, w spokojnym tempie — każde dziecko ma miejsce, własną glinę i uwagę prowadzącej." data-en="Classes for children from age 7. We work in a small group, at one table, at a calm pace — every child has their own space, their own clay and the instructor&#39;s attention.">Zajęcia dla dzieci od 7 lat. Pracujemy w małej grupie, przy jednym stole, w spokojnym tempie — każde dziecko ma miejsce, własną glinę i uwagę prowadzącej.</p>
+          <p data-pl="Dzieci lepią to, co same wymyślą — zwierzaki, miseczki, skarbonki, figurki. Po drodze poznają techniki i uczą się cierpliwości: praca musi wyschnąć, potem trafia do pieca, a gotową odbiera się po kilku tygodniach. Ta chwila jest zawsze najlepsza." data-en="Children make whatever they come up with — animals, little bowls, piggy banks, figurines. Along the way they learn techniques and patience: the piece has to dry, then it goes into the kiln, and it&#39;s collected a few weeks later. That moment is always the best one.">Dzieci lepią to, co same wymyślą — zwierzaki, miseczki, skarbonki, figurki. Po drodze poznają techniki i uczą się cierpliwości: praca musi wyschnąć, potem trafia do pieca, a gotową odbiera się po kilku tygodniach. Ta chwila jest zawsze najlepsza.</p>
+          <div class="format-cta">
+            <a href="kontakt.html" class="btn btn-fill" data-pl="Zapisz dziecko" data-en="Sign your child up">Zapisz dziecko</a>
+            <a href="cennik.html" class="btn btn-ghost" data-pl="Zobacz cennik" data-en="See pricing">Zobacz cennik</a>
+          </div>
+        </div>
+        <div class="infocard reveal">
+          <div class="ic-speck" aria-hidden="true"></div>
+          <dl class="dl">
+            <div class="row"><dt data-pl="Format" data-en="Format">Format</dt><dd data-pl="co tydzień lub co dwa tygodnie" data-en="weekly or every two weeks">co tydzień lub co dwa tygodnie</dd></div>
+            <div class="row"><dt data-pl="Grupa" data-en="Group">Grupa</dt><dd data-pl="maks. 8 osób" data-en="up to 8 people">maks. 8 osób</dd></div>
+            <div class="row"><dt data-pl="Czas" data-en="Duration">Czas</dt><dd data-pl="1 godzina 15 minut" data-en="1 hour 15 minutes">1 godzina 15 minut</dd></div>
+            <div class="row"><dt data-pl="Wiek" data-en="Age">Wiek</dt><dd data-pl="od 7 lat" data-en="from age 7">od 7 lat</dd></div>
+            <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, fartuch, opieka instruktora" data-en="clay, glazes, underglazes, engobes, bisque firing, apron, instructor&#39;s care">gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, fartuch, opieka instruktora</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="harmonogram" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow" data-pl="Harmonogram" data-en="Timetable">Harmonogram</span>
+      <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 18px" data-pl="Kiedy się spotykamy" data-en="When we meet">Kiedy się spotykamy</h2>
+      <div class="sched reveal">
+        <div class="sched-wrap">
+          <table class="sched-t">
+            <thead>
+              <tr>
+                <th data-pl="Dzień" data-en="Day">Dzień</th>
+                <th data-pl="Godziny" data-en="Hours">Godziny</th>
+                <th data-pl="Grupa" data-en="Group">Grupa</th>
+                <th data-pl="Dla kogo" data-en="For whom">Dla kogo</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr><td class="day" rowspan="3" data-pl="Poniedziałek" data-en="Monday">Poniedziałek</td><td class="hrs">10:00–12:15</td><td class="grp">Malwa</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="hrs">16:00–17:15</td><td class="grp">Stokrotka</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            <tr><td class="hrs">17:45–20:00</td><td class="grp">Piwonia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="day" rowspan="3" data-pl="Wtorek" data-en="Tuesday">Wtorek</td><td class="hrs">10:00–12:15</td><td class="grp">Lawenda</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="hrs">15:00–16:15</td><td class="grp">Bratek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            <tr><td class="hrs">16:45–18:00</td><td class="grp">Nagietek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            <tr><td class="day" rowspan="3" data-pl="Środa" data-en="Wednesday">Środa</td><td class="hrs">10:00–12:15</td><td class="grp">Cynia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="hrs">16:00–17:15</td><td class="grp">Fiołek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            <tr><td class="hrs">17:45–20:00</td><td class="grp">Jaśmin</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="day" rowspan="3" data-pl="Czwartek" data-en="Thursday">Czwartek</td><td class="hrs">10:00–12:15</td><td class="grp">Szafran</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="hrs">16:00–17:15</td><td class="grp">Koniczyna</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            <tr><td class="hrs">17:45–20:00</td><td class="grp">Wrzos</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="day" rowspan="2" data-pl="Piątek" data-en="Friday">Piątek</td><td class="hrs">10:00–12:15</td><td class="grp">Magnolia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
+            <tr><td class="hrs">15:00–16:15</td><td class="grp">Słonecznik</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sched-note2" data-pl="Każda grupa ma swoją nazwę — zapisujesz się do konkretnej i spotykasz się z tymi samymi osobami. Napisz do nas, a powiemy, gdzie są wolne miejsca." data-en="Each group has its own name — you join a specific one and meet the same people each time. Write to us and we&#39;ll tell you where there are free places.">Każda grupa ma swoją nazwę — zapisujesz się do konkretnej i spotykasz się z tymi samymi osobami. Napisz do nas, a powiemy, gdzie są wolne miejsca.</p>
+      </div>
+    </div>
+  </section>
 
 <!-- ===== KIDS ===== -->
 
@@ -477,7 +556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="infocard reveal">
         <div class="ic-speck" aria-hidden="true"></div>
         <dl class="dl">
-          <div class="row"><dt data-pl="Dla kogo" data-en="For whom">Dla kogo</dt><dd data-pl="1–4 osób" data-en="1–4 people">1–4 osób</dd></div>
+          <div class="row"><dt data-pl="Dla kogo" data-en="For whom">Dla kogo</dt><dd data-pl="1–8 osób" data-en="1–8 people">1–8 osób</dd></div>
           <div class="row"><dt data-pl="Czas trwania" data-en="Duration">Czas trwania</dt><dd data-pl="ok. 3,5 godziny" data-en="approx. 3.5 hours">ok. 3,5 godziny</dd></div>
           <div class="row"><dt data-pl="Idealne na" data-en="Great for">Idealne na</dt><dd data-pl="prezent, randkę, spotkanie ze znajomymi" data-en="a gift, a date, a get-together">prezent, randkę, spotkanie ze znajomymi</dd></div>
           <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje" data-en="Instructor's care, all materials and tools to make your piece, firing, drinks">opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje</dd></div>
