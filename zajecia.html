@@ -389,6 +389,13 @@
   @media(max-width:560px){ .cal{grid-template-columns:48px repeat(5,minmax(96px,1fr))} .cal-ev b{font-size:14px} }
   #harmonogram{scroll-margin-top:110px}
   #materialy{scroll-margin-top:110px}
+  .sec-divider{border:none;border-top:1px solid var(--line);margin:0}
+  .cal-hold{position:relative}
+  .cal-hold .cal-wrap{filter:blur(2.5px) saturate(.6);opacity:.5;pointer-events:none;user-select:none}
+  .cal-veil{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;background:linear-gradient(180deg,rgba(247,243,238,.78),rgba(247,243,238,.92));border-radius:18px}
+  .cal-veil .v-box{max-width:38ch}
+  .cal-veil h3{font-family:var(--serif);font-weight:700;font-size:clamp(22px,3.4vw,32px);color:var(--ink);margin:0 0 8px;line-height:1.2}
+  .cal-veil p{color:#4a4744;margin:0;font-size:15px}
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -472,6 +479,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+  <div class="wrap"><hr class="sec-divider"></div>
+  <div style="height:34px" aria-hidden="true"></div>
+
   <section class="sec" id="dzieci" style="padding-top:0">
     <div class="wrap">
       <div class="format-grid">
@@ -521,6 +531,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="eyebrow" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</span>
       <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 18px" data-pl="Kiedy się spotykamy" data-en="When we meet">Kiedy się spotykamy</h2>
       <div class="reveal">
+        <div class="cal-hold">
+        <div class="cal-veil">
+          <div class="v-box">
+            <h3 data-pl="Pracujemy nad grafikiem" data-en="We're working on the timetable">Pracujemy nad grafikiem</h3>
+            <p data-pl="Wróć tutaj 30 września — grafik zajęć będzie gotowy." data-en="Come back on 30 September — the timetable will be ready.">Wróć tutaj 30 września — grafik zajęć będzie gotowy.</p>
+          </div>
+        </div>
         <div class="cal-wrap">
           <div class="cal">
           <div class="cal-h corner"></div>
@@ -549,23 +566,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="cal-line" style="grid-row:34;grid-column:2/-1"></div>
           <div class="cal-t" style="grid-row:38">19:00</div>
           <div class="cal-line" style="grid-row:38;grid-column:2/-1"></div>
-          <div class="cal-ev ev-a" style="grid-column:2;grid-row:2/10"><b>Malwa</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-k" style="grid-column:2;grid-row:26/31"><b>Stokrotka</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
-          <div class="cal-ev ev-a" style="grid-column:2;grid-row:33/41"><b>Piwonia</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-a" style="grid-column:3;grid-row:2/10"><b>Lawenda</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-k" style="grid-column:3;grid-row:22/27"><b>Bratek</b><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
-          <div class="cal-ev ev-k" style="grid-column:3;grid-row:29/34"><b>Nagietek</b><span data-pl="16:45–18:00 · dzieci" data-en="16:45–18:00 · children">16:45–18:00 · dzieci</span></div>
-          <div class="cal-ev ev-a" style="grid-column:4;grid-row:2/10"><b>Cynia</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-k" style="grid-column:4;grid-row:26/31"><b>Fiołek</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
-          <div class="cal-ev ev-a" style="grid-column:4;grid-row:33/41"><b>Jaśmin</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-a" style="grid-column:5;grid-row:2/10"><b>Szafran</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-k" style="grid-column:5;grid-row:26/31"><b>Koniczyna</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
-          <div class="cal-ev ev-a" style="grid-column:5;grid-row:33/41"><b>Wrzos</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-a" style="grid-column:6;grid-row:2/10"><b>Magnolia</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
-          <div class="cal-ev ev-k" style="grid-column:6;grid-row:22/27"><b>Słonecznik</b><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:2;grid-row:2/10"><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:2;grid-row:26/31"><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:2;grid-row:33/41"><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:3;grid-row:2/10"><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:3;grid-row:22/27"><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
+          <div class="cal-ev ev-k" style="grid-column:3;grid-row:29/34"><span data-pl="16:45–18:00 · dzieci" data-en="16:45–18:00 · children">16:45–18:00 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:2/10"><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:4;grid-row:26/31"><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:33/41"><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:2/10"><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:5;grid-row:26/31"><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:33/41"><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:6;grid-row:2/10"><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:6;grid-row:22/27"><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
           </div>
         </div>
-        <div class="cal-legend">
+      </div>
+        <div class="cal-legend" style="display:none">
           <span><i style="background:rgba(158,74,44,.55)"></i><span data-pl="dorośli i młodzież · 2 godziny" data-en="adults &amp; teens · 2 hours">dorośli i młodzież · 2 godziny</span></span>
           <span><i style="background:rgba(123,167,188,.75)"></i><span data-pl="dzieci · 1 godzina 15 minut" data-en="children · 1 hour 15 minutes">dzieci · 1 godzina 15 minut</span></span>
         </div>
