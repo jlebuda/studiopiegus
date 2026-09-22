@@ -370,19 +370,25 @@
   .voucher .btn-fill:hover{border-color:#F7F3EE}
 
   /* harmonogram */
-  .sched{margin-top:10px}
-  .sched-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
-  table.sched-t{width:100%;border-collapse:collapse;min-width:560px;font-family:var(--sans)}
-  table.sched-t th,table.sched-t td{padding:13px 16px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line)}
-  table.sched-t thead th{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;background:rgba(255,255,255,.5)}
-  table.sched-t tbody tr:last-child td{border-bottom:none}
-  table.sched-t .day{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink);white-space:nowrap}
-  table.sched-t .hrs{white-space:nowrap;color:var(--ink);font-weight:500}
-  table.sched-t .grp{color:#4a4744}
-  .sched-t .tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.02em}
-  .tag-a{background:rgba(158,74,44,.12);color:var(--clay)}
-  .tag-k{background:rgba(123,167,188,.2);color:var(--blue-deep)}
   .sched-note2{font-size:13.5px;color:#6a6560;margin:14px 0 0;line-height:1.6}
+
+  /* harmonogram — widok kalendarza */
+  .cal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:0 0 4px}
+  .cal{display:grid;grid-template-columns:58px repeat(5,minmax(104px,1fr));grid-template-rows:auto repeat(40,13px);min-width:640px;font-family:var(--sans);position:relative}
+  .cal-h{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.72);backdrop-filter:blur(4px);padding:11px 8px 20px;text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;border-bottom:1px solid var(--line)}
+  .cal-h.corner{border-right:1px solid var(--line)}
+  .cal-t{grid-column:1;font-size:11px;color:#8a847d;padding-right:9px;text-align:right;transform:translateY(-6px);border-right:1px solid var(--line)}
+  .cal-line{border-top:1px dashed rgba(46,44,42,.1);z-index:0}
+  .cal-ev{position:relative;z-index:2;margin:1px 4px;border-radius:9px;padding:7px 9px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;line-height:1.25}
+  .cal-ev b{font-family:var(--serif);font-size:15px;font-weight:700;display:block}
+  .cal-ev span{font-size:11px;opacity:.85;white-space:nowrap}
+  .ev-a{background:rgba(158,74,44,.15);color:var(--clay);box-shadow:inset 3px 0 0 var(--clay)}
+  .ev-k{background:rgba(123,167,188,.26);color:var(--blue-deep);box-shadow:inset 3px 0 0 var(--blue-deep)}
+  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin:16px 0 0;font-size:13.5px;color:#4a4744}
+  .cal-legend i{width:12px;height:12px;border-radius:4px;display:inline-block;margin-right:7px;vertical-align:-1px}
+  @media(max-width:560px){ .cal{grid-template-columns:48px repeat(5,minmax(96px,1fr))} .cal-ev b{font-size:14px} }
+  #harmonogram{scroll-margin-top:110px}
+  #materialy{scroll-margin-top:110px}
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -448,6 +454,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="format-cta">
           <a href="kontakt.html" class="btn btn-fill" data-pl="Zapisz się" data-en="Sign up">Zapisz się</a>
           <a href="voucher.html" class="btn btn-ghost" data-pl="Podaruj voucher" data-en="Give a voucher">Podaruj voucher</a>
+          <a href="#harmonogram" class="btn btn-ghost" data-pl="Grafik zajęć" data-en="Class timetable">Grafik zajęć</a>
         </div>
       </div>
       <div class="infocard reveal">
@@ -461,14 +468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </dl>
       </div>
     </div>
-      <div class="wsplit reveal">
-      <h3 class="w-title" data-pl="Materiały i wyposażenie" data-en="Materials &amp; facilities">Materiały i wyposażenie</h3>
-      <div class="w-timeline">
-        <div class="w-tl"><div class="w-num">1</div><h4 data-pl="Materiały najwyższej jakości" data-en="Top-quality materials">Materiały najwyższej jakości</h4><p data-pl="Pracujemy na masach ceramicznych w różnych kolorach (kamionka, fajans) oraz bogatej, stale powiększanej palecie szkliw, angob i farb podszkliwnych." data-en="We work with clay bodies in various colours (stoneware, earthenware) and a rich, ever-growing palette of glazes, engobes and underglaze paints.">Pracujemy na masach ceramicznych w różnych kolorach (kamionka, fajans) oraz bogatej, stale powiększanej palecie szkliw, angob i farb podszkliwnych.</p></div>
-        <div class="w-tl"><div class="w-num">2</div><h4 data-pl="Szybkie wypalanie" data-en="Fast firing">Szybkie wypalanie</h4><p data-pl="Piec znajduje się bezpośrednio w pracowni, dzięki czemu wypały odbywają się bardzo często, a czas oczekiwania na gotową pracę jest skrócony do minimum." data-en="The kiln is right here in the studio, so firings happen very often and the wait for your finished piece is kept to a minimum.">Piec znajduje się bezpośrednio w pracowni, dzięki czemu wypały odbywają się bardzo często, a czas oczekiwania na gotową pracę jest skrócony do minimum.</p></div>
-        <div class="w-tl"><div class="w-num">3</div><h4 data-pl="Komfort na miejscu" data-en="Comfort on site">Komfort na miejscu</h4><p data-pl="W pracowni czeka na Ciebie fartuch, woda oraz ciepła herbata." data-en="An apron, water and hot tea are waiting for you in the studio.">W pracowni czeka na Ciebie fartuch, woda oraz ciepła herbata.</p></div>
-      </div>
-    </div>
+      
   </div>
 </section>
 
@@ -478,11 +478,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="format-text reveal">
           <span class="eyebrow" data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</span>
           <h2 data-pl="Dla dzieci" data-en="For children">Dla dzieci</h2>
-          <p data-pl="Zajęcia dla dzieci od 7 lat. Pracujemy w małej grupie, przy jednym stole, w spokojnym tempie — każde dziecko ma miejsce, własną glinę i uwagę prowadzącej." data-en="Classes for children from age 7. We work in a small group, at one table, at a calm pace — every child has their own space, their own clay and the instructor&#39;s attention.">Zajęcia dla dzieci od 7 lat. Pracujemy w małej grupie, przy jednym stole, w spokojnym tempie — każde dziecko ma miejsce, własną glinę i uwagę prowadzącej.</p>
-          <p data-pl="Dzieci lepią to, co same wymyślą — zwierzaki, miseczki, skarbonki, figurki. Po drodze poznają techniki i uczą się cierpliwości: praca musi wyschnąć, potem trafia do pieca, a gotową odbiera się po kilku tygodniach. Ta chwila jest zawsze najlepsza." data-en="Children make whatever they come up with — animals, little bowls, piggy banks, figurines. Along the way they learn techniques and patience: the piece has to dry, then it goes into the kiln, and it&#39;s collected a few weeks later. That moment is always the best one.">Dzieci lepią to, co same wymyślą — zwierzaki, miseczki, skarbonki, figurki. Po drodze poznają techniki i uczą się cierpliwości: praca musi wyschnąć, potem trafia do pieca, a gotową odbiera się po kilku tygodniach. Ta chwila jest zawsze najlepsza.</p>
+          <p data-pl="Pełna swoboda tworzenia — dzieci lepią to, co podpowie im wyobraźnia! Od własnych kubeczków, z których można potem pić ciepłe kakao, przez figurki i zwierzątka, aż po niezwykłe dekoracje do pokoju." data-en="Complete creative freedom — children make whatever their imagination suggests! From their own mugs for drinking hot cocoa, through figurines and little animals, to unusual decorations for their room.">Pełna swoboda tworzenia — dzieci lepią to, co podpowie im wyobraźnia! Od własnych kubeczków, z których można potem pić ciepłe kakao, przez figurki i zwierzątka, aż po niezwykłe dekoracje do pokoju.</p>
+          <p data-pl="Podczas całych zajęć dzieci są pod opieką instruktora, który nie tylko wspiera je w realizacji pomysłów, ale również dzieli się wiedzą techniczną. Jeśli to pierwsze spotkanie z gliną, krok po kroku wprowadzimy w ten fascynujący świat i pokażemy, co można z niej wyczarować." data-en="Throughout the class children are looked after by an instructor who supports their ideas and shares technical know-how. If this is their first time with clay, we introduce this fascinating world step by step and show what can be conjured from it.">Podczas całych zajęć dzieci są pod opieką instruktora, który nie tylko wspiera je w realizacji pomysłów, ale również dzieli się wiedzą techniczną. Jeśli to pierwsze spotkanie z gliną, krok po kroku wprowadzimy w ten fascynujący świat i pokażemy, co można z niej wyczarować.</p>
+          <p data-pl="Praca z gliną to świetne wsparcie rozwoju motoryki małej. Ugniatanie, ściskanie, wałkowanie, lepienie i malowanie rozwijają sprawność dłoni, koordynację ręka-oko oraz precyzję ruchów." data-en="Working with clay is great support for fine motor development. Kneading, squeezing, rolling, shaping and painting build hand dexterity, hand-eye coordination and precision.">Praca z gliną to świetne wsparcie rozwoju motoryki małej. Ugniatanie, ściskanie, wałkowanie, lepienie i malowanie rozwijają sprawność dłoni, koordynację ręka-oko oraz precyzję ruchów.</p>
+          <p data-pl="Glina pozwala dzieciom uczyć się przez doświadczenie, a nie przez wykonywanie zadania według jednego właściwego wzoru. Można coś spłaszczyć, rozgnieść i zacząć od nowa!" data-en="Clay lets children learn through experience rather than by following one correct template. You can flatten something, squash it and start again!">Glina pozwala dzieciom uczyć się przez doświadczenie, a nie przez wykonywanie zadania według jednego właściwego wzoru. Można coś spłaszczyć, rozgnieść i zacząć od nowa!</p>
+          <p data-pl="Używamy farb i szkliw przeznaczonych do pracy z dziećmi, a po wypaleniu — bezpiecznych w kontakcie z żywnością." data-en="We use paints and glazes intended for work with children — and, once fired, safe for contact with food.">Używamy farb i szkliw przeznaczonych do pracy z dziećmi, a po wypaleniu — bezpiecznych w kontakcie z żywnością.</p>
           <div class="format-cta">
             <a href="kontakt.html" class="btn btn-fill" data-pl="Zapisz dziecko" data-en="Sign your child up">Zapisz dziecko</a>
             <a href="cennik.html" class="btn btn-ghost" data-pl="Zobacz cennik" data-en="See pricing">Zobacz cennik</a>
+            <a href="#harmonogram" class="btn btn-ghost" data-pl="Grafik zajęć" data-en="Class timetable">Grafik zajęć</a>
           </div>
         </div>
         <div class="infocard reveal">
@@ -491,7 +495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="row"><dt data-pl="Format" data-en="Format">Format</dt><dd data-pl="co tydzień lub co dwa tygodnie" data-en="weekly or every two weeks">co tydzień lub co dwa tygodnie</dd></div>
             <div class="row"><dt data-pl="Grupa" data-en="Group">Grupa</dt><dd data-pl="maks. 8 osób" data-en="up to 8 people">maks. 8 osób</dd></div>
             <div class="row"><dt data-pl="Czas" data-en="Duration">Czas</dt><dd data-pl="1 godzina 15 minut" data-en="1 hour 15 minutes">1 godzina 15 minut</dd></div>
-            <div class="row"><dt data-pl="Wiek" data-en="Age">Wiek</dt><dd data-pl="od 7 lat" data-en="from age 7">od 7 lat</dd></div>
+            <div class="row"><dt data-pl="Wiek" data-en="Age">Wiek</dt><dd data-pl="7–14 lat, grupy mieszane wiekowo" data-en="ages 7–14, mixed-age groups">7–14 lat, grupy mieszane wiekowo</dd></div>
             <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, fartuch, opieka instruktora" data-en="clay, glazes, underglazes, engobes, bisque firing, apron, instructor&#39;s care">gliny, szkliwa, farbki podszkliwne, angoby, wypał biskwitowy, fartuch, opieka instruktora</dd></div>
           </dl>
         </div>
@@ -499,38 +503,71 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <section class="sec" id="materialy" style="padding-top:0">
+    <div class="wrap">
+      <div class="wsplit reveal">
+      <h3 class="w-title" data-pl="Materiały i wyposażenie" data-en="Materials &amp; facilities">Materiały i wyposażenie</h3>
+      <div class="w-timeline">
+        <div class="w-tl"><div class="w-num">1</div><h4 data-pl="Materiały najwyższej jakości" data-en="Top-quality materials">Materiały najwyższej jakości</h4><p data-pl="Pracujemy na masach ceramicznych w różnych kolorach (kamionka, fajans) oraz bogatej, stale powiększanej palecie szkliw, angob i farb podszkliwnych." data-en="We work with clay bodies in various colours (stoneware, earthenware) and a rich, ever-growing palette of glazes, engobes and underglaze paints.">Pracujemy na masach ceramicznych w różnych kolorach (kamionka, fajans) oraz bogatej, stale powiększanej palecie szkliw, angob i farb podszkliwnych.</p></div>
+        <div class="w-tl"><div class="w-num">2</div><h4 data-pl="Szybkie wypalanie" data-en="Fast firing">Szybkie wypalanie</h4><p data-pl="Piec znajduje się bezpośrednio w pracowni, dzięki czemu wypały odbywają się bardzo często, a czas oczekiwania na gotową pracę jest skrócony do minimum." data-en="The kiln is right here in the studio, so firings happen very often and the wait for your finished piece is kept to a minimum.">Piec znajduje się bezpośrednio w pracowni, dzięki czemu wypały odbywają się bardzo często, a czas oczekiwania na gotową pracę jest skrócony do minimum.</p></div>
+        <div class="w-tl"><div class="w-num">3</div><h4 data-pl="Komfort na miejscu" data-en="Comfort on site">Komfort na miejscu</h4><p data-pl="W pracowni czeka na Ciebie fartuch, woda oraz ciepła herbata." data-en="An apron, water and hot tea are waiting for you in the studio.">W pracowni czeka na Ciebie fartuch, woda oraz ciepła herbata.</p></div>
+      </div>
+    </div>
+    </div>
+  </section>
+
   <section class="sec" id="harmonogram" style="padding-top:0">
     <div class="wrap">
-      <span class="eyebrow" data-pl="Harmonogram" data-en="Timetable">Harmonogram</span>
+      <span class="eyebrow" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</span>
       <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 18px" data-pl="Kiedy się spotykamy" data-en="When we meet">Kiedy się spotykamy</h2>
-      <div class="sched reveal">
-        <div class="sched-wrap">
-          <table class="sched-t">
-            <thead>
-              <tr>
-                <th data-pl="Dzień" data-en="Day">Dzień</th>
-                <th data-pl="Godziny" data-en="Hours">Godziny</th>
-                <th data-pl="Grupa" data-en="Group">Grupa</th>
-                <th data-pl="Dla kogo" data-en="For whom">Dla kogo</th>
-              </tr>
-            </thead>
-            <tbody>
-            <tr><td class="day" rowspan="3" data-pl="Poniedziałek" data-en="Monday">Poniedziałek</td><td class="hrs">10:00–12:15</td><td class="grp">Malwa</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="hrs">16:00–17:15</td><td class="grp">Stokrotka</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            <tr><td class="hrs">17:45–20:00</td><td class="grp">Piwonia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="day" rowspan="3" data-pl="Wtorek" data-en="Tuesday">Wtorek</td><td class="hrs">10:00–12:15</td><td class="grp">Lawenda</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="hrs">15:00–16:15</td><td class="grp">Bratek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            <tr><td class="hrs">16:45–18:00</td><td class="grp">Nagietek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            <tr><td class="day" rowspan="3" data-pl="Środa" data-en="Wednesday">Środa</td><td class="hrs">10:00–12:15</td><td class="grp">Cynia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="hrs">16:00–17:15</td><td class="grp">Fiołek</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            <tr><td class="hrs">17:45–20:00</td><td class="grp">Jaśmin</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="day" rowspan="3" data-pl="Czwartek" data-en="Thursday">Czwartek</td><td class="hrs">10:00–12:15</td><td class="grp">Szafran</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="hrs">16:00–17:15</td><td class="grp">Koniczyna</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            <tr><td class="hrs">17:45–20:00</td><td class="grp">Wrzos</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="day" rowspan="2" data-pl="Piątek" data-en="Friday">Piątek</td><td class="hrs">10:00–12:15</td><td class="grp">Magnolia</td><td><span class="tag tag-a" data-pl="dorośli i młodzież" data-en="adults &amp; teens">dorośli i młodzież</span></td></tr>
-            <tr><td class="hrs">15:00–16:15</td><td class="grp">Słonecznik</td><td><span class="tag tag-k" data-pl="dzieci" data-en="children">dzieci</span></td></tr>
-            </tbody>
-          </table>
+      <div class="reveal">
+        <div class="cal-wrap">
+          <div class="cal">
+          <div class="cal-h corner"></div>
+          <div class="cal-h" data-pl="Pon" data-en="Mon">Pon</div>
+          <div class="cal-h" data-pl="Wt" data-en="Tue">Wt</div>
+          <div class="cal-h" data-pl="Śr" data-en="Wed">Śr</div>
+          <div class="cal-h" data-pl="Czw" data-en="Thu">Czw</div>
+          <div class="cal-h" data-pl="Pt" data-en="Fri">Pt</div>
+          <div class="cal-t" style="grid-row:2">10:00</div>
+          <div class="cal-line" style="grid-row:2;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:6">11:00</div>
+          <div class="cal-line" style="grid-row:6;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:10">12:00</div>
+          <div class="cal-line" style="grid-row:10;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:14">13:00</div>
+          <div class="cal-line" style="grid-row:14;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:18">14:00</div>
+          <div class="cal-line" style="grid-row:18;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:22">15:00</div>
+          <div class="cal-line" style="grid-row:22;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:26">16:00</div>
+          <div class="cal-line" style="grid-row:26;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:30">17:00</div>
+          <div class="cal-line" style="grid-row:30;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:34">18:00</div>
+          <div class="cal-line" style="grid-row:34;grid-column:2/-1"></div>
+          <div class="cal-t" style="grid-row:38">19:00</div>
+          <div class="cal-line" style="grid-row:38;grid-column:2/-1"></div>
+          <div class="cal-ev ev-a" style="grid-column:2;grid-row:2/10"><b>Malwa</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:2;grid-row:26/31"><b>Stokrotka</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:2;grid-row:33/41"><b>Piwonia</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:3;grid-row:2/10"><b>Lawenda</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:3;grid-row:22/27"><b>Bratek</b><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
+          <div class="cal-ev ev-k" style="grid-column:3;grid-row:29/34"><b>Nagietek</b><span data-pl="16:45–18:00 · dzieci" data-en="16:45–18:00 · children">16:45–18:00 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:2/10"><b>Cynia</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:4;grid-row:26/31"><b>Fiołek</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:33/41"><b>Jaśmin</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:2/10"><b>Szafran</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:5;grid-row:26/31"><b>Koniczyna</b><span data-pl="16:00–17:15 · dzieci" data-en="16:00–17:15 · children">16:00–17:15 · dzieci</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:33/41"><b>Wrzos</b><span data-pl="17:45–19:45 · dorośli i młodzież" data-en="17:45–19:45 · adults &amp; teens">17:45–19:45 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-a" style="grid-column:6;grid-row:2/10"><b>Magnolia</b><span data-pl="10:00–12:00 · dorośli i młodzież" data-en="10:00–12:00 · adults &amp; teens">10:00–12:00 · dorośli i młodzież</span></div>
+          <div class="cal-ev ev-k" style="grid-column:6;grid-row:22/27"><b>Słonecznik</b><span data-pl="15:00–16:15 · dzieci" data-en="15:00–16:15 · children">15:00–16:15 · dzieci</span></div>
+          </div>
+        </div>
+        <div class="cal-legend">
+          <span><i style="background:rgba(158,74,44,.55)"></i><span data-pl="dorośli i młodzież · 2 godziny" data-en="adults &amp; teens · 2 hours">dorośli i młodzież · 2 godziny</span></span>
+          <span><i style="background:rgba(123,167,188,.75)"></i><span data-pl="dzieci · 1 godzina 15 minut" data-en="children · 1 hour 15 minutes">dzieci · 1 godzina 15 minut</span></span>
         </div>
         <p class="sched-note2" data-pl="Każda grupa ma swoją nazwę — zapisujesz się do konkretnej i spotykasz się z tymi samymi osobami. Napisz do nas, a powiemy, gdzie są wolne miejsca." data-en="Each group has its own name — you join a specific one and meet the same people each time. Write to us and we&#39;ll tell you where there are free places.">Każda grupa ma swoją nazwę — zapisujesz się do konkretnej i spotykasz się z tymi samymi osobami. Napisz do nas, a powiemy, gdzie są wolne miejsca.</p>
       </div>
