@@ -211,8 +211,8 @@
   .hero-full{min-height:100svh;display:flex;align-items:center;padding:132px 0 44px;overflow:hidden}
   .hero-full .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
   .hero-full .hero-scrim{position:absolute;inset:0;z-index:1;background:
-     linear-gradient(90deg,rgba(26,22,20,.66) 0%,rgba(26,22,20,.34) 46%,rgba(26,22,20,.06) 100%),
-     linear-gradient(180deg,rgba(26,22,20,.5) 0%,rgba(26,22,20,0) 26%,rgba(26,22,20,0) 72%,rgba(26,22,20,.28) 100%)}
+     linear-gradient(90deg,rgba(26,22,20,0.363) 0%,rgba(26,22,20,0.187) 46%,rgba(26,22,20,0.033) 100%),
+     linear-gradient(180deg,rgba(26,22,20,0.275) 0%,rgba(26,22,20,0.0) 26%,rgba(26,22,20,0.0) 72%,rgba(26,22,20,0.154) 100%)}
   .hero-full .wrap{position:relative;z-index:2;width:100%}
   .hero-full .hero-inner{max-width:640px}
   .hero-full h1{color:#F7F3EE;margin:0;font-weight:700;text-shadow:0 2px 20px rgba(20,16,14,.4)}
@@ -231,7 +231,7 @@
   }
   @media(max-width:760px){
     .hero-full{min-height:92svh}
-    .hero-full .hero-scrim{background:linear-gradient(180deg,rgba(26,22,20,.55) 0%,rgba(26,22,20,.2) 40%,rgba(26,22,20,.58) 100%)}
+    .hero-full .hero-scrim{background:linear-gradient(180deg,rgba(26,22,20,0.303) 0%,rgba(26,22,20,0.11) 40%,rgba(26,22,20,0.319) 100%)}
   }
 
   /* ---- foto v2: menu caps / 2x logo / language chip / portrait crop ---- */
@@ -289,6 +289,12 @@
 
   .voucher .btn-fill{border-color:#F7F3EE}
   .voucher .btn-fill:hover{border-color:#F7F3EE}
+
+  /* czytelnosc tekstu na jasnych zdjeciach hero */
+  .hero-full h1,.hero h1{text-shadow:0 2px 10px rgba(20,16,14,.55),0 1px 34px rgba(20,16,14,.4)}
+  .hero-full .hero-sub,.hero .hero-sub,.hero-full .lead{text-shadow:0 1px 8px rgba(20,16,14,.6),0 1px 24px rgba(20,16,14,.45)}
+  body.foto .nav:not(.solid) .nav-links > a{text-shadow:0 1px 7px rgba(20,16,14,.55)}
+  .hero-full .btn-ghost,.hero .btn-ghost{text-shadow:0 1px 7px rgba(20,16,14,.5);border-color:rgba(247,243,238,.75)}
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -332,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ===== HERO (full photo) ===== -->
 <header class="hero hero-full">
-  <img class="hero-bg" src="img/8dd4afa3d45d.jpg" alt="" aria-hidden="true">
+  <img class="hero-bg" src="img/500dc858fc04.jpg" alt="" aria-hidden="true">
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-inner reveal in">
@@ -358,6 +364,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</h3>
         <p data-pl="Regularny rytuał, który Cię uziemia. Stała grupa, maksymalnie osiem osób." data-en="A regular ritual that grounds you. A steady group, four people max.">Regularny rytuał, który Cię uziemia. Stała grupa, maksymalnie osiem osób.</p>
         <a class="more" href="zajecia.html#dorosli" data-pl="Dowiedz się więcej" data-en="Learn more">Dowiedz się więcej <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </article>
+
+      <article class="tile reveal">
+        <svg class="dotcluster" viewBox="0 0 54 54" aria-hidden="true"><circle cx="15" cy="18" r="2.4" fill="#9E4A2C"/><circle cx="27" cy="13" r="3" fill="#9E4A2C"/><circle cx="33" cy="24" r="2" fill="#9E4A2C"/><circle cx="21" cy="29" r="1.7" fill="#9E4A2C"/></svg>
+        <h3 data-pl="Zajęcia dla dzieci" data-en="Classes for children">Zajęcia dla dzieci</h3>
+        <p data-pl="Zajęcia dla dzieci w wieku 7–14 lat. Pełna swoboda tworzenia pod opieką instruktora." data-en="Classes for children aged 7–14. Complete creative freedom, with an instructor on hand.">Zajęcia dla dzieci w wieku 7–14 lat. Pełna swoboda tworzenia pod opieką instruktora.</p>
+        <a class="more" href="zajecia.html#dzieci" data-pl="Dowiedz się więcej" data-en="Find out more">Dowiedz się więcej <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
       
       <article class="tile reveal">
@@ -432,11 +445,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="brand">
           <img src="img/e8dd5a2f4b17.png" alt="Studio Piegus">
         </div>
-        <p class="foot-desc" data-pl="Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie." data-en="Ceramics classes for teens and adults in Sadyba, Warsaw. Small groups, a cosy studio. Creative time for yourself.">Zajęcia z ceramiki dla młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie.</p>
+        <p class="foot-desc" data-pl="Zajęcia z ceramiki dla dzieci, młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie." data-en="Ceramics classes for children, teens and adults in Sadyba, Warsaw. Small groups, a cosy studio. Creative time for yourself.">Zajęcia z ceramiki dla dzieci, młodzieży i dorosłych na warszawskiej Sadybie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie.</p>
       </div>
       <div class="foot-col">
         <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
-        <p>Studio Piegus Sp. z o.o.<br>ul. Jana III Sobieskiego 22<br>02-930 Warszawa</p>
+        <p>Studio Piegus Sp. z o.o.<br>ul. Resorowa 30<br>02-956 Warszawa</p>
         <a href="tel:+48509744773">+48 509 744 773</a>
         <a href="mailto:studiopiegus@gmail.com">studiopiegus@gmail.com</a>
         <div class="socials socials-dark">
