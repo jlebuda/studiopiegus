@@ -379,26 +379,49 @@
   .lang-note{font-size:14px;color:#6a6560;margin:16px 0 0;font-style:italic}
 
   /* grafik zajec - kalendarz */
-  .cal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:0 0 6px}
-  .cal{display:grid;grid-template-columns:62px repeat(5,minmax(132px,1fr));grid-template-rows:auto repeat(44,13px);min-width:760px;font-family:var(--sans);position:relative}
-  .cal-h{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.75);backdrop-filter:blur(4px);padding:11px 8px 20px;text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;border-bottom:1px solid var(--line)}
-  .cal-h.corner{border-right:1px solid var(--line)}
-  .cal-t{grid-column:1;font-size:11px;color:#8a847d;padding-right:9px;text-align:right;transform:translateY(-6px);border-right:1px solid var(--line)}
-  .cal-line{border-top:1px dashed rgba(46,44,42,.1);z-index:0}
-  .cal-ev{position:relative;z-index:2;margin:1px 4px;border-radius:10px;padding:7px 9px;overflow:hidden;display:flex;flex-direction:column;gap:2px;justify-content:center;line-height:1.25}
-  .cal-ev .t{font-family:var(--serif);font-size:15.5px;font-weight:700;display:block}
-  .cal-ev .w{font-size:11.5px;opacity:.9;white-space:nowrap}
-  .cal-ev .kidbar{display:block;margin:-7px -9px 3px;padding:3px 9px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--blue-deep);color:#F7F3EE}
-  .cal-ev .fullbar{display:block;margin:3px -9px -7px;padding:3px 9px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#4A5233;color:#F2EFE6}
-  .ev-a{background:rgba(158,74,44,.14);color:var(--clay);box-shadow:inset 3px 0 0 var(--clay)}
-  .ev-k{background:rgba(123,167,188,.26);color:var(--blue-deep);box-shadow:inset 3px 0 0 var(--blue-deep)}
-  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin:16px 0 0;font-size:13.5px;color:#4a4744;align-items:center}
-  .cal-legend i{width:12px;height:12px;border-radius:4px;display:inline-block;margin-right:7px;vertical-align:-1px}
-  @media(max-width:560px){ .cal{grid-template-columns:52px repeat(5,minmax(124px,1fr))} }
+  @media(max-width:560px){ }
   #harmonogram{scroll-margin-top:110px}
   #dzieci{scroll-margin-top:110px}
   #dorosli{scroll-margin-top:110px}
   .btn-wide{display:flex;width:100%;max-width:100%;box-sizing:border-box;justify-content:center;align-items:center;margin:26px 0 0;padding:18px 26px;font-size:16px;border-radius:999px;text-align:center}
+
+  /* grafik zajec - kalendarz (desktop) */
+  .cal-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:0 0 6px}
+  .cal{display:grid;grid-template-columns:62px repeat(5,minmax(150px,1fr));grid-template-rows:auto repeat(44,15px);min-width:860px;font-family:var(--sans);position:relative}
+  .cal-h{position:sticky;top:0;z-index:3;background:rgba(255,255,255,.75);backdrop-filter:blur(4px);padding:11px 8px 20px;text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-deep);font-weight:600;border-bottom:1px solid var(--line)}
+  .cal-h.corner{border-right:1px solid var(--line)}
+  .cal-t{grid-column:1;font-size:11px;color:#8a847d;padding-right:9px;text-align:right;transform:translateY(-6px);border-right:1px solid var(--line)}
+  .cal-line{border-top:1px dashed rgba(46,44,42,.1);z-index:0}
+  .cal-ev{position:relative;z-index:2;margin:1px 4px;border-radius:10px;padding:6px 9px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;line-height:1.22}
+  .cal-ev .t{font-family:var(--serif);font-size:15px;font-weight:700;display:block}
+  .cal-ev .w{font-size:11.5px;opacity:.92;display:block}
+  .cal-ev .fq{font-size:11px;opacity:.72;display:block}
+  .cal-ev .bar{display:block;margin:-6px -9px 4px;padding:3px 9px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+  .ev-a{background:rgba(158,74,44,.14);color:var(--clay);box-shadow:inset 3px 0 0 var(--clay)}
+  .ev-a .bar{background:var(--clay);color:#F7F3EE}
+  .ev-k{background:rgba(123,167,188,.26);color:var(--blue-deep);box-shadow:inset 3px 0 0 var(--blue-deep)}
+  .ev-k .bar{background:var(--blue-deep);color:#F7F3EE}
+  .cal-ev .fullbar{display:block;margin:4px -9px -6px;padding:3px 9px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#4A5233;color:#F2EFE6}
+  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin:16px 0 0;font-size:13.5px;color:#4a4744;align-items:center}
+  .cal-legend i{width:12px;height:12px;border-radius:4px;display:inline-block;margin-right:7px;vertical-align:-1px}
+  /* grafik - karty dni (mobile) */
+  .daylist{display:none}
+  .daycard{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 16px 8px;margin-bottom:12px}
+  .daycard h4{font-family:var(--serif);font-size:19px;font-weight:700;margin:0 0 10px;color:var(--ink)}
+  .daycard ul{list-style:none;padding:0;margin:0}
+  .dc-item{border-radius:11px;padding:10px 12px;margin-bottom:9px;position:relative;overflow:hidden}
+  .dc-item.a{background:rgba(158,74,44,.13);box-shadow:inset 3px 0 0 var(--clay)}
+  .dc-item.k{background:rgba(123,167,188,.24);box-shadow:inset 3px 0 0 var(--blue-deep)}
+  .dc-item b{font-family:var(--serif);font-size:16px;display:block;color:var(--ink)}
+  .dc-w{font-size:12.5px;color:#4a4744;display:block;margin-top:1px}
+  .dc-bar{display:block;margin:-10px -12px 7px;padding:3px 12px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#F7F3EE}
+  .dc-item.a .dc-bar{background:var(--clay)}
+  .dc-item.k .dc-bar{background:var(--blue-deep)}
+  .dc-full{display:block;margin:7px -12px -10px;padding:3px 12px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#4A5233;color:#F2EFE6}
+  @media(max-width:760px){
+    .cal-wrap{display:none}
+    .daylist{display:block}
+  }
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -567,21 +590,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="cal-line" style="grid-row:40;grid-column:2/-1"></div>
           <div class="cal-t" style="grid-row:44">20:00</div>
           <div class="cal-line" style="grid-row:44;grid-column:2/-1"></div>
-          <div class="cal-ev ev-k" style="grid-column:2;grid-row:31/36"><span class="kidbar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">16:45-18:00</span><span class="w" data-pl="prowadzi Justyna" data-en="with Justyna">prowadzi Justyna</span></div>
-          <div class="cal-ev ev-a" style="grid-column:2;grid-row:38/46"><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span></div>
-          <div class="cal-ev ev-a" style="grid-column:3;grid-row:38/46"><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Zuza" data-en="with Zuza">prowadzi Zuza</span><span class="fullbar" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></div>
-          <div class="cal-ev ev-a" style="grid-column:4;grid-row:4/12"><span class="t">10:00-12:00</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span></div>
-          <div class="cal-ev ev-a" style="grid-column:4;grid-row:28/36"><span class="t">16:00-18:00</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span></div>
-          <div class="cal-ev ev-a" style="grid-column:4;grid-row:38/46"><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span></div>
-          <div class="cal-ev ev-a" style="grid-column:5;grid-row:2/10"><span class="t">09:30-11:30</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span></div>
-          <div class="cal-ev ev-a" style="grid-column:5;grid-row:12/20"><span class="t">12:00-14:00</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span></div>
-          <div class="cal-ev ev-k" style="grid-column:5;grid-row:29/34"><span class="kidbar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">16:15-17:30</span><span class="w" data-pl="prowadzi Karolina" data-en="with Karolina">prowadzi Karolina</span></div>
-          <div class="cal-ev ev-k" style="grid-column:5;grid-row:36/41"><span class="kidbar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">18:00-19:15</span><span class="w" data-pl="prowadzi Karolina" data-en="with Karolina">prowadzi Karolina</span></div>
-          <div class="cal-ev ev-a" style="grid-column:6;grid-row:4/12"><span class="t">10:00-12:00</span><span class="w" data-pl="prowadzi Zuza" data-en="with Zuza">prowadzi Zuza</span><span class="fullbar" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></div>
+          <div class="cal-ev ev-k" style="grid-column:2;grid-row:31/36"><span class="bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">16:45-18:00</span><span class="w" data-pl="prowadzi Justyna" data-en="with Justyna">prowadzi Justyna</span><span class="fq" data-pl="co tydzień" data-en="weekly">co tydzień</span></div>
+          <div class="cal-ev ev-a" style="grid-column:2;grid-row:38/46"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-a" style="grid-column:3;grid-row:38/46"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Zuza" data-en="with Zuza">prowadzi Zuza</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span><span class="fullbar" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:4/12"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">10:00-12:00</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:28/36"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">16:00-18:00</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-a" style="grid-column:4;grid-row:38/46"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">18:30-20:30</span><span class="w" data-pl="prowadzi Ewelina" data-en="with Ewelina">prowadzi Ewelina</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:2/10"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">09:30-11:30</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-a" style="grid-column:5;grid-row:12/20"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">12:00-14:00</span><span class="w" data-pl="prowadzi Basia" data-en="with Basia">prowadzi Basia</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span></div>
+          <div class="cal-ev ev-k" style="grid-column:5;grid-row:29/34"><span class="bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">16:15-17:30</span><span class="w" data-pl="prowadzi Karolina" data-en="with Karolina">prowadzi Karolina</span><span class="fq" data-pl="co tydzień" data-en="weekly">co tydzień</span></div>
+          <div class="cal-ev ev-k" style="grid-column:5;grid-row:36/41"><span class="bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><span class="t">18:00-19:15</span><span class="w" data-pl="prowadzi Karolina" data-en="with Karolina">prowadzi Karolina</span><span class="fq" data-pl="co tydzień" data-en="weekly">co tydzień</span></div>
+          <div class="cal-ev ev-a" style="grid-column:6;grid-row:4/12"><span class="bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><span class="t">10:00-12:00</span><span class="w" data-pl="prowadzi Zuza" data-en="with Zuza">prowadzi Zuza</span><span class="fq" data-pl="co tydzień lub dwa" data-en="weekly or every two weeks">co tydzień lub dwa</span><span class="fullbar" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></div>
+          </div>
+        </div>
+        <div class="daylist">
+          <div class="daycard">
+            <h4 data-pl="Poniedziałek" data-en="Monday">Poniedziałek</h4>
+            <ul>
+              <li class="dc-item k"><span class="dc-bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><b>16:45-18:00</b><span class="dc-w" data-pl="prowadzi Justyna · co tydzień" data-en="with Justyna · weekly">prowadzi Justyna · co tydzień</span></li>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>18:30-20:30</b><span class="dc-w" data-pl="prowadzi Ewelina · co tydzień lub dwa" data-en="with Ewelina · weekly or every two weeks">prowadzi Ewelina · co tydzień lub dwa</span></li>
+            </ul>
+          </div>
+          <div class="daycard">
+            <h4 data-pl="Wtorek" data-en="Tuesday">Wtorek</h4>
+            <ul>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>18:30-20:30</b><span class="dc-w" data-pl="prowadzi Zuza · co tydzień lub dwa" data-en="with Zuza · weekly or every two weeks">prowadzi Zuza · co tydzień lub dwa</span><span class="dc-full" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></li>
+            </ul>
+          </div>
+          <div class="daycard">
+            <h4 data-pl="Środa" data-en="Wednesday">Środa</h4>
+            <ul>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>10:00-12:00</b><span class="dc-w" data-pl="prowadzi Basia · co tydzień lub dwa" data-en="with Basia · weekly or every two weeks">prowadzi Basia · co tydzień lub dwa</span></li>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>16:00-18:00</b><span class="dc-w" data-pl="prowadzi Ewelina · co tydzień lub dwa" data-en="with Ewelina · weekly or every two weeks">prowadzi Ewelina · co tydzień lub dwa</span></li>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>18:30-20:30</b><span class="dc-w" data-pl="prowadzi Ewelina · co tydzień lub dwa" data-en="with Ewelina · weekly or every two weeks">prowadzi Ewelina · co tydzień lub dwa</span></li>
+            </ul>
+          </div>
+          <div class="daycard">
+            <h4 data-pl="Czwartek" data-en="Thursday">Czwartek</h4>
+            <ul>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>09:30-11:30</b><span class="dc-w" data-pl="prowadzi Basia · co tydzień lub dwa" data-en="with Basia · weekly or every two weeks">prowadzi Basia · co tydzień lub dwa</span></li>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>12:00-14:00</b><span class="dc-w" data-pl="prowadzi Basia · co tydzień lub dwa" data-en="with Basia · weekly or every two weeks">prowadzi Basia · co tydzień lub dwa</span></li>
+              <li class="dc-item k"><span class="dc-bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><b>16:15-17:30</b><span class="dc-w" data-pl="prowadzi Karolina · co tydzień" data-en="with Karolina · weekly">prowadzi Karolina · co tydzień</span></li>
+              <li class="dc-item k"><span class="dc-bar" data-pl="Dzieci 7-14 lat" data-en="Children 7-14">Dzieci 7-14 lat</span><b>18:00-19:15</b><span class="dc-w" data-pl="prowadzi Karolina · co tydzień" data-en="with Karolina · weekly">prowadzi Karolina · co tydzień</span></li>
+            </ul>
+          </div>
+          <div class="daycard">
+            <h4 data-pl="Piątek" data-en="Friday">Piątek</h4>
+            <ul>
+              <li class="dc-item a"><span class="dc-bar" data-pl="Młodzież i dorośli" data-en="Teens &amp; adults">Młodzież i dorośli</span><b>10:00-12:00</b><span class="dc-w" data-pl="prowadzi Zuza · co tydzień lub dwa" data-en="with Zuza · weekly or every two weeks">prowadzi Zuza · co tydzień lub dwa</span><span class="dc-full" data-pl="Brak miejsc" data-en="Fully booked">Brak miejsc</span></li>
+            </ul>
           </div>
         </div>
         <div class="cal-legend">
-          <span><i style="background:rgba(158,74,44,.55)"></i><span data-pl="dorośli i młodzież · 2 h" data-en="adults &amp; teens · 2 h">dorośli i młodzież · 2 h</span></span>
+          <span><i style="background:rgba(158,74,44,.55)"></i><span data-pl="młodzież i dorośli · 2 h" data-en="teens &amp; adults · 2 h">młodzież i dorośli · 2 h</span></span>
           <span><i style="background:rgba(123,167,188,.75)"></i><span data-pl="dzieci 7-14 lat · 1 h 15 min" data-en="children 7-14 · 1 h 15 min">dzieci 7-14 lat · 1 h 15 min</span></span>
           <span><i style="background:#4A5233"></i><span data-pl="brak wolnych miejsc" data-en="fully booked">brak wolnych miejsc</span></span>
         </div>
