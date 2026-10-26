@@ -343,6 +343,15 @@
   .hero-full .hero-sub,.hero .hero-sub,.hero-full .lead{text-shadow:0 1px 8px rgba(20,16,14,.6),0 1px 24px rgba(20,16,14,.45)}
   body.foto .nav:not(.solid) .nav-links > a{text-shadow:0 1px 7px rgba(20,16,14,.55)}
   .hero-full .btn-ghost,.hero .btn-ghost{text-shadow:0 1px 7px rgba(20,16,14,.5);border-color:rgba(247,243,238,.75)}
+  .nav-login{font-weight:700}
+  .nav-login::before{content:"";display:inline-block;width:1px;height:13px;background:currentColor;opacity:.35;margin-right:14px;vertical-align:-2px}
+  .nav-links.open .nav-login::before{display:none}
+  @media(min-width:761px) and (max-width:1199px){
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:22px 28px;gap:18px;box-shadow:0 12px 30px -20px rgba(0,0,0,.4);margin-left:0}
+    .nav-links.open .lang{margin-top:8px}
+    .burger{display:flex}
+  }
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -375,6 +384,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="dla-firm.html" class="active" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
       <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
       <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
+      <a href="https://clayboard.studiopiegus.pl/" class="nav-login" target="_blank" rel="noopener" data-pl="Zaloguj się" data-en="Log in">Zaloguj się</a>
       <div class="lang" role="group" aria-label="Język">
         <button class="on" data-lang="pl">PL</button>
         <button data-lang="en">EN</button>
