@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /studio-piegus-home-foto.html
+
+Sitemap: https://studiopiegus.pl/sitemap.xml
