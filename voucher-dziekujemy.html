@@ -467,7 +467,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 (function(){
   var p=new URLSearchParams(location.search), order=p.get('order')||'';
   var API='https://clayboard.studiopiegus.pl';
-  try{ API=sessionStorage.getItem('piegus_api')||API; }catch(e){}
+  var bp=null;
+  try{ API=sessionStorage.getItem('piegus_api')||API; bp=sessionStorage.getItem('piegus_bypass'); }catch(e){}
   if(p.get('lang')==='en'){ var b=document.querySelector('.lang button[data-lang=en]'); if(b) b.click(); }
   var en=function(){return document.documentElement.lang==='en';};
   var M={
@@ -486,7 +487,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var o=document.getElementById('tOrder'); o.setAttribute('data-pl','Numer zamówienia: '+order); o.setAttribute('data-en','Order number: '+order); o.textContent=(en()?'Order number: ':'Numer zamówienia: ')+order;
   var tries=0;
   (function poll(){
-    fetch(API+'/api/vouchers/status?order='+encodeURIComponent(order)).then(function(r){return r.json();}).then(function(d){
+    fetch(API+'/api/vouchers/status?order='+encodeURIComponent(order)+(bp?'&x-vercel-protection-bypass='+bp:'')).then(function(r){return r.json();}).then(function(d){
       if(d.status==='paid') return show('paid');
       if(d.status==='not_found') return show('none');
       if(++tries<40) setTimeout(poll,3000); else show('wait');

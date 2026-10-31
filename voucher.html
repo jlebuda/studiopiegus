@@ -704,7 +704,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var q=new URLSearchParams(location.search).get('api');
     if(q && /^(https:\/\/[a-z0-9-]+\.vercel\.app|http:\/\/localhost:\d+)$/.test(q)) API=q;
     sessionStorage.setItem('piegus_api',API);
+    // Tylko testy na podglądzie Vercel (chronionym logowaniem): sekret obejścia ochrony z adresu strony.
+    var bp=new URLSearchParams(location.search).get('bypass');
+    if(bp && /^[A-Za-z0-9]{32}$/.test(bp) && /\.vercel\.app$/.test(API)) sessionStorage.setItem('piegus_bypass',bp);
   }catch(e){}
+  var url=function(path){var b=null;try{b=sessionStorage.getItem('piegus_bypass');}catch(e){} return API+path+(b?(path.indexOf('?')<0?'?':'&')+'x-vercel-protection-bypass='+b:'');};
   var cfg=null, locker=null;
   var $=function(id){return document.getElementById(id);};
   var lang=function(){return document.documentElement.lang==='en'?'en':'pl';};
@@ -785,7 +789,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       companyName:v('of-cname')||null,companyNip:v('of-nip')||null,companyAddress:v('of-caddr')||null,
       acceptTerms:true,website:form.querySelector('[name=website]').value};
     var btn=$('payBtn'), label=btn.innerHTML; btn.disabled=true; btn.textContent=T[lang()].sending;
-    fetch(API+'/api/vouchers/order',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)})
+    fetch(url('/api/vouchers/order'),{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)})
       .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
       .then(function(x){
         if(x.ok&&x.d.paymentUrl){ location.href=x.d.paymentUrl; return; }
@@ -794,7 +798,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .catch(function(){ btn.disabled=false; btn.innerHTML=label; showErr(['other']); });
   });
 
-  fetch(API+'/api/vouchers/config').then(function(r){if(!r.ok) throw 0; return r.json();}).then(function(c){
+  fetch(url('/api/vouchers/config')).then(function(r){if(!r.ok) throw 0; return r.json();}).then(function(c){
     cfg=c;
     if(!c.salesEnabled) throw 0;
     render();
