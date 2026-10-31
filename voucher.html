@@ -523,6 +523,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div id="lockerBox" class="fgroup" hidden>
             <button type="button" class="btn btn-ghost" id="lockerBtn" data-pl="Wybierz paczkomat na mapie" data-en="Choose a parcel locker on the map">Wybierz paczkomat na mapie</button>
             <div id="lockerMap" hidden></div>
+            <p class="hint"><a href="#" id="lockerManualLink" data-pl="Nie widzisz paczkomatów? Wpisz kod ręcznie" data-en="Can't see the lockers? Enter the code manually">Nie widzisz paczkomatów? Wpisz kod ręcznie</a></p>
             <p class="hint" id="lockerChosen"></p>
             <div id="lockerManual" hidden>
               <label for="of-locker" data-pl="Kod paczkomatu <span class='opt'>(np. WAW123M)</span>" data-en="Parcel locker code <span class='opt'>(e.g. WAW123M)</span>">Kod paczkomatu <span class="opt">(np. WAW123M)</span></label>
@@ -765,6 +766,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     locker={id:p.name,address:[a.line1,a.line2].filter(Boolean).join(', ')};
     $('lockerMap').hidden=true; $('lockerBtn').textContent=T[lang()].change; render();
   });
+  $('lockerManualLink').addEventListener('click',function(e){ e.preventDefault(); $('lockerManual').hidden=false; $('lockerMap').hidden=true; locker=null; $('lockerChosen').textContent=''; $('of-locker').focus(); });
   $('lockerBtn').addEventListener('click',function(){ if(cfg&&cfg.geowidgetToken) loadMap(); else { $('lockerManual').hidden=false; $('lockerBtn').hidden=true; } });
 
   function showErr(codes){
@@ -783,7 +785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(!$('of-terms').checked) problems.push('terms_required');
     if(problems.length) return showErr(problems);
     var body={quantity:qty(),language:$('of-vlang').value,siteLanguage:lang(),delivery:dlv,
-      lockerId:dlv==='inpost'?(locker?locker.id:v('of-locker')):null,lockerAddress:dlv==='inpost'&&locker?locker.address:null,
+      lockerId:dlv==='inpost'?((!$('lockerManual').hidden&&v('of-locker'))?v('of-locker'):(locker?locker.id:v('of-locker'))):null,lockerAddress:dlv==='inpost'&&locker?locker.address:null,
       buyerName:v('of-name'),buyerEmail:v('of-email'),buyerPhone:v('of-phone')||null,recipientName:v('of-recipient')||null,dedication:v('of-ded')||null,
       heardFrom:$('of-src').value||null,invoiceCompany:$('of-company').checked,
       companyName:v('of-cname')||null,companyNip:v('of-nip')||null,companyAddress:v('of-caddr')||null,
@@ -794,6 +796,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(function(x){
         if(x.ok&&x.d.paymentUrl){ location.href=x.d.paymentUrl; return; }
         btn.disabled=false; btn.innerHTML=label; showErr(x.d&&x.d.problems?x.d.problems:['other']);
+        if(x.d&&x.d.reason) $('formErr').innerHTML+='<br><small>('+String(x.d.reason).replace(/[^\w ,:]/g,'')+')</small>';
       })
       .catch(function(){ btn.disabled=false; btn.innerHTML=label; showErr(['other']); });
   });
