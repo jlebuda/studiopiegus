@@ -373,6 +373,23 @@
   .oform .btn-fill{border:none;cursor:pointer;font-size:15px}
   .oform .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   @media(max-width:560px){ .oform .row2{grid-template-columns:1fr} }
+  .qty{display:flex;align-items:center;gap:8px}
+  .qty input{text-align:center;max-width:90px}
+  .qbtn{width:46px;height:46px;flex:none;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:22px;cursor:pointer;color:var(--ink)}
+  .qbtn:hover{border-color:var(--clay);color:var(--clay)}
+  .oform .hint{font-size:13px;color:var(--blue-deep);margin:8px 0 0}
+  .oform .hint.on{color:var(--clay);font-weight:600}
+  .oform label.choice{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:15px;letter-spacing:0;margin:0 0 14px;cursor:pointer}
+  .oform label.choice input{width:18px;height:18px;margin-top:3px;flex:none;accent-color:var(--clay)}
+  #lockerBox{margin:4px 0 16px}
+  #lockerMap{height:520px;margin-top:12px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  #lockerManual{margin-top:12px}
+  .summary{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 22px;margin:8px 0 22px;font-size:15px}
+  .summary div{display:flex;justify-content:space-between;gap:16px;padding:4px 0}
+  .summary .disc{color:var(--clay);font-weight:600}
+  .summary .tot{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-weight:700;font-size:18px}
+  .ferr{color:#9E2C2C;font-size:14px;margin:-8px 0 16px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   #orderMsg{display:none}
   #orderMsg.show{display:block;padding:20px 0}
   #orderMsg h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,38px);color:var(--ink);margin:0 0 12px}
@@ -464,10 +481,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="price">
             <span class="amt">350&nbsp;zł</span>
           </div>
-          <p class="pay-note" data-pl="Płatność przelewem na konto na podstawie wystawionej faktury - po wcześniejszym zamówieniu mailowym." data-en="Payment by bank transfer based on an issued invoice - after ordering by e-mail.">Płatność przelewem na konto na podstawie wystawionej faktury - po wcześniejszym zamówieniu mailowym.</p>
-          <p class="pay-note" data-pl="&lt;strong&gt;Kupujesz na ostatnią chwilę?&lt;/strong&gt; Voucher PDF wyślemy nawet w ciągu godziny – zadzwoń: &lt;a href=&quot;tel:+48509744773&quot; style=&quot;text-decoration:underline;text-underline-offset:3px&quot;&gt;+48 509 744 773&lt;/a&gt;" data-en="&lt;strong&gt;Buying last-minute?&lt;/strong&gt; We can send the PDF voucher within an hour – call &lt;a href=&quot;tel:+48509744773&quot; style=&quot;text-decoration:underline;text-underline-offset:3px&quot;&gt;+48 509 744 773&lt;/a&gt;"><strong>Kupujesz na ostatnią chwilę?</strong> Voucher PDF wyślemy nawet w ciągu godziny – zadzwoń: <a href="tel:+48509744773" style="text-decoration:underline;text-underline-offset:3px">+48 509 744 773</a></p>
+          <p class="pay-note" data-pl="Płatność online (BLIK, przelew, karta). Voucher PDF przyjdzie na e-mail od razu po płatności." data-en="Pay online (BLIK, bank transfer, card). The PDF voucher arrives by e-mail right after payment.">Płatność online (BLIK, przelew, karta). Voucher PDF przyjdzie na e-mail od razu po płatności.</p>
+          <p class="pay-note" id="discountNote" hidden></p>
+          <p class="pay-note" data-pl="Masz pytania? Zadzwoń: &lt;a href=&quot;tel:+48509744773&quot; style=&quot;text-decoration:underline;text-underline-offset:3px&quot;&gt;+48 509 744 773&lt;/a&gt;" data-en="Questions? Call &lt;a href=&quot;tel:+48509744773&quot; style=&quot;text-decoration:underline;text-underline-offset:3px&quot;&gt;+48 509 744 773&lt;/a&gt;">Masz pytania? Zadzwoń: <a href="tel:+48509744773" style="text-decoration:underline;text-underline-offset:3px">+48 509 744 773</a></p>
           <div class="v-btns">
-            <a class="btn btn-fill" href="#zamowienie" data-pl="Zamów voucher" data-en="Order a voucher">Zamów voucher</a>
+            <a class="btn btn-fill" href="#zamowienie" data-pl="Kup voucher" data-en="Buy a voucher">Kup voucher</a>
             <a class="btn btn-ghost" href="kontakt.html" data-pl="Mam pytanie" data-en="I have a question">Mam pytanie</a>
           </div>
         </div>
@@ -477,78 +495,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="sec" id="zamowienie" style="padding-top:8px">
     <div class="wrap">
       <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 22px" data-pl="Zamówienie vouchera" data-en="Order a voucher">Zamówienie vouchera</h2>
-      <form id="orderForm" class="oform reveal" autocomplete="on" novalidate>
-        <div class="fgroup">
-          <label for="of-name" data-pl="Imię i nazwisko Zamawiającego" data-en="Full name of the buyer">Imię i nazwisko Zamawiającego</label>
-          <input id="of-name" name="Zamawiający" type="text" required>
-        </div>
-        <div class="fgroup">
-          <label for="of-email" data-pl="E-mail <span class='opt'>(na ten adres wyślemy fakturę)</span>" data-en="E-mail <span class='opt'>(we'll send the invoice here)</span>">E-mail <span class="opt">(na ten adres wyślemy fakturę)</span></label>
-          <input id="of-email" name="E-mail" type="email" required>
-        </div>
+      <form id="orderForm" class="oform reveal" autocomplete="on" novalidate data-api="https://clayboard.studiopiegus.pl">
         <div class="row2">
           <div class="fgroup">
-            <label for="of-qty" data-pl="Ilość voucherów" data-en="Number of vouchers">Ilość voucherów</label>
-            <input id="of-qty" name="Ilość voucherów" type="number" min="1" value="1" required>
+            <label for="of-qty" data-pl="Liczba voucherów <span class='opt'>(1 voucher = 1 osoba)</span>" data-en="Number of vouchers <span class='opt'>(1 voucher = 1 person)</span>">Liczba voucherów <span class="opt">(1 voucher = 1 osoba)</span></label>
+            <div class="qty">
+              <button type="button" class="qbtn" data-step="-1" aria-label="−">−</button>
+              <input id="of-qty" name="quantity" type="number" min="1" max="100" value="1" inputmode="numeric" required>
+              <button type="button" class="qbtn" data-step="1" aria-label="+">+</button>
+            </div>
+            <p class="hint" id="discountHint" hidden></p>
           </div>
           <div class="fgroup">
-            <label for="of-form" data-pl="Forma vouchera" data-en="Voucher format">Forma vouchera</label>
-            <select id="of-form" name="Forma vouchera" required>
-              <option value="drukowany - odbiór osobisty" data-pl="drukowany - odbiór osobisty" data-en="printed - personal pick-up">drukowany - odbiór osobisty</option>
-              <option value="drukowany - wysyłka inPost (+15 zł)" data-pl="drukowany - wysyłka inPost (+15 zł)" data-en="printed - InPost delivery (+15 zł)">drukowany - wysyłka inPost (+15 zł)</option>
-              <option value="elektroniczna (PDF na e-mail)" data-pl="elektroniczna (PDF na e-mail)" data-en="electronic (PDF by e-mail)">elektroniczna (PDF na e-mail)</option>
+            <label for="of-vlang" data-pl="Język vouchera" data-en="Voucher language">Język vouchera</label>
+            <select id="of-vlang" name="language">
+              <option value="pl" data-pl="polski" data-en="Polish">polski</option>
+              <option value="en" data-pl="angielski" data-en="English">angielski</option>
             </select>
           </div>
         </div>
+
+        <fieldset class="fieldset">
+          <legend data-pl="Dostawa" data-en="Delivery">Dostawa</legend>
+          <label class="choice"><input type="radio" name="delivery" value="email" checked> <span data-pl="<b>Voucher elektroniczny</b> – PDF na e-mail od razu po płatności" data-en="<b>E-voucher</b> – PDF by e-mail right after payment"><b>Voucher elektroniczny</b> – PDF na e-mail od razu po płatności</span></label>
+          <label class="choice"><input type="radio" name="delivery" value="pickup"> <span data-pl="<b>Drukowany – odbiór osobisty</b> w pracowni (ul. Resorowa 30)" data-en="<b>Printed – pick-up</b> at the studio (ul. Resorowa 30)"><b>Drukowany – odbiór osobisty</b> w pracowni (ul. Resorowa 30)</span></label>
+          <label class="choice"><input type="radio" name="delivery" value="inpost"> <span data-pl="<b>Drukowany – paczkomat InPost</b> (<span class='ship'>+15 zł</span>, wysyłka w ciągu 3 dni roboczych)" data-en="<b>Printed – InPost parcel locker</b> (<span class='ship'>+PLN 15</span>, sent within 3 business days)"><b>Drukowany – paczkomat InPost</b> (<span class="ship">+15 zł</span>, wysyłka w ciągu 3 dni roboczych)</span></label>
+          <div id="lockerBox" class="fgroup" hidden>
+            <button type="button" class="btn btn-ghost" id="lockerBtn" data-pl="Wybierz paczkomat na mapie" data-en="Choose a parcel locker on the map">Wybierz paczkomat na mapie</button>
+            <div id="lockerMap" hidden></div>
+            <p class="hint" id="lockerChosen"></p>
+            <div id="lockerManual" hidden>
+              <label for="of-locker" data-pl="Kod paczkomatu <span class='opt'>(np. WAW123M)</span>" data-en="Parcel locker code <span class='opt'>(e.g. WAW123M)</span>">Kod paczkomatu <span class="opt">(np. WAW123M)</span></label>
+              <input id="of-locker" type="text" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="row2">
+          <div class="fgroup">
+            <label for="of-name" data-pl="Imię i nazwisko kupującego" data-en="Buyer's full name">Imię i nazwisko kupującego</label>
+            <input id="of-name" name="buyerName" type="text" autocomplete="name" maxlength="120" required>
+          </div>
+          <div class="fgroup">
+            <label for="of-email" data-pl="E-mail <span class='opt'>(wyślemy vouchery i fakturę)</span>" data-en="E-mail <span class='opt'>(for vouchers and invoice)</span>">E-mail <span class="opt">(wyślemy vouchery i fakturę)</span></label>
+            <input id="of-email" name="buyerEmail" type="email" autocomplete="email" maxlength="200" required>
+          </div>
+        </div>
         <div class="fgroup">
-          <label for="of-inpost" data-pl="Adres wysyłki lub kod paczkomatu InPost <span class='opt'>(w przypadku wyboru wysyłki InPost)</span>" data-en="Delivery address or InPost locker code <span class='opt'>(if you chose InPost delivery)</span>">Adres wysyłki lub kod paczkomatu InPost <span class="opt">(w przypadku wyboru wysyłki InPost)</span></label>
-          <input id="of-inpost" name="Adres/paczkomat InPost" type="text">
+          <label for="of-phone" data-pl="Telefon <span class='opt'>(wymagany przy paczkomacie)</span>" data-en="Phone <span class='opt'>(required for parcel locker)</span>">Telefon <span class="opt">(wymagany przy paczkomacie)</span></label>
+          <input id="of-phone" name="buyerPhone" type="tel" autocomplete="tel" maxlength="30">
+        </div>
+        <div class="row2">
+          <div class="fgroup">
+            <label for="of-recipient" data-pl="Dla kogo? <span class='opt'>(imię na voucherze, opcjonalnie)</span>" data-en="Who is it for? <span class='opt'>(name on the voucher, optional)</span>">Dla kogo? <span class="opt">(imię na voucherze, opcjonalnie)</span></label>
+            <input id="of-recipient" name="recipientName" type="text" maxlength="60">
+          </div>
+          <div class="fgroup">
+            <label for="of-ded" data-pl="Dedykacja <span class='opt'>(opcjonalnie, do 200 znaków)</span>" data-en="Dedication <span class='opt'>(optional, up to 200 characters)</span>">Dedykacja <span class="opt">(opcjonalnie, do 200 znaków)</span></label>
+            <input id="of-ded" name="dedication" type="text" maxlength="200">
+          </div>
         </div>
         <div class="fgroup">
           <label for="of-src" data-pl="Skąd wiesz o naszym Studio? <span class='opt'>(opcjonalnie)</span>" data-en="How did you hear about our studio? <span class='opt'>(optional)</span>">Skąd wiesz o naszym Studio? <span class="opt">(opcjonalnie)</span></label>
-          <select id="of-src" name="Skad wiesz o studio">
+          <select id="of-src" name="heardFrom">
             <option value="" data-pl="- wybierz -" data-en="- choose -">- wybierz -</option>
-              <option value="maps" data-pl="Google Maps" data-en="Google Maps">Google Maps</option>
-              <option value="search" data-pl="Wyszukiwarka Google" data-en="Google Search">Wyszukiwarka Google</option>
-              <option value="ai" data-pl="Asystent AI (ChatGPT, Gemini, Claude…)" data-en="AI assistant (ChatGPT, Gemini, Claude…)">Asystent AI (ChatGPT, Gemini, Claude…)</option>
-              <option value="friend" data-pl="Rekomendacja znajomej osoby" data-en="Recommendation from a friend">Rekomendacja znajomej osoby</option>
-              <option value="meta" data-pl="Facebook lub Instagram" data-en="Facebook or Instagram">Facebook lub Instagram</option>
-              <option value="linkedin" data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</option>
-              <option value="passby" data-pl="Przechodziłem/am obok" data-en="I walked past the studio">Przechodziłem/am obok</option>
-              <option value="other" data-pl="Inne" data-en="Other">Inne</option>
+            <option value="maps" data-pl="Google Maps" data-en="Google Maps">Google Maps</option>
+            <option value="search" data-pl="Wyszukiwarka Google" data-en="Google Search">Wyszukiwarka Google</option>
+            <option value="ai" data-pl="Asystent AI (ChatGPT, Gemini, Claude…)" data-en="AI assistant (ChatGPT, Gemini, Claude…)">Asystent AI (ChatGPT, Gemini, Claude…)</option>
+            <option value="friend" data-pl="Rekomendacja znajomej osoby" data-en="Recommendation from a friend">Rekomendacja znajomej osoby</option>
+            <option value="meta" data-pl="Facebook lub Instagram" data-en="Facebook or Instagram">Facebook lub Instagram</option>
+            <option value="linkedin" data-pl="LinkedIn" data-en="LinkedIn">LinkedIn</option>
+            <option value="passby" data-pl="Przechodziłem/am obok" data-en="I walked past the studio">Przechodziłem/am obok</option>
+            <option value="other" data-pl="Inne" data-en="Other">Inne</option>
           </select>
         </div>
-        <div class="fgroup" id="ofSrcOtherWrap" style="display:none">
-          <label for="of-src-other" data-pl="Napisz skąd" data-en="Please tell us where">Napisz skąd</label>
-          <input type="text" id="of-src-other" name="Skad wiesz - inne">
-        </div>
 
-        <fieldset class="fieldset">
+        <label class="consent"><input type="checkbox" id="of-company"> <span data-pl="Chcę fakturę na firmę" data-en="I need a company invoice">Chcę fakturę na firmę</span></label>
+        <fieldset class="fieldset" id="companyBox" hidden>
           <legend data-pl="Dane do faktury" data-en="Invoice details">Dane do faktury</legend>
           <div class="fgroup">
-            <label for="of-fname" data-pl="Imię i nazwisko lub nazwa firmy" data-en="Full name or company name">Imię i nazwisko lub nazwa firmy</label>
-            <input id="of-fname" name="Faktura - nazwa" type="text" required>
+            <label for="of-cname" data-pl="Nazwa firmy" data-en="Company name">Nazwa firmy</label>
+            <input id="of-cname" name="companyName" type="text" autocomplete="organization" maxlength="200">
           </div>
-          <div class="fgroup">
-            <label for="of-addr" data-pl="Adres" data-en="Address">Adres</label>
-            <input id="of-addr" name="Faktura - adres" type="text" required>
-          </div>
-          <div class="fgroup">
-            <label for="of-nip" data-pl="NIP <span class='opt'>(jeśli zamawiasz na firmę)</span>" data-en="Tax ID <span class='opt'>(if ordering for a company)</span>">NIP <span class="opt">(jeśli zamawiasz na firmę)</span></label>
-            <input id="of-nip" name="Faktura - NIP" type="text" inputmode="numeric">
+          <div class="row2">
+            <div class="fgroup">
+              <label for="of-nip" data-pl="NIP" data-en="Polish tax ID (NIP)">NIP</label>
+              <input id="of-nip" name="companyNip" type="text" inputmode="numeric" maxlength="20">
+            </div>
+            <div class="fgroup">
+              <label for="of-caddr" data-pl="Adres firmy" data-en="Company address">Adres firmy</label>
+              <input id="of-caddr" name="companyAddress" type="text" maxlength="300">
+            </div>
           </div>
         </fieldset>
-        <p class="fine" data-pl="Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia." data-en="Payment based on a pro forma invoice (transfer/BLIK) sent to your e-mail after ordering.">Płatność na podstawie faktury pro forma (przelew/BLIK), którą otrzymasz na e-mail po złożeniu zamówienia.</p>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+
+        <div class="summary" id="summary" aria-live="polite"></div>
+
         <label class="consent">
-          <input type="checkbox" name="Zgoda" required>
-          <span data-pl="Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie." data-en="I agree to my data being processed in order to respond to my enquiry.">Zgadzam się na przetwarzanie moich danych w celu odpowiedzi na zapytanie.</span>
+          <input type="checkbox" id="of-terms" required>
+          <span data-pl="Akceptuję <a href='regulamin-voucherow.html' target='_blank' style='color:var(--clay)'>Regulamin sprzedaży voucherów</a>. Wiem, że jako konsument mogę odstąpić od zakupu w ciągu 14 dni bez podania przyczyny. <a href='polityka-prywatnosci.html' target='_blank' style='color:var(--clay)'>Polityka prywatności</a>" data-en="I accept the <a href='regulamin-voucherow.html' target='_blank' style='color:var(--clay)'>Voucher Terms of Sale</a>. I understand that as a consumer I can withdraw from the purchase within 14 days without giving a reason. <a href='polityka-prywatnosci.html' target='_blank' style='color:var(--clay)'>Privacy policy</a>">Akceptuję <a href="regulamin-voucherow.html" target="_blank" style="color:var(--clay)">Regulamin sprzedaży voucherów</a>. Wiem, że jako konsument mogę odstąpić od zakupu w ciągu 14 dni bez podania przyczyny. <a href="polityka-prywatnosci.html" target="_blank" style="color:var(--clay)">Polityka prywatności</a></span>
         </label>
-        <p style="font-size:12.5px;color:#6a6560;margin:-14px 0 22px" data-pl="Wysyłając formularz akceptujesz <a href='polityka-prywatnosci.html' style='color:var(--clay)'>Politykę prywatności</a>." data-en="By submitting the form you accept our <a href='polityka-prywatnosci.html' style='color:var(--clay)'>Privacy policy</a>.">Wysyłając formularz akceptujesz <a href="polityka-prywatnosci.html" style="color:var(--clay)">Politykę prywatności</a>.</p>
-        <button type="submit" class="btn btn-fill" data-pl="Zamów" data-en="Order">Zamów</button>
+        <p class="ferr" id="formErr" role="alert" hidden></p>
+        <button type="submit" class="btn btn-fill" id="payBtn" data-pl="Zamawiam i płacę" data-en="Order and pay">Zamawiam i płacę</button>
+        <p class="fine" data-pl="Płatność online przez Przelewy24: BLIK, szybki przelew, karta, Apple Pay, Google Pay." data-en="Online payment via Przelewy24: BLIK, bank transfer, card, Apple Pay, Google Pay.">Płatność online przez Przelewy24: BLIK, szybki przelew, karta, Apple Pay, Google Pay.</p>
       </form>
       <div id="orderMsg">
-        <h2 data-pl="Dziękujemy za zamówienie." data-en="Thank you for your order.">Dziękujemy za zamówienie.</h2>
-        <p data-pl="Wkrótce otrzymasz e-mail z fakturą pro forma." data-en="You'll receive an e-mail with a pro forma invoice shortly.">Wkrótce otrzymasz e-mail z fakturą pro forma.</p>
+        <h2 data-pl="Sprzedaż online jest chwilowo niedostępna." data-en="Online sales are temporarily unavailable.">Sprzedaż online jest chwilowo niedostępna.</h2>
+        <p data-pl="Zamów voucher telefonicznie: <a href='tel:+48509744773'>+48 509 744 773</a> albo mailowo: <a href='mailto:studiopiegus@gmail.com'>studiopiegus@gmail.com</a>." data-en="Order by phone: <a href='tel:+48509744773'>+48 509 744 773</a> or e-mail: <a href='mailto:studiopiegus@gmail.com'>studiopiegus@gmail.com</a>.">Zamów voucher telefonicznie: <a href="tel:+48509744773">+48 509 744 773</a> albo mailowo: <a href="mailto:studiopiegus@gmail.com">studiopiegus@gmail.com</a>.</p>
       </div>
     </div>
   </section>
@@ -642,30 +696,109 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script>
 
 <script>
+/* Zakup voucherów online: cena, rabat i płatność liczy serwer (Clayboard); strona tylko pokazuje i wysyła formularz. */
 (function(){
   var form=document.getElementById('orderForm'); if(!form) return;
-  form.addEventListener('submit',function(e){ e.preventDefault();
-    if(!form.checkValidity()){ form.reportValidity(); return; }
-    var btn=form.querySelector('button[type="submit"]'); if(btn) btn.disabled=true;
-    var fd=new FormData(form);
-    fd.append('access_key','44d93243-276e-404a-8a4c-e3c2d2abc648');
-    fd.append('subject','Nowe zamówienie vouchera - Studio Piegus');
-    fd.append('from_name','Formularz voucherów Studio Piegus');
-    var err=(document.documentElement.lang==='en')?'Sending failed. Please try again or email us directly.':'Nie udało się wysłać. Spróbuj ponownie lub napisz do nas bezpośrednio.';
-    fetch('https://api.web3forms.com/submit',{method:'POST',body:fd})
-      .then(function(r){return r.json();})
-      .then(function(d){ if(d&&d.success){ form.style.display='none'; document.getElementById('orderMsg').classList.add('show'); document.getElementById('zamowienie').scrollIntoView({behavior:'smooth'}); }
-        else { if(btn) btn.disabled=false; alert(err); } })
-      .catch(function(){ if(btn) btn.disabled=false; alert(err); });
+  var API=form.getAttribute('data-api');
+  try{
+    var q=new URLSearchParams(location.search).get('api');
+    if(q && /^(https:\/\/[a-z0-9-]+\.vercel\.app|http:\/\/localhost:\d+)$/.test(q)) API=q;
+    sessionStorage.setItem('piegus_api',API);
+  }catch(e){}
+  var cfg=null, locker=null;
+  var $=function(id){return document.getElementById(id);};
+  var lang=function(){return document.documentElement.lang==='en'?'en':'pl';};
+  var T={
+    pl:{each:'voucher',disc:'Rabat {p}%',ship:'Wysyłka InPost',total:'Do zapłaty',
+        hintMore:'Kup {n} lub więcej voucherów – {p}% taniej.',hintOne:'Dodaj jeszcze 1 voucher, a dostaniesz {p}% rabatu.',hintOn:'Rabat {p}% naliczony.',
+        chosen:'Wybrany paczkomat: ',change:'Zmień paczkomat',sending:'Przechodzę do płatności…',
+        err:{sales_disabled:'Sprzedaż online jest chwilowo wyłączona.',quantity_range:'Wybierz od 1 do 100 voucherów.',locker_required:'Wybierz paczkomat.',name_required:'Wpisz imię i nazwisko.',invalid_email:'Wpisz poprawny adres e-mail.',invalid_phone:'Wpisz poprawny numer telefonu.',phone_required:'Przy wysyłce do paczkomatu podaj numer telefonu.',text_too_long:'Któryś tekst jest za długi.',company_required:'Uzupełnij dane firmy do faktury.',invalid_nip:'Sprawdź NIP.',terms_required:'Zaakceptuj regulamin.',other:'Nie udało się rozpocząć płatności. Spróbuj ponownie albo zadzwoń: +48 509 744 773.'}},
+    en:{each:'voucher',disc:'{p}% discount',ship:'InPost delivery',total:'Total',
+        hintMore:'Buy {n} or more vouchers – save {p}%.',hintOne:'Add one more voucher to get {p}% off.',hintOn:'{p}% discount applied.',
+        chosen:'Selected parcel locker: ',change:'Change parcel locker',sending:'Redirecting to payment…',
+        err:{sales_disabled:'Online sales are temporarily unavailable.',quantity_range:'Choose 1 to 100 vouchers.',locker_required:'Choose a parcel locker.',name_required:'Enter your full name.',invalid_email:'Enter a valid e-mail address.',invalid_phone:'Enter a valid phone number.',phone_required:'A phone number is required for parcel locker delivery.',text_too_long:'One of the texts is too long.',company_required:'Complete the company invoice details.',invalid_nip:'Check the tax ID (NIP).',terms_required:'Please accept the terms.',other:'We couldn’t start the payment. Please try again or call +48 509 744 773.'}}
+  };
+  var fill=function(s,o){return s.replace(/\{(\w)\}/g,function(_,k){return o[k];});};
+  var money=function(g){var v=g/100;return lang()==='pl'?(v%1?v.toFixed(2).replace('.',','):String(v))+' zł':'PLN '+(v%1?v.toFixed(2):String(v));};
+  var qty=function(){var n=parseInt($('of-qty').value,10);return isNaN(n)?1:Math.min(100,Math.max(1,n));};
+  var delivery=function(){var r=form.querySelector('input[name=delivery]:checked');return r?r.value:'email';};
+
+  function render(){
+    if(!cfg) return;
+    var t=T[lang()], n=qty(), unit=Math.round(cfg.pricePln*100), sub=unit*n, d=cfg.discount, pct=(d&&n>=d.minQty)?d.percent:0;
+    var disc=Math.round(sub*pct/100), ship=delivery()==='inpost'?Math.round(cfg.shippingPln*100):0;
+    var rows=['<div><span>'+n+' × '+t.each+' '+money(unit)+'</span><span>'+money(sub)+'</span></div>'];
+    if(pct) rows.push('<div class="disc"><span>'+fill(t.disc,{p:pct})+'</span><span>−'+money(disc)+'</span></div>');
+    if(ship) rows.push('<div><span>'+t.ship+'</span><span>'+money(ship)+'</span></div>');
+    rows.push('<div class="tot"><span>'+t.total+'</span><span>'+money(sub-disc+ship)+'</span></div>');
+    $('summary').innerHTML=rows.join('');
+    var h=$('discountHint');
+    if(d){h.hidden=false;h.textContent=n>=d.minQty?fill(t.hintOn,{p:d.percent}):(n===d.minQty-1?fill(t.hintOne,{p:d.percent}):fill(t.hintMore,{n:d.minQty,p:d.percent}));h.className='hint'+(n>=d.minQty?' on':'');}
+    else h.hidden=true;
+    $('lockerBox').hidden=delivery()!=='inpost';
+    $('companyBox').hidden=!$('of-company').checked;
+    var dn=$('discountNote');
+    if(dn){ dn.hidden=!d; if(d) dn.innerHTML='<strong>'+fill(t.hintMore,{n:d.minQty,p:d.percent})+'</strong>'; }
+    if(locker) $('lockerChosen').textContent=t.chosen+locker.id+(locker.address?' – '+locker.address:'');
+  }
+
+  form.querySelectorAll('.qbtn').forEach(function(b){b.addEventListener('click',function(){$('of-qty').value=Math.min(100,Math.max(1,qty()+parseInt(b.getAttribute('data-step'),10)));render();});});
+  form.addEventListener('input',render); form.addEventListener('change',render);
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setTimeout(render,0);});});
+
+  // Mapa paczkomatów InPost (Geowidget v5) ładowana dopiero po wybraniu wysyłki.
+  function loadMap(){
+    var box=$('lockerMap'); box.hidden=false;
+    if(box.firstChild) return;
+    var css=document.createElement('link'); css.rel='stylesheet'; css.href='https://geowidget.inpost.pl/inpost-geowidget.css'; document.head.appendChild(css);
+    var s=document.createElement('script'); s.src='https://geowidget.inpost.pl/inpost-geowidget.js'; s.defer=true; s.setAttribute('data-cookieconsent','ignore'); document.head.appendChild(s);
+    var w=document.createElement('inpost-geowidget');
+    w.setAttribute('onpoint','piegusLocker'); w.setAttribute('token',cfg.geowidgetToken); w.setAttribute('language',lang()); w.setAttribute('config','parcelcollect');
+    box.appendChild(w);
+  }
+  document.addEventListener('piegusLocker',function(e){
+    var p=e.detail||{}, a=p.address||{};
+    locker={id:p.name,address:[a.line1,a.line2].filter(Boolean).join(', ')};
+    $('lockerMap').hidden=true; $('lockerBtn').textContent=T[lang()].change; render();
   });
-})();
-</script>
-<script>
-(function(){
-  var sel=document.getElementById('of-src'), wrap=document.getElementById('ofSrcOtherWrap');
-  if(!sel||!wrap) return;
-  function upd(){ wrap.style.display=(sel.value==='other')?'':'none'; if(sel.value!=='other'){var i=document.getElementById('of-src-other'); if(i) i.value='';} }
-  sel.addEventListener('change',upd); upd();
+  $('lockerBtn').addEventListener('click',function(){ if(cfg&&cfg.geowidgetToken) loadMap(); else { $('lockerManual').hidden=false; $('lockerBtn').hidden=true; } });
+
+  function showErr(codes){
+    var t=T[lang()].err, e=$('formErr');
+    e.innerHTML=codes.map(function(c){return t[c]||t.other;}).filter(function(v,i,a){return a.indexOf(v)===i;}).join('<br>');
+    e.hidden=false; e.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault(); $('formErr').hidden=true;
+    var v=function(id){return $(id).value.trim();}, dlv=delivery(), problems=[];
+    if(!v('of-name')) problems.push('name_required');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v('of-email'))) problems.push('invalid_email');
+    if(dlv==='inpost'){ if(!locker&&!v('of-locker')) problems.push('locker_required'); if(!v('of-phone')) problems.push('phone_required'); }
+    if($('of-company').checked&&(!v('of-cname')||!v('of-nip')||!v('of-caddr'))) problems.push('company_required');
+    if(!$('of-terms').checked) problems.push('terms_required');
+    if(problems.length) return showErr(problems);
+    var body={quantity:qty(),language:$('of-vlang').value,siteLanguage:lang(),delivery:dlv,
+      lockerId:dlv==='inpost'?(locker?locker.id:v('of-locker')):null,lockerAddress:dlv==='inpost'&&locker?locker.address:null,
+      buyerName:v('of-name'),buyerEmail:v('of-email'),buyerPhone:v('of-phone')||null,recipientName:v('of-recipient')||null,dedication:v('of-ded')||null,
+      heardFrom:$('of-src').value||null,invoiceCompany:$('of-company').checked,
+      companyName:v('of-cname')||null,companyNip:v('of-nip')||null,companyAddress:v('of-caddr')||null,
+      acceptTerms:true,website:form.querySelector('[name=website]').value};
+    var btn=$('payBtn'), label=btn.innerHTML; btn.disabled=true; btn.textContent=T[lang()].sending;
+    fetch(API+'/api/vouchers/order',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)})
+      .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+      .then(function(x){
+        if(x.ok&&x.d.paymentUrl){ location.href=x.d.paymentUrl; return; }
+        btn.disabled=false; btn.innerHTML=label; showErr(x.d&&x.d.problems?x.d.problems:['other']);
+      })
+      .catch(function(){ btn.disabled=false; btn.innerHTML=label; showErr(['other']); });
+  });
+
+  fetch(API+'/api/vouchers/config').then(function(r){if(!r.ok) throw 0; return r.json();}).then(function(c){
+    cfg=c;
+    if(!c.salesEnabled) throw 0;
+    render();
+  }).catch(function(){ form.style.display='none'; $('orderMsg').classList.add('show'); });
 })();
 </script>
 </body>
