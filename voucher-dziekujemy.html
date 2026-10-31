@@ -469,6 +469,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var API='https://clayboard.studiopiegus.pl';
   var bp=null;
   try{ API=sessionStorage.getItem('piegus_api')||API; bp=sessionStorage.getItem('piegus_bypass'); }catch(e){}
+  // Testy na podglądzie Vercel: adres API i sekret obejścia także z adresu strony (np. po otwarciu w nowej karcie).
+  var qa=p.get('api'), qb=p.get('bypass');
+  if(qa && /^(https:\/\/[a-z0-9-]+\.vercel\.app|http:\/\/localhost:\d+)$/.test(qa)){ API=qa; if(qb && /^[A-Za-z0-9]{32}$/.test(qb)) bp=qb; }
   if(p.get('lang')==='en'){ var b=document.querySelector('.lang button[data-lang=en]'); if(b) b.click(); }
   var en=function(){return document.documentElement.lang==='en';};
   var M={
