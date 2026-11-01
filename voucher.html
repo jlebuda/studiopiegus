@@ -389,6 +389,7 @@
   .summary .disc{color:var(--clay);font-weight:600}
   .summary .tot{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;font-weight:700;font-size:18px}
   .ferr{color:#9E2C2C;font-size:14px;margin:-8px 0 16px}
+  .test-note{background:#F9EEDA;border:1px solid rgba(158,74,44,.35);border-radius:14px;padding:14px 18px;font-size:14.5px;color:#4a3a2c;max-width:720px;margin:0 0 22px}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
   #orderMsg{display:none}
   #orderMsg.show{display:block;padding:20px 0}
@@ -496,6 +497,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="sec" id="zamowienie" style="padding-top:8px">
     <div class="wrap">
       <h2 style="font-size:clamp(28px,4vw,42px);margin:12px 0 22px" data-pl="Zamówienie vouchera" data-en="Order a voucher">Zamówienie vouchera</h2>
+        <p class="test-note" id="testNote" hidden data-pl="&lt;strong&gt;Wersja testowa – zakup online jeszcze nie działa.&lt;/strong&gt; Formularz wyśle zamówienie do nas e-mailem, a dane do płatności (przelew lub BLIK) prześlemy w odpowiedzi." data-en="&lt;strong&gt;Test version – online purchase is not available yet.&lt;/strong&gt; The form will send your order to us by e-mail and we&#39;ll reply with the payment details (bank transfer or BLIK)."><strong>Wersja testowa – zakup online jeszcze nie działa.</strong> Formularz wyśle zamówienie do nas e-mailem, a dane do płatności (przelew lub BLIK) prześlemy w odpowiedzi.</p>
       <form id="orderForm" class="oform reveal" autocomplete="on" novalidate data-api="https://clayboard.studiopiegus.pl">
         <div class="row2">
           <div class="fgroup">
@@ -546,16 +548,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fgroup">
           <label for="of-phone" data-pl="Telefon <span class='opt'>(wymagany przy paczkomacie)</span>" data-en="Phone <span class='opt'>(required for parcel locker)</span>">Telefon <span class="opt">(wymagany przy paczkomacie)</span></label>
           <input id="of-phone" name="buyerPhone" type="tel" autocomplete="tel" maxlength="30">
-        </div>
-        <div class="row2">
-          <div class="fgroup">
-            <label for="of-recipient" data-pl="Dla kogo? <span class='opt'>(imię na voucherze, opcjonalnie)</span>" data-en="Who is it for? <span class='opt'>(name on the voucher, optional)</span>">Dla kogo? <span class="opt">(imię na voucherze, opcjonalnie)</span></label>
-            <input id="of-recipient" name="recipientName" type="text" maxlength="60">
-          </div>
-          <div class="fgroup">
-            <label for="of-ded" data-pl="Dedykacja <span class='opt'>(opcjonalnie, do 200 znaków)</span>" data-en="Dedication <span class='opt'>(optional, up to 200 characters)</span>">Dedykacja <span class="opt">(opcjonalnie, do 200 znaków)</span></label>
-            <input id="of-ded" name="dedication" type="text" maxlength="200">
-          </div>
         </div>
         <div class="fgroup">
           <label for="of-src" data-pl="Skąd wiesz o naszym Studio? <span class='opt'>(opcjonalnie)</span>" data-en="How did you hear about our studio? <span class='opt'>(optional)</span>">Skąd wiesz o naszym Studio? <span class="opt">(opcjonalnie)</span></label>
@@ -640,7 +632,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="foot-legal" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;font-size:12.5px;line-height:1.6;color:rgba(247,243,238,.72)">
-      <p style="margin:0;max-width:62ch">Studio Piegus Sp. z o.o. · NIP 9512629013 · KRS 0001191850 · REGON 542634937<br><a href="regulamin-voucherow.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Regulamin sprzedaży voucherów" data-en="Voucher Terms of Sale">Regulamin sprzedaży voucherów</a> · <a href="polityka-prywatnosci.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Polityka prywatności" data-en="Privacy policy">Polityka prywatności</a></p>
+      <p style="margin:0;max-width:62ch">Studio Piegus Sp. z o.o. · NIP 9512629013 · KRS 0001191850 · REGON 542634937<br><a href="regulamin-voucherow.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Regulamin sprzedaży voucherów" data-en="Voucher Terms of Sale">Regulamin sprzedaży voucherów</a></p>
       <img src="img/platnosci-przelewy24.png" width="440" height="79" loading="lazy" alt="Płatności obsługuje Przelewy24: Apple Pay, Google Pay, BLIK, Visa, Mastercard i przelewy bankowe" style="background:#F7F3EE;border-radius:12px;padding:8px 12px;max-width:100%;height:auto;box-sizing:border-box">
     </div>
     <div class="foot-bottom">
@@ -791,7 +783,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(problems.length) return showErr(problems);
     var body={quantity:qty(),language:$('of-vlang').value,siteLanguage:lang(),delivery:dlv,
       lockerId:dlv==='inpost'?((!$('lockerManual').hidden&&v('of-locker'))?v('of-locker'):(locker?locker.id:v('of-locker'))):null,lockerAddress:dlv==='inpost'&&locker?locker.address:null,
-      buyerName:v('of-name'),buyerEmail:v('of-email'),buyerPhone:v('of-phone')||null,recipientName:v('of-recipient')||null,dedication:v('of-ded')||null,
+      buyerName:v('of-name'),buyerEmail:v('of-email'),buyerPhone:v('of-phone')||null,recipientName:null,dedication:null,
       heardFrom:$('of-src').value||null,invoiceCompany:$('of-company').checked,
       companyName:v('of-cname')||null,companyNip:v('of-nip')||null,companyAddress:v('of-caddr')||null,
       acceptTerms:true,website:form.querySelector('[name=website]').value};
@@ -802,7 +794,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       fd.append('subject','Nowe zamówienie vouchera - Studio Piegus');
       fd.append('from_name','Formularz voucherów Studio Piegus');
       fd.append('Do zapłaty',$('summary').innerText.replace(/\n/g,' '));
-      var L={quantity:'Liczba voucherów',language:'Język vouchera',siteLanguage:'Język strony',delivery:'Dostawa',lockerId:'Paczkomat',lockerAddress:'Adres paczkomatu',buyerName:'Kupujący',buyerEmail:'E-mail',buyerPhone:'Telefon',recipientName:'Dla kogo',dedication:'Dedykacja',heardFrom:'Skąd wie o studiu',invoiceCompany:'Faktura na firmę',companyName:'Firma',companyNip:'NIP',companyAddress:'Adres firmy',acceptTerms:'Akceptacja regulaminu'};
+      var L={quantity:'Liczba voucherów',language:'Język vouchera',siteLanguage:'Język strony',delivery:'Dostawa',lockerId:'Paczkomat',lockerAddress:'Adres paczkomatu',buyerName:'Kupujący',buyerEmail:'E-mail',buyerPhone:'Telefon',heardFrom:'Skąd wie o studiu',invoiceCompany:'Faktura na firmę',companyName:'Firma',companyNip:'NIP',companyAddress:'Adres firmy',acceptTerms:'Akceptacja regulaminu'};
       var D={email:'e-mail (PDF)',pickup:'odbiór osobisty',inpost:'paczkomat InPost'};
       Object.keys(L).forEach(function(k){ var v=body[k]; if(v===null||v===''||v===undefined) return; if(k==='delivery') v=D[v]; if(v===true) v='tak'; if(v===false) v='nie'; fd.append(L[k],String(v)); });
       fetch('https://api.web3forms.com/submit',{method:'POST',body:fd}).then(function(r){return r.json();}).then(function(d){
@@ -826,6 +818,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // a dane do płatności studio przesyła klientowi. Cena i rabat jak w cenniku.
   function emailMode(){
     mode='email';
+    $('testNote').hidden=false;
     cfg={salesEnabled:true,pricePln:350,shippingPln:15,discount:{minQty:3,percent:10},validityMonths:6,geowidgetToken:null};
     $('payBtn').setAttribute('data-pl','Zamawiam'); $('payBtn').setAttribute('data-en','Place order'); $('payBtn').textContent=lang()==='en'?'Place order':'Zamawiam';
     var pn=document.querySelector('.pay-note[data-pl^="Płatność online"]');
