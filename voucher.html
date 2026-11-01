@@ -472,7 +472,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="wrap">
       <div class="v-show">
         <figure class="v-fig reveal">
-          <img src="img/voucher-koperta.jpg" width="1000" height="1000" alt="Voucher Studia Piegus – zaproszenie na warsztat ceramiczny z miejscem na kod, na brązowej kopercie">
+          <img src="img/voucher-koperta.jpg" data-src-pl="img/voucher-koperta.jpg" data-src-en="img/voucher-koperta-en.jpg" data-alt-pl="Voucher Studia Piegus – zaproszenie na warsztat ceramiczny z miejscem na kod, na brązowej kopercie" data-alt-en="Studio Piegus gift voucher – invitation to a ceramic workshop with space for the code, on a brown envelope" width="1000" height="1000" alt="Voucher Studia Piegus – zaproszenie na warsztat ceramiczny z miejscem na kod, na brązowej kopercie">
           <figcaption data-pl="Przykładowy voucher - wersja drukowana" data-en="Sample voucher - printed version">Przykładowy voucher - wersja drukowana</figcaption>
         </figure>
         <div class="v-intro reveal">
@@ -831,6 +831,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(!c.salesEnabled) throw 0;
     cfg=c; render();
   }).catch(emailMode);
+})();
+</script>
+<script>
+/* Zdjęcie vouchera w języku strony (PL/EN): podmiana przy każdej zmianie atrybutu lang. */
+(function(){
+  function swap(){ var l=document.documentElement.lang==='en'?'en':'pl'; document.querySelectorAll('img[data-src-pl]').forEach(function(i){ var s=i.getAttribute('data-src-'+l); if(s&&i.getAttribute('src')!==s){ i.setAttribute('src',s); i.setAttribute('alt',i.getAttribute('data-alt-'+l)||i.alt); } }); }
+  new MutationObserver(swap).observe(document.documentElement,{attributes:true,attributeFilter:['lang']}); swap();
 })();
 </script>
 </body>
