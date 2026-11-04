@@ -8,8 +8,15 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" type="image/png" href="img/f9b4173410a0.png">
 <link rel="apple-touch-icon" href="img/cef246f17d5a.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/dm-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/cormorant-garamond-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="preconnect" href="https://consent.cookiebot.com">
+<link rel="preconnect" href="https://consentcdn.cookiebot.com">
 <style>
+  picture{display:contents}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
 
 :root{
     --bg:#F7F3EE;
@@ -163,13 +170,13 @@
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
   footer .brand{color:var(--bg)}
   footer .brand img{height:64px}
-  .foot-desc{color:rgba(247,243,238,.65);font-size:15px;max-width:32ch;margin-top:18px}
-  .foot-col h4{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-  .foot-col a,.foot-col p{display:block;color:rgba(247,243,238,.82);font-size:15px;margin-bottom:10px;transition:color .2s}
+  .foot-desc{color:rgba(247,243,238,.92);font-size:15px;max-width:32ch;margin-top:18px}
+  .foot-col h2{font-family:var(--sans);font-size:12px;font-weight:600;line-height:normal;letter-spacing:.16em;text-transform:uppercase;color:#DCEAF1;margin:0 0 16px}
+  .foot-col a,.foot-col p{display:block;color:rgba(247,243,238,.92);font-size:15px;margin-bottom:10px;transition:color .2s}
   .foot-col a:hover{color:var(--bg)}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid rgba(247,243,238,.16);font-size:13px;color:rgba(247,243,238,.55)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:54px;padding-top:24px;border-top:1px solid rgba(247,243,238,.16);font-size:13px;color:rgba(247,243,238,.92)}
   footer .lang{border-color:rgba(247,243,238,.3)}
-  footer .lang button{color:rgba(247,243,238,.7)}
+  footer .lang button{color:rgba(247,243,238,.92)}
   footer .lang button.on{background:var(--bg);color:var(--ink);opacity:1}
 
   /* ---------- responsive ---------- */
@@ -358,6 +365,7 @@
     .nav-links.open .lang{margin-top:8px}
     .burger{display:flex}
   }
+  footer .foot-bottom .lang button.on{background:rgba(46,44,42,.3);color:#fff}
 </style>
 <!-- Cookiebot CMP -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="6dd742f5-c25e-4cb3-8c5d-858dd533b174" data-blockingmode="auto" type="text/javascript"></script>
@@ -388,7 +396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
     <a href="index.html" class="brand" aria-label="Studio Piegus - strona główna">
-      <img src="img/0037b320eb11.png" alt="Studio Piegus">
+      <img src="img/0037b320eb11.png" alt="Studio Piegus" width="313" height="306">
     </a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navlinks">
@@ -483,11 +491,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="brand"><img src="img/e8dd5a2f4b17.png" alt="Studio Piegus"></div>
+        <div class="brand"><img src="img/e8dd5a2f4b17.png" alt="Studio Piegus" width="313" height="306" loading="lazy" decoding="async"></div>
         <p class="foot-desc" data-pl="Zajęcia z ceramiki dla dzieci, młodzieży i dorosłych w warszawskim Wilanowie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie." data-en="Ceramics classes for children, teens and adults in Wilanów, Warsaw. Small groups, a cosy studio. Creative time for yourself.">Zajęcia z ceramiki dla dzieci, młodzieży i dorosłych w warszawskim Wilanowie. Małe grupy, przytulna pracownia. Kreatywny czas dla siebie.</p>
       </div>
       <div class="foot-col">
-        <h4 data-pl="Kontakt" data-en="Contact">Kontakt</h4>
+        <h2 data-pl="Kontakt" data-en="Contact">Kontakt</h2>
         <p data-pl="Pracownia Studio Piegus<br>ul. Resorowa 30<br>02-956 Warszawa" data-en="Studio Piegus pottery studio<br>ul. Resorowa 30<br>02-956 Warsaw">Pracownia Studio Piegus<br>ul. Resorowa 30<br>02-956 Warszawa</p>
         <a href="tel:+48509744773">+48 509 744 773</a>
         <a href="mailto:studiopiegus@gmail.com">studiopiegus@gmail.com</a>
@@ -498,7 +506,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <div class="foot-col">
-        <h4 data-pl="Strona" data-en="Site">Strona</h4>
+        <h2 data-pl="Strona" data-en="Site">Strona</h2>
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
         <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
         <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
@@ -508,12 +516,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       </div>
     </div>
-    <div class="foot-legal" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;font-size:12.5px;line-height:1.6;color:rgba(247,243,238,.72)">
+    <div class="foot-legal" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;font-size:12.5px;line-height:1.6;color:rgba(247,243,238,.92)">
       <p style="margin:0;max-width:62ch">Studio Piegus Sp. z o.o. · NIP 9512629013 · KRS 0001191850 · REGON 542634937<br><a href="regulamin-voucherow.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Regulamin sprzedaży voucherów" data-en="Voucher Terms of Sale">Regulamin sprzedaży voucherów</a></p>
       <img src="img/platnosci-przelewy24.png" width="440" height="79" loading="lazy" alt="Płatności obsługuje Przelewy24: Apple Pay, Google Pay, BLIK, Visa, Mastercard i przelewy bankowe" style="background:#F7F3EE;border-radius:12px;padding:8px 12px;max-width:100%;height:auto;box-sizing:border-box">
     </div>
-    <div class="foot-bottom"><span>© 2026 Studio Piegus Sp. z o.o.</span><a href="polityka-prywatnosci.html" style="margin-left:18px;color:inherit;opacity:.85;text-decoration:underline;text-underline-offset:3px" data-pl="Polityka prywatności" data-en="Privacy policy">Polityka prywatności</a>
-      <a href="javascript:Cookiebot.renew()" style="margin-left:18px;color:inherit;opacity:.85;text-decoration:underline;text-underline-offset:3px" data-pl="Ustawienia cookies" data-en="Cookie settings">Ustawienia cookies</a></div>
+    <div class="foot-bottom"><span>© 2026 Studio Piegus Sp. z o.o.</span><a href="polityka-prywatnosci.html" style="margin-left:18px;color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Polityka prywatności" data-en="Privacy policy">Polityka prywatności</a>
+      <a href="javascript:Cookiebot.renew()" style="margin-left:18px;color:inherit;text-decoration:underline;text-underline-offset:3px" data-pl="Ustawienia cookies" data-en="Cookie settings">Ustawienia cookies</a></div>
   </div>
 </footer>
 <script>
