@@ -386,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <nav class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="index.html" class="brand" aria-label="Studio Piegus - strona główna">
+    <a href="/" class="brand" aria-label="Studio Piegus - strona główna">
       <img src="img/0037b320eb11.png" alt="Studio Piegus" width="313" height="306">
     </a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -415,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1 id="tTitle" style="font-family:var(--serif);font-weight:700;font-size:clamp(34px,5vw,54px);margin:12px 0 10px;color:var(--ink)" data-pl="Sprawdzamy płatność…" data-en="Checking your payment…">Sprawdzamy płatność…</h1>
         <p id="tText" data-pl="To potrwa tylko chwilę. Nie zamykaj tej strony." data-en="This will only take a moment. Please keep this page open.">To potrwa tylko chwilę. Nie zamykaj tej strony.</p>
         <p id="tOrder" class="meta"></p>
-        <p style="margin-top:28px"><a class="btn btn-fill" style="color:var(--bg)" href="index.html" data-pl="Strona główna" data-en="Home page">Strona główna</a></p>
+        <p style="margin-top:28px"><a class="btn btn-fill" style="color:var(--bg)" href="/" data-pl="Strona główna" data-en="Home page">Strona główna</a></p>
       </div>
     </div>
   </section>
@@ -509,6 +509,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }).catch(function(){ if(++tries<40) setTimeout(poll,3000); else show('wait'); });
   })();
 })();
+</script>
+<script>
+/* Analytics: kliknięcia w telefon i e-mail jako zdarzenia GTM (bez danych osobowych) */
+(function(){window.dataLayer=window.dataLayer||[];document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="tel:"],a[href^="mailto:"]'):null;if(!a)return;window.dataLayer.push({event:a.getAttribute('href').indexOf('tel:')===0?'click_phone':'click_email',link_location:a.closest('footer')?'footer':'page'});});})();
 </script>
 </body>
 </html>
