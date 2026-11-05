@@ -526,9 +526,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <label for="of-qty" data-pl="Liczba voucherów <span class='opt'>(1 voucher = 1 osoba)</span>" data-en="Number of vouchers <span class='opt'>(1 voucher = 1 person)</span>">Liczba voucherów <span class="opt">(1 voucher = 1 osoba)</span></label>
             <div class="qty">
               <button type="button" class="qbtn" data-step="-1" aria-label="−">−</button>
-              <input id="of-qty" name="quantity" type="number" min="1" max="100" value="1" inputmode="numeric" required>
+              <input id="of-qty" name="quantity" type="number" min="1" max="10" value="1" inputmode="numeric" required>
               <button type="button" class="qbtn" data-step="1" aria-label="+">+</button>
             </div>
+            <p class="hint" data-pl="W jednej transakcji możesz kupić do 10 voucherów. Potrzebujesz więcej? &lt;a href=&quot;kontakt.html&quot;&gt;Napisz do nas&lt;/a&gt;." data-en="You can buy up to 10 vouchers in one transaction. Need more? &lt;a href=&quot;kontakt.html&quot;&gt;Get in touch&lt;/a&gt;.">W jednej transakcji możesz kupić do 10 voucherów. Potrzebujesz więcej? <a href="kontakt.html">Napisz do nas</a>.</p>
             <p class="hint" id="discountHint" hidden></p>
           </div>
           <div class="fgroup">
@@ -736,15 +737,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     pl:{each:'voucher',disc:'Rabat {p}%',ship:'Wysyłka InPost',total:'Do zapłaty',
         hintMore:'Kup {n} lub więcej voucherów – {p}% taniej.',hintOne:'Dodaj jeszcze 1 voucher, a dostaniesz {p}% rabatu.',hintOn:'Rabat {p}% naliczony.',
         chosen:'Wybrany paczkomat: ',change:'Zmień paczkomat',sending:'Przechodzę do płatności…',
-        err:{sales_disabled:'Sprzedaż online jest chwilowo wyłączona.',quantity_range:'Wybierz od 1 do 100 voucherów.',locker_required:'Wybierz paczkomat.',name_required:'Wpisz imię i nazwisko.',invalid_email:'Wpisz poprawny adres e-mail.',invalid_phone:'Wpisz poprawny numer telefonu.',phone_required:'Przy wysyłce do paczkomatu podaj numer telefonu.',text_too_long:'Któryś tekst jest za długi.',company_required:'Uzupełnij dane firmy do faktury.',invalid_nip:'Sprawdź NIP.',terms_required:'Zaakceptuj regulamin.',other:'Nie udało się rozpocząć płatności. Spróbuj ponownie albo zadzwoń: +48 509 744 773.'}},
+        err:{sales_disabled:'Sprzedaż online jest chwilowo wyłączona.',quantity_range:'Wybierz od 1 do 10 voucherów.',locker_required:'Wybierz paczkomat.',name_required:'Wpisz imię i nazwisko.',invalid_email:'Wpisz poprawny adres e-mail.',invalid_phone:'Wpisz poprawny numer telefonu.',phone_required:'Przy wysyłce do paczkomatu podaj numer telefonu.',text_too_long:'Któryś tekst jest za długi.',company_required:'Uzupełnij dane firmy do faktury.',invalid_nip:'Sprawdź NIP.',terms_required:'Zaakceptuj regulamin.',other:'Nie udało się rozpocząć płatności. Spróbuj ponownie albo zadzwoń: +48 509 744 773.'}},
     en:{each:'voucher',disc:'{p}% discount',ship:'InPost delivery',total:'Total',
         hintMore:'Buy {n} or more vouchers – save {p}%.',hintOne:'Add one more voucher to get {p}% off.',hintOn:'{p}% discount applied.',
         chosen:'Selected parcel locker: ',change:'Change parcel locker',sending:'Redirecting to payment…',
-        err:{sales_disabled:'Online sales are temporarily unavailable.',quantity_range:'Choose 1 to 100 vouchers.',locker_required:'Choose a parcel locker.',name_required:'Enter your full name.',invalid_email:'Enter a valid e-mail address.',invalid_phone:'Enter a valid phone number.',phone_required:'A phone number is required for parcel locker delivery.',text_too_long:'One of the texts is too long.',company_required:'Complete the company invoice details.',invalid_nip:'Check the tax ID (NIP).',terms_required:'Please accept the terms.',other:'We couldn’t start the payment. Please try again or call +48 509 744 773.'}}
+        err:{sales_disabled:'Online sales are temporarily unavailable.',quantity_range:'Choose 1 to 10 vouchers.',locker_required:'Choose a parcel locker.',name_required:'Enter your full name.',invalid_email:'Enter a valid e-mail address.',invalid_phone:'Enter a valid phone number.',phone_required:'A phone number is required for parcel locker delivery.',text_too_long:'One of the texts is too long.',company_required:'Complete the company invoice details.',invalid_nip:'Check the tax ID (NIP).',terms_required:'Please accept the terms.',other:'We couldn’t start the payment. Please try again or call +48 509 744 773.'}}
   };
   var fill=function(s,o){return s.replace(/\{(\w)\}/g,function(_,k){return o[k];});};
   var money=function(g){var v=g/100;return lang()==='pl'?(v%1?v.toFixed(2).replace('.',','):String(v))+' zł':'PLN '+(v%1?v.toFixed(2):String(v));};
-  var qty=function(){var n=parseInt($('of-qty').value,10);return isNaN(n)?1:Math.min(100,Math.max(1,n));};
+  var qty=function(){var n=parseInt($('of-qty').value,10);return isNaN(n)?1:Math.min(10,Math.max(1,n));};
   var delivery=function(){var r=form.querySelector('input[name=delivery]:checked');return r?r.value:'email';};
 
   function render(){
@@ -766,7 +767,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if(locker) $('lockerChosen').textContent=t.chosen+locker.id+(locker.address?' – '+locker.address:'');
   }
 
-  form.querySelectorAll('.qbtn').forEach(function(b){b.addEventListener('click',function(){$('of-qty').value=Math.min(100,Math.max(1,qty()+parseInt(b.getAttribute('data-step'),10)));render();});});
+  form.querySelectorAll('.qbtn').forEach(function(b){b.addEventListener('click',function(){$('of-qty').value=Math.min(10,Math.max(1,qty()+parseInt(b.getAttribute('data-step'),10)));render();});});
   form.addEventListener('input',render); form.addEventListener('change',render);
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setTimeout(render,0);});});
 
