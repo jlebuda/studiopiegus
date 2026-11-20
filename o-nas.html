@@ -8,13 +8,13 @@
 <title>O nas – pracownia ceramiki w Wilanowie | Studio Piegus</title>
 <link rel="icon" type="image/png" href="img/f9b4173410a0.png">
 <link rel="apple-touch-icon" href="img/cef246f17d5a.png">
-<meta name="description" content="O Studiu Piegus – kameralnej pracowni ceramiki w Wilanowie. Poznaj Zuzę, założycielkę studia, opinie kursantów i naszą przestrzeń.">
+<meta name="description" content="Studio Piegus – kameralna pracownia ceramiki w Wilanowie. Poznaj Zuzę, założycielkę studia, nasz zespół instruktorek i opinie kursantów.">
 <link rel="canonical" href="https://studiopiegus.pl/o-nas.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio Piegus">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="O nas – pracownia ceramiki w Wilanowie | Studio Piegus">
-<meta property="og:description" content="O Studiu Piegus – kameralnej pracowni ceramiki w Wilanowie. Poznaj Zuzę, założycielkę studia, opinie kursantów i naszą przestrzeń.">
+<meta property="og:description" content="Studio Piegus – kameralna pracownia ceramiki w Wilanowie. Poznaj Zuzę, założycielkę studia, nasz zespół instruktorek i opinie kursantów.">
 <meta property="og:url" content="https://studiopiegus.pl/o-nas.html">
 <meta property="og:image" content="https://studiopiegus.pl/img/500dc858fc04.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -345,6 +345,47 @@
     .burger{display:flex}
   }
   footer .foot-bottom .lang button.on{background:rgba(46,44,42,.3);color:#fff}
+
+  /* ---- zespół ---- */
+  .team{display:grid;grid-template-columns:repeat(4,1fr);gap:34px 26px;margin-top:34px}
+  .tm-ph{aspect-ratio:4/5;overflow:hidden;border-radius:14px;background:var(--surface)}
+  .tm-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .tm h3{font-size:30px;margin:18px 0 2px}
+  .tm-role{font-size:13.5px;font-weight:600;line-height:1.4;color:var(--clay);margin:4px 0 0}
+  .tm-tag{display:inline-block;margin:8px 0 0;padding:5px 12px;border-radius:999px;background:var(--surface);font-size:12.5px;font-weight:600;line-height:1.4;color:var(--clay)}
+  .tm-bio{font-size:15px;line-height:1.62;color:#4a4744;margin:14px 0 0}
+  @media(max-width:1080px){.team{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:620px){
+    .team{grid-template-columns:1fr;gap:38px}
+    .tm{display:grid;grid-template-columns:118px 1fr;column-gap:18px;align-items:center}
+    .tm-ph{grid-row:1/2;border-radius:10px}
+    .tm-head{grid-row:1/2}
+    .tm h3{margin-top:0;font-size:28px}
+    .tm-bio{grid-column:1/-1}
+  }
+
+  /* ---- menu „Oferta” (rozwijane po kliknięciu) ---- */
+  .dd{position:relative;display:flex;align-items:center}
+  .dd-t{font:inherit;font-size:14px;font-weight:500;letter-spacing:.01em;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .dd-t::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+  .dd.open .dd-t::after{transform:translateY(1px) rotate(225deg)}
+  .dd-m{display:none;position:absolute;top:100%;left:-22px;margin-top:var(--dd-gap,24px);min-width:250px;padding:18px 22px 20px;background:rgba(247,243,238,.98);box-shadow:0 18px 30px -22px rgba(0,0,0,.45);border-radius:0 0 12px 12px;flex-direction:column;gap:15px}
+  .dd.open .dd-m{display:flex}
+  .nav .dd-m a{color:var(--ink)!important;text-shadow:none!important;white-space:nowrap}
+  .nav.solid{--dd-gap:17px}
+  body.foto .nav-links .dd-t{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600}
+  body.foto .nav:not(.solid):not(.dd-on) .dd-t{color:#F7F3EE;text-shadow:0 1px 7px rgba(20,16,14,.55)}
+  .nav.dd-on{background:rgba(247,243,238,.98);box-shadow:0 1px 0 var(--line)}
+  body.foto .nav.dd-on .nav-links a,body.foto .nav.dd-on .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  body.foto .nav.dd-on .nav-links a::after{background:var(--ink)}
+  body.foto .nav.dd-on .brand img{filter:none}
+  body.foto .nav.dd-on .lang{border-color:rgba(46,44,42,.5);background:rgba(30,26,24,.6)}
+  .nav.dd-fast,.nav.dd-fast *{transition-duration:.08s!important}
+  .nav-links.open .dd{flex-direction:column;align-items:center}
+  .nav-links.open .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  .nav-links.open .dd-m{position:static;margin:12px 0 2px;padding:12px 0 4px;min-width:0;width:240px;max-width:100%;background:none;box-shadow:none;border-radius:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);align-items:center;gap:14px}
+  .nav-links.open .dd-m a{font-size:12px!important;opacity:.85}
+  body.foto .nav .nav-links.open > a{text-shadow:none!important}
 </style>
 <!-- Google Consent Mode v2: stan domyślny (odmowa) przed Cookiebot -->
 <script data-cookieconsent="ignore">
@@ -382,8 +423,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "name": "Zuzanna Muraszkiewicz",
     "jobTitle": "Założycielka i instruktorka ceramiki",
     "image": "https://studiopiegus.pl/img/e94c165083d6.jpg",
-    "sameAs": ["https://www.linkedin.com/in/zuzannamuraszkiewicz/"]
-  }
+    "sameAs": [
+      "https://www.linkedin.com/in/zuzannamuraszkiewicz/"
+    ]
+  },
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Ewelina",
+      "jobTitle": "Instruktorka ceramiki",
+      "knowsLanguage": [
+        "pl",
+        "en"
+      ],
+      "image": "https://studiopiegus.pl/img/zespol/ewelina-instruktorka-ceramiki-studio-piegus.jpg"
+    },
+    {
+      "@type": "Person",
+      "name": "Basia",
+      "jobTitle": "Instruktorka ceramiki",
+      "knowsLanguage": [
+        "pl",
+        "en"
+      ],
+      "image": "https://studiopiegus.pl/img/zespol/basia-instruktorka-ceramiki-studio-piegus.jpg"
+    },
+    {
+      "@type": "Person",
+      "name": "Justyna",
+      "jobTitle": "Instruktorka ceramiki",
+      "knowsLanguage": [
+        "pl",
+        "en",
+        "fr"
+      ],
+      "image": "https://studiopiegus.pl/img/zespol/justyna-instruktorka-ceramiki-studio-piegus.jpg"
+    },
+    {
+      "@type": "Person",
+      "name": "Karolina",
+      "jobTitle": "Instruktorka ceramiki",
+      "knowsLanguage": [
+        "pl",
+        "en",
+        "fr"
+      ],
+      "image": "https://studiopiegus.pl/img/zespol/karolina-instruktorka-ceramiki-studio-piegus.jpg"
+    }
+  ]
 }
 </script>
 </head>
@@ -398,12 +485,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/" class="brand" aria-label="Studio Piegus - strona główna"><img src="img/0037b320eb11.png" alt="Studio Piegus" width="313" height="306"></a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navlinks">
-      <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+      <div class="dd" id="ddOferta">
+        <button type="button" class="dd-t" aria-expanded="false" aria-controls="ddOfertaMenu" data-pl="Oferta" data-en="Offer">Oferta</button>
+        <div class="dd-m" id="ddOfertaMenu">
+          <a href="zajecia.html" data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</a>
+          <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
+          <a href="dla-firm.html" data-pl="Warsztaty dla firm" data-en="Corporate workshops">Warsztaty dla firm</a>
+          <a href="voucher.html" data-pl="Voucher prezentowy" data-en="Gift voucher">Voucher prezentowy</a>
+        </div>
+      </div>
       <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
       <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
-      <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
-      <a href="dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
-      <a href="o-nas.html" class="active" data-pl="O nas" data-en="About">O nas</a>
+      <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
       <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       <a href="https://clayboard.studiopiegus.pl/" class="nav-login" target="_blank" rel="noopener" data-pl="Zaloguj się" data-en="Log in">Zaloguj się</a>
       <div class="lang" role="group" aria-label="Język"><button class="on" data-lang="pl">PL</button><button data-lang="en">EN</button></div>
@@ -438,13 +531,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
+  <section class="sec" id="zespol" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow" data-pl="Kto prowadzi zajęcia" data-en="Who teaches">Kto prowadzi zajęcia</span><h2 data-pl="Nasz zespół" data-en="Our team">Nasz zespół</h2></div>
+      <div class="team">
+        <article class="tm reveal">
+          <div class="tm-ph"><picture><source type="image/avif" srcset="img/zespol/ewelina-instruktorka-ceramiki-studio-piegus-600.avif 600w, img/zespol/ewelina-instruktorka-ceramiki-studio-piegus.avif 1200w" sizes="(max-width: 620px) 118px, (max-width: 1080px) 50vw, 25vw"><img decoding="async" loading="lazy" src="img/zespol/ewelina-instruktorka-ceramiki-studio-piegus.jpg" width="1200" height="1500" alt="Ewelina, instruktorka ceramiki w Studio Piegus, przy kole garncarskim"></picture></div>
+          <div class="tm-head">
+            <h3>Ewelina</h3>
+            <span class="tm-tag" data-pl="Zajęcia i warsztaty dla dzieci, młodzieży i dorosłych" data-en="Classes and workshops for children, teens and adults">Zajęcia i warsztaty dla dzieci, młodzieży i dorosłych</span>
+          </div>
+          <p class="tm-bio" data-pl="Ceramiką zajmuję się od pięciu lat. Zaczęło się od hobby i oderwania od codzienności, a dziś to ważna część mojej pracy. Z wykształcenia jestem psychologiem i chciałabym kiedyś połączyć te dwie dziedziny. Najchętniej tworzę proste przedmioty użytkowe: kubki, talerze i misy. Inspiracji szukam w podróżach i na spacerach z psem. Na warsztatach chcę, żebyście mogli zwolnić, pobrudzić ręce gliną i po prostu cieszyć się tworzeniem. Prowadzę zajęcia po polsku i angielsku." data-en="I've been working with ceramics for five years. It started as a hobby and a break from everyday life, and today it's an important part of my work. I'm a psychologist by training and one day I'd like to bring the two fields together. I most enjoy making simple, functional pieces: mugs, plates and bowls. I find inspiration in travel and on walks with my dog. At workshops I want you to slow down, get your hands dirty with clay and simply enjoy making things. I teach in Polish and English.">Ceramiką zajmuję się od pięciu lat. Zaczęło się od hobby i oderwania od codzienności, a dziś to ważna część mojej pracy. Z wykształcenia jestem psychologiem i chciałabym kiedyś połączyć te dwie dziedziny. Najchętniej tworzę proste przedmioty użytkowe: kubki, talerze i misy. Inspiracji szukam w podróżach i na spacerach z psem. Na warsztatach chcę, żebyście mogli zwolnić, pobrudzić ręce gliną i po prostu cieszyć się tworzeniem. Prowadzę zajęcia po polsku i angielsku.</p>
+        </article>
+        <article class="tm reveal">
+          <div class="tm-ph"><picture><source type="image/avif" srcset="img/zespol/basia-instruktorka-ceramiki-studio-piegus-600.avif 600w, img/zespol/basia-instruktorka-ceramiki-studio-piegus.avif 1200w" sizes="(max-width: 620px) 118px, (max-width: 1080px) 50vw, 25vw"><img decoding="async" loading="lazy" src="img/zespol/basia-instruktorka-ceramiki-studio-piegus.jpg" width="1200" height="1500" alt="Basia, instruktorka ceramiki w Studio Piegus, z kubkami z gliny"></picture></div>
+          <div class="tm-head">
+            <h3>Basia</h3>
+            <span class="tm-tag" data-pl="Zajęcia i warsztaty dla dzieci, młodzieży i dorosłych" data-en="Classes and workshops for children, teens and adults">Zajęcia i warsztaty dla dzieci, młodzieży i dorosłych</span>
+          </div>
+          <p class="tm-bio" data-pl="Na co dzień tworzę ceramikę i prowadzę warsztaty. Lubię glinę za to, że pozwala eksperymentować, zmieniać zdanie i nie przejmować się, gdy coś nie wyjdzie idealnie. Poza pracownią uczę narciarstwa i żeglarstwa, więc uczenie innych to po prostu część mnie. Na zajęciach dbam o dobrą atmosferę i swobodę, a każdy wychodzi z czymś naprawdę swoim. Prowadzę zajęcia po polsku i angielsku." data-en="Every day I make ceramics and run workshops. I love clay because it lets you experiment, change your mind and not worry when something doesn't turn out perfectly. Outside the studio I teach skiing and sailing, so teaching others is simply part of who I am. In class I care about a good atmosphere and a relaxed pace, and everyone leaves with something that's truly their own. I teach in Polish and English.">Na co dzień tworzę ceramikę i prowadzę warsztaty. Lubię glinę za to, że pozwala eksperymentować, zmieniać zdanie i nie przejmować się, gdy coś nie wyjdzie idealnie. Poza pracownią uczę narciarstwa i żeglarstwa, więc uczenie innych to po prostu część mnie. Na zajęciach dbam o dobrą atmosferę i swobodę, a każdy wychodzi z czymś naprawdę swoim. Prowadzę zajęcia po polsku i angielsku.</p>
+        </article>
+        <article class="tm reveal">
+          <div class="tm-ph"><picture><source type="image/avif" srcset="img/zespol/justyna-instruktorka-ceramiki-studio-piegus-600.avif 600w, img/zespol/justyna-instruktorka-ceramiki-studio-piegus.avif 1200w" sizes="(max-width: 620px) 118px, (max-width: 1080px) 50vw, 25vw"><img decoding="async" loading="lazy" src="img/zespol/justyna-instruktorka-ceramiki-studio-piegus.jpg" width="1200" height="1500" alt="Justyna, instruktorka ceramiki w Studio Piegus, prowadzi zajęcia dla dzieci"></picture></div>
+          <div class="tm-head">
+            <h3>Justyna</h3>
+            <span class="tm-tag" data-pl="Zajęcia i warsztaty dla dzieci" data-en="Classes and workshops for children">Zajęcia i warsztaty dla dzieci</span>
+          </div>
+          <p class="tm-bio" data-pl="Od 20 lat uczę dzieci plastyki, a od 10 wprowadzam je w świat ceramiki. Każde spotkanie z gliną to dla nas po prostu świetna zabawa. Na moich zajęciach dzieci w naturalny sposób ćwiczą sprawność dłoni i odnajdują własny rytm, od żywiołowej ekspresji i ruchu po kojące wyciszenie. Prowadzę zajęcia po polsku, angielsku i francusku." data-en="I've been teaching art to children for 20 years, and for the last 10 I've been introducing them to the world of ceramics. Every meeting with clay is simply great fun for us. In my classes children naturally train their hand skills and find their own rhythm – from lively expression and movement to soothing calm. I teach in Polish, English and French.">Od 20 lat uczę dzieci plastyki, a od 10 wprowadzam je w świat ceramiki. Każde spotkanie z gliną to dla nas po prostu świetna zabawa. Na moich zajęciach dzieci w naturalny sposób ćwiczą sprawność dłoni i odnajdują własny rytm, od żywiołowej ekspresji i ruchu po kojące wyciszenie. Prowadzę zajęcia po polsku, angielsku i francusku.</p>
+        </article>
+        <article class="tm reveal">
+          <div class="tm-ph"><picture><source type="image/avif" srcset="img/zespol/karolina-instruktorka-ceramiki-studio-piegus-600.avif 600w, img/zespol/karolina-instruktorka-ceramiki-studio-piegus.avif 1200w" sizes="(max-width: 620px) 118px, (max-width: 1080px) 50vw, 25vw"><img decoding="async" loading="lazy" src="img/zespol/karolina-instruktorka-ceramiki-studio-piegus.jpg" width="1200" height="1500" alt="Karolina, instruktorka ceramiki w Studio Piegus"></picture></div>
+          <div class="tm-head">
+            <h3>Karolina</h3>
+            <span class="tm-tag" data-pl="Zajęcia i warsztaty dla dzieci" data-en="Classes and workshops for children">Zajęcia i warsztaty dla dzieci</span>
+          </div>
+          <p class="tm-bio" data-pl="Jestem artystyczną duszą i najlepiej czuję się, gdy mogę tworzyć. Z wykształcenia jestem nauczycielką języka angielskiego i francuskiego, ale moją największą pasją jest ceramika. Najbardziej fascynuje mnie moment, gdy z kawałka gliny powstaje coś wyjątkowego, czasem według planu, a czasem zupełnie spontanicznie. Gram na skrzypcach, śpiewam i komponuję, i chciałabym, żeby muzyka była częścią atmosfery moich zajęć. Ceramika uczy mnie, że nie wszystko musi być idealne, żeby było piękne. Prowadzę zajęcia po polsku, angielsku i francusku." data-en="I'm an artistic soul and I feel happiest when I can create. I'm an English and French teacher by training, but my greatest passion is ceramics. What fascinates me most is the moment a lump of clay turns into something unique – sometimes as planned, sometimes completely spontaneously. I play the violin, sing and compose, and I'd love music to be part of the atmosphere of my classes. Ceramics teaches me that not everything has to be perfect to be beautiful. I teach in Polish, English and French.">Jestem artystyczną duszą i najlepiej czuję się, gdy mogę tworzyć. Z wykształcenia jestem nauczycielką języka angielskiego i francuskiego, ale moją największą pasją jest ceramika. Najbardziej fascynuje mnie moment, gdy z kawałka gliny powstaje coś wyjątkowego, czasem według planu, a czasem zupełnie spontanicznie. Gram na skrzypcach, śpiewam i komponuję, i chciałabym, żeby muzyka była częścią atmosfery moich zajęć. Ceramika uczy mnie, że nie wszystko musi być idealne, żeby było piękne. Prowadzę zajęcia po polsku, angielsku i francusku.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="opinie" style="padding-top:0">
     <div class="wrap">
       <div class="op-head">
-        <div><h2 data-pl="Opinie uczestników" data-en="What participants say">Opinie uczestników</h2><a class="op-google" href="https://www.google.com/maps?cid=1410846500208917893" target="_blank" rel="noopener" data-pl="<span class=&quot;st&quot;>★</span> 5,0 · 22 opinie w Google" data-en="<span class=&quot;st&quot;>★</span> 5.0 · 22 reviews on Google"><span class="st">★</span> 5,0 · 22 opinie w Google</a></div>
+        <div><h2 data-pl="Opinie uczestników" data-en="What participants say">Opinie uczestników</h2><a class="op-google" href="https://www.google.com/maps?cid=1410846500208917893" target="_blank" rel="noopener" data-pl="<span class=&quot;st&quot;>★</span> 5,0 · 33 opinie w Google" data-en="<span class=&quot;st&quot;>★</span> 5.0 · 33 reviews on Google"><span class="st">★</span> 5,0 · 33 opinie w Google</a></div>
         <div class="op-nav"><button class="op-prev" aria-label="Poprzednia">‹</button><button class="op-next" aria-label="Następna">›</button></div>
       </div>
       <div class="op-track" id="opTrack">
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="Studio Piegus to wspaniała pracownia ceramiczna w której można zrealizować własne ceramiczne pomysły. Zuza która prowadzi tę pracownię jest bardzo profesjonalna, uważna i zawsze doradzi jak można dojść do zaplanowanego efektu estetycznego. … Bardzo polecam, zarówno zajęcia stałe jak i jednorazowe warsztaty. 🪴" data-en="Studio Piegus is a wonderful ceramics studio where you can bring your own ceramic ideas to life. Zuza, who runs the studio, is very professional and attentive and will always advise you on how to achieve the look you're after. … Highly recommended, both regular classes and one-off workshops. 🪴">Studio Piegus to wspaniała pracownia ceramiczna w której można zrealizować własne ceramiczne pomysły. Zuza która prowadzi tę pracownię jest bardzo profesjonalna, uważna i zawsze doradzi jak można dojść do zaplanowanego efektu estetycznego. … Bardzo polecam, zarówno zajęcia stałe jak i jednorazowe warsztaty. 🪴</p><div class="op-foot"><div class="op-name">Iga</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="Świetne zajęcia, cudowna atmosfera i mnóstwo dobrej energii! ❤️ Zuza jest przesympatyczna, cierpliwa i zawsze chętnie pomaga. To idealny sposób, żeby oderwać się od codzienności, spróbować czegoś nowego i stworzyć coś własnego. Jeśli zastanawiacie się, czy spróbować ceramiki – nie wahajcie się ;) Ja przepadłam po pierwszych zajęciach i tak mija już ponad dwa lata mojej ceramicznej przygody w Studio Piegus 🥰" data-en="Great classes, a wonderful atmosphere and lots of good energy! ❤️ Zuza is lovely, patient and always happy to help. It's the perfect way to get away from everyday life, try something new and create something of your own. If you're wondering whether to try ceramics – don't hesitate ;) I was hooked after my first class, and it's now been over two years of my ceramics adventure at Studio Piegus 🥰">Świetne zajęcia, cudowna atmosfera i mnóstwo dobrej energii! ❤️ Zuza jest przesympatyczna, cierpliwa i zawsze chętnie pomaga. To idealny sposób, żeby oderwać się od codzienności, spróbować czegoś nowego i stworzyć coś własnego. Jeśli zastanawiacie się, czy spróbować ceramiki – nie wahajcie się ;) Ja przepadłam po pierwszych zajęciach i tak mija już ponad dwa lata mojej ceramicznej przygody w Studio Piegus 🥰</p><div class="op-foot"><div class="op-name">Milena</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
+        <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="Studio Piegus to wyjątkowe miejsce z cudowną atmosferą. Zajęcia ceramiczne to prawdziwy relaks, mnóstwo kreatywności i świetnie spędzony czas w miłym towarzystwie. Ogromne podziękowania dla Zuzy za cierpliwość, inspiracje i pomoc na każdym etapie tworzenia. Powstało tu wiele moich pięknych prac, z których jestem naprawdę dumna! To miejsce, do którego zawsze wracam z przyjemnością ❤️" data-en="Studio Piegus is a special place with a wonderful atmosphere. The ceramics classes are true relaxation, plenty of creativity and time well spent in good company. Huge thanks to Zuza for her patience, inspiration and help at every stage of making. I've made many beautiful pieces here that I'm really proud of! It's a place I always love coming back to ❤️">Studio Piegus to wyjątkowe miejsce z cudowną atmosferą. Zajęcia ceramiczne to prawdziwy relaks, mnóstwo kreatywności i świetnie spędzony czas w miłym towarzystwie. Ogromne podziękowania dla Zuzy za cierpliwość, inspiracje i pomoc na każdym etapie tworzenia. Powstało tu wiele moich pięknych prac, z których jestem naprawdę dumna! To miejsce, do którego zawsze wracam z przyjemnością ❤️</p><div class="op-foot"><div class="op-name">Małgorzata</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
         <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="Rewelacyjne studio, prowadząca z dużą wiedzą, umie zarażać pasją, doradzić i uratować, gdy ktoś przeceni swoje możliwości 🙂 W Piegusie można się rozwinąć w rękodziele, w różnych technikach i poszlifować też umiejętności towarzyskie, bo trafiają tam bardzo ciekawi ludzie. …" data-en="A fantastic studio - the instructor is very knowledgeable, knows how to spark passion, give advice and save the day when someone overestimates their abilities 🙂 At Piegus you can grow in craft and in various techniques, and polish your social skills too, because really interesting people come here. …">Rewelacyjne studio, prowadząca z dużą wiedzą, umie zarażać pasją, doradzić i uratować, gdy ktoś przeceni swoje możliwości 🙂 W Piegusie można się rozwinąć w rękodziele, w różnych technikach i poszlifować też umiejętności towarzyskie, bo trafiają tam bardzo ciekawi ludzie. …</p><div class="op-foot"><div class="op-name">Katarzyna</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
         <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="This little pottery studio is such a warm and inviting space for learning and creativity. Zuza, the owner, is such a patient teacher and really lets everyone explore and create anything their hearts desire. I also appreciate that she guides me in English. I look forward to the workshop all week and can really see the improvements in my skills." data-en="This little pottery studio is such a warm and inviting space for learning and creativity. Zuza, the owner, is such a patient teacher and really lets everyone explore and create anything their hearts desire. I also appreciate that she guides me in English. I look forward to the workshop all week and can really see the improvements in my skills.">This little pottery studio is such a warm and inviting space for learning and creativity. Zuza, the owner, is such a patient teacher and really lets everyone explore and create anything their hearts desire. I also appreciate that she guides me in English. I look forward to the workshop all week and can really see the improvements in my skills.</p><div class="op-foot"><div class="op-name">Lauren</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
         <article class="op-card"><div class="op-stars"><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg><svg viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M10 1.6l2.47 5.02 5.53.8-4 3.9.94 5.52L10 14.9l-4.94 2.94.94-5.52-4-3.9 5.53-.8z"/></svg></div><p class="op-text" data-pl="Cudowne miejsce na naukę lepienia z gliny. Cierpliwa prowadząca, która podpowie, pokaże i przekaże ogrom wiedzy. Nie ma lepszego miejsca na spędzenie wolnego czasu!" data-en="A wonderful place to learn to work with clay. A patient teacher who will suggest, show and share a wealth of knowledge. There is no better place to spend your free time!">Cudowne miejsce na naukę lepienia z gliny. Cierpliwa prowadząca, która podpowie, pokaże i przekaże ogrom wiedzy. Nie ma lepszego miejsca na spędzenie wolnego czasu!</p><div class="op-foot"><div class="op-name">Katarzyna</div><span class="op-src" data-pl="Opinia z Google" data-en="Google review">Opinia z Google</span></div></article>
@@ -504,6 +640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="foot-col">
         <h2 data-pl="Strona" data-en="Site">Strona</h2>
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+        <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
         <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
         <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
         <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
@@ -556,6 +693,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 /* Analytics: kliknięcia w telefon i e-mail jako zdarzenia GTM (bez danych osobowych) */
 (function(){window.dataLayer=window.dataLayer||[];document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="tel:"],a[href^="mailto:"]'):null;if(!a)return;window.dataLayer.push({event:a.getAttribute('href').indexOf('tel:')===0?'click_phone':'click_email',link_location:a.closest('footer')?'footer':'page'});});})();
+</script>
+<script>
+/* menu „Oferta”: otwieranie po kliknięciu, zamykanie: klik poza, Esc, ☰ */
+(function(){var d=document.getElementById('ddOferta');if(!d)return;
+var t=d.querySelector('.dd-t'),nav=document.getElementById('nav'),links=document.getElementById('navlinks'),bg=document.getElementById('burger');
+function set(o){d.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');
+ if(o&&!links.classList.contains('open')){nav.classList.add('dd-on')}
+ else if(nav.classList.contains('dd-on')){nav.classList.add('dd-fast');nav.classList.remove('dd-on');setTimeout(function(){nav.classList.remove('dd-fast')},160)}}
+t.addEventListener('click',function(e){e.stopPropagation();set(!d.classList.contains('open'))});
+document.addEventListener('click',function(e){if(!d.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){set(false);t.focus()}});
+if(bg)bg.addEventListener('click',function(){set(false)});})();
 </script>
 </body>
 </html>

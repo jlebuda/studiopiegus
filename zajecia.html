@@ -6,13 +6,13 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zajęcia z ceramiki dla dzieci i dorosłych, Wilanów</title>
-<meta name="description" content="Regularne zajęcia z ceramiki w Wilanowie: dzieci 7–14 lat, młodzież i dorośli, grupy do 6 osób. Warsztaty jednorazowe 3,5 h. Sprawdź grafik i zapisz się.">
+<meta name="description" content="Regularne zajęcia z ceramiki w Wilanowie: dzieci 7–14 lat, młodzież i dorośli, grupy do 6 osób. Dołącz w dowolnym momencie – sprawdź grafik.">
 <link rel="canonical" href="https://studiopiegus.pl/zajecia.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio Piegus">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:title" content="Zajęcia z ceramiki dla dzieci i dorosłych, Wilanów">
-<meta property="og:description" content="Regularne zajęcia z ceramiki w Wilanowie: dzieci 7–14 lat, młodzież i dorośli, grupy do 6 osób. Warsztaty jednorazowe 3,5 h. Sprawdź grafik i zapisz się.">
+<meta property="og:description" content="Regularne zajęcia z ceramiki w Wilanowie: dzieci 7–14 lat, młodzież i dorośli, grupy do 6 osób. Dołącz w dowolnym momencie – sprawdź grafik.">
 <meta property="og:url" content="https://studiopiegus.pl/zajecia.html">
 <meta property="og:image" content="https://studiopiegus.pl/img/c06c03eddece.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -447,6 +447,29 @@
     .burger{display:flex}
   }
   footer .foot-bottom .lang button.on{background:rgba(46,44,42,.3);color:#fff}
+
+  /* ---- menu „Oferta” (rozwijane po kliknięciu) ---- */
+  .dd{position:relative;display:flex;align-items:center}
+  .dd-t{font:inherit;font-size:14px;font-weight:500;letter-spacing:.01em;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .dd-t::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+  .dd.open .dd-t::after{transform:translateY(1px) rotate(225deg)}
+  .dd-m{display:none;position:absolute;top:100%;left:-22px;margin-top:var(--dd-gap,24px);min-width:250px;padding:18px 22px 20px;background:rgba(247,243,238,.98);box-shadow:0 18px 30px -22px rgba(0,0,0,.45);border-radius:0 0 12px 12px;flex-direction:column;gap:15px}
+  .dd.open .dd-m{display:flex}
+  .nav .dd-m a{color:var(--ink)!important;text-shadow:none!important;white-space:nowrap}
+  .nav.solid{--dd-gap:17px}
+  body.foto .nav-links .dd-t{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600}
+  body.foto .nav:not(.solid):not(.dd-on) .dd-t{color:#F7F3EE;text-shadow:0 1px 7px rgba(20,16,14,.55)}
+  .nav.dd-on{background:rgba(247,243,238,.98);box-shadow:0 1px 0 var(--line)}
+  body.foto .nav.dd-on .nav-links a,body.foto .nav.dd-on .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  body.foto .nav.dd-on .nav-links a::after{background:var(--ink)}
+  body.foto .nav.dd-on .brand img{filter:none}
+  body.foto .nav.dd-on .lang{border-color:rgba(46,44,42,.5);background:rgba(30,26,24,.6)}
+  .nav.dd-fast,.nav.dd-fast *{transition-duration:.08s!important}
+  .nav-links.open .dd{flex-direction:column;align-items:center}
+  .nav-links.open .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  .nav-links.open .dd-m{position:static;margin:12px 0 2px;padding:12px 0 4px;min-width:0;width:240px;max-width:100%;background:none;box-shadow:none;border-radius:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);align-items:center;gap:14px}
+  .nav-links.open .dd-m a{font-size:12px!important;opacity:.85}
+  body.foto .nav .nav-links.open > a{text-shadow:none!important}
 </style>
 <!-- Google Consent Mode v2: stan domyślny (odmowa) przed Cookiebot -->
 <script data-cookieconsent="ignore">
@@ -495,11 +518,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navlinks">
-      <a href="zajecia.html" class="active" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+      <div class="dd" id="ddOferta">
+        <button type="button" class="dd-t" aria-expanded="false" aria-controls="ddOfertaMenu" data-pl="Oferta" data-en="Offer">Oferta</button>
+        <div class="dd-m" id="ddOfertaMenu">
+          <a href="zajecia.html" data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</a>
+          <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
+          <a href="dla-firm.html" data-pl="Warsztaty dla firm" data-en="Corporate workshops">Warsztaty dla firm</a>
+          <a href="voucher.html" data-pl="Voucher prezentowy" data-en="Gift voucher">Voucher prezentowy</a>
+        </div>
+      </div>
       <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
       <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
-      <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
-      <a href="dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
       <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
       <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       <a href="https://clayboard.studiopiegus.pl/" class="nav-login" target="_blank" rel="noopener" data-pl="Zaloguj się" data-en="Log in">Zaloguj się</a>
@@ -706,42 +735,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ===== KIDS ===== -->
 
-<!-- ===== ONE-OFF ===== -->
-<section class="format" id="sesje">
+<!-- ===== ONE-OFF: przeniesione na warsztaty.html ===== -->
+<section class="sec" id="sesje" style="padding-top:20px">
   <div class="wrap">
-    <div class="format-grid">
-      <div class="format-text reveal">
-        <span class="eyebrow" data-pl="Warsztat" data-en="Workshop">Warsztat</span>
-        <h2 data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</h2>
-        <p data-pl="Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie." data-en="A one-off meeting, without signing up for a whole term. Great as a gift, a date, a get-together with friends or a family afternoon.">Jednorazowe spotkanie, bez zapisywania się na cały semestr. Świetne na prezent, randkę, spotkanie ze znajomymi albo rodzinne popołudnie.</p>
-        <p data-pl="Poziom zaawansowania nie ma znaczenia - zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot." data-en="Your level doesn't matter - I welcome those who've never touched clay and those who know exactly what grog is.">Poziom zaawansowania nie ma znaczenia - zapraszam osoby, które nigdy nie miały gliny w dłoniach, i te, które doskonale wiedzą, czym jest szamot.</p>
-        <p class="lang-note" data-pl="Warsztaty prowadzimy po polsku i po angielsku." data-en="Workshops are held in Polish and English.">Warsztaty prowadzimy po polsku i po angielsku.</p>
-          <div class="format-cta">
-          <a href="kontakt.html" class="btn btn-fill" data-pl="Zarezerwuj sesję dla siebie" data-en="Book a session for yourself">Zarezerwuj sesję dla siebie</a>
-          <a href="voucher.html" class="btn btn-ghost" data-pl="Podaruj voucher" data-en="Give a voucher">Podaruj voucher</a>
-        </div>
-      </div>
-      <div class="infocard reveal">
-        <div class="ic-speck" aria-hidden="true"></div>
-        <dl class="dl">
-          <div class="row"><dt data-pl="Dla kogo" data-en="For whom">Dla kogo</dt><dd data-pl="1-8 osób" data-en="1-8 people">1-8 osób</dd></div>
-          <div class="row"><dt data-pl="Czas trwania" data-en="Duration">Czas trwania</dt><dd data-pl="ok. 3,5 godziny" data-en="approx. 3.5 hours">ok. 3,5 godziny</dd></div>
-          <div class="row"><dt data-pl="Idealne na" data-en="Great for">Idealne na</dt><dd data-pl="prezent, randkę, spotkanie ze znajomymi" data-en="a gift, a date, a get-together">prezent, randkę, spotkanie ze znajomymi</dd></div>
-          <div class="row"><dt data-pl="W cenie" data-en="Included">W cenie</dt><dd data-pl="opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje" data-en="Instructor's care, all materials and tools to make your piece, firing, drinks">opieka instruktora, wszystkie materiały i narzędzia do wykonania pracy, wypał pracy, napoje</dd></div>
-        </dl>
-      </div>
+    <div class="corp reveal">
+      <span class="eyebrow" data-pl="Jednorazowo" data-en="Just once">Jednorazowo</span>
+      <h2 data-pl="Szukasz pojedynczego warsztatu?" data-en="Looking for a one-off workshop?">Szukasz pojedynczego warsztatu?</h2>
+      <p data-pl="3,5 godziny z gliną, bez zapisów na semestr. Na prezent, randkę albo spotkanie ze znajomymi." data-en="3.5 hours with clay, no term sign-up. As a gift, a date or a get-together with friends.">3,5 godziny z gliną, bez zapisów na semestr. Na prezent, randkę albo spotkanie ze znajomymi.</p>
+      <a href="warsztaty.html" class="btn btn-fill" data-pl="Zobacz pojedynczy warsztat" data-en="See single workshop">Zobacz pojedynczy warsztat</a>
     </div>
-  <div class="wsplit reveal">
-        <h3 class="w-title" data-pl="Szczegóły warsztatu" data-en="Workshop details">Szczegóły warsztatu</h3>
-        <div class="w-timeline">
-          <div class="w-tl"><div class="w-num">1</div><h4 data-pl="Co stworzysz" data-en="What you'll make">Co stworzysz</h4><p data-pl="W pełni użytkowe naczynie według własnego pomysłu (do codziennego użytku i mycia w zmywarce). Gotowa praca jest Twoją własnością." data-en="A fully functional vessel of your own design (dishwasher-safe, for everyday use). The finished piece is yours.">W pełni użytkowe naczynie według własnego pomysłu (do codziennego użytku i mycia w zmywarce). Gotowa praca jest Twoją własnością.</p></div>
-          <div class="w-tl"><div class="w-num">2</div><h4 data-pl="Tworzenie i zdobienie" data-en="Making &amp; decorating">Tworzenie i zdobienie</h4><p data-pl="Lepisz naczynie, a następnie malujesz mokrą glinę angobami, farbami podszkliwnymi lub szkliwami uniwersalnymi. Możesz też wykonać zdobienia techniką sgraffito (drapanie w pomalowanej powierzchni)." data-en="You build a piece, then paint the wet clay with engobes, underglaze paints or universal glazes. You can also decorate with sgraffito (scratching into the painted surface).">Lepisz naczynie, a następnie malujesz mokrą glinę angobami, farbami podszkliwnymi lub szkliwami uniwersalnymi. Możesz też wykonać zdobienia techniką sgraffito (drapanie w pomalowanej powierzchni).</p></div>
-          <div class="w-tl"><div class="w-num">3</div><h4 data-pl="Suszenie i pierwsze wypalanie" data-en="Drying &amp; first firing">Suszenie i pierwsze wypalanie</h4><p data-pl="Twoja praca zostaje w pracowni i schnie przez ok. 10 dni. Następnie wypalam ją na tzw. biskwit w temperaturze 900°C." data-en="Your piece stays in the studio and dries for about 10 days. Then I fire it to bisque at 900°C.">Twoja praca zostaje w pracowni i schnie przez ok. 10 dni. Następnie wypalam ją na tzw. biskwit w temperaturze 900°C.</p></div>
-          <div class="w-tl"><div class="w-num">4</div><h4 data-pl="Szkliwienie i drugi wypał" data-en="Glazing &amp; second firing">Szkliwienie i drugi wypał</h4><p data-pl="Pokrywam naczynie szkliwem transparentnym i wypalam ponownie w 1240°C." data-en="I cover the piece with a transparent glaze and fire it again at 1240°C.">Pokrywam naczynie szkliwem transparentnym i wypalam ponownie w 1240°C.</p></div>
-          <div class="w-tl"><div class="w-num">5</div><h4 data-pl="Odbiór" data-en="Pick-up">Odbiór</h4><p data-pl="Gotowa praca czeka na Ciebie po około 3-4 tygodniach od warsztatu." data-en="Your finished piece will be ready for pick-up about 3-4 weeks after the workshop.">Gotowa praca czeka na Ciebie po około 3-4 tygodniach od warsztatu.</p></div>
-        </div>
-      </div>
-    </div>
+  </div>
 </section>
 
 <!-- ===== CLOSING CTA ===== -->
@@ -790,6 +793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="foot-col">
         <h2 data-pl="Strona" data-en="Site">Strona</h2>
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+        <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
         <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
         <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
         <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
@@ -896,6 +900,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 /* Analytics: kliknięcia w telefon i e-mail jako zdarzenia GTM (bez danych osobowych) */
 (function(){window.dataLayer=window.dataLayer||[];document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="tel:"],a[href^="mailto:"]'):null;if(!a)return;window.dataLayer.push({event:a.getAttribute('href').indexOf('tel:')===0?'click_phone':'click_email',link_location:a.closest('footer')?'footer':'page'});});})();
+</script>
+<script>
+/* menu „Oferta”: otwieranie po kliknięciu, zamykanie: klik poza, Esc, ☰ */
+(function(){var d=document.getElementById('ddOferta');if(!d)return;
+var t=d.querySelector('.dd-t'),nav=document.getElementById('nav'),links=document.getElementById('navlinks'),bg=document.getElementById('burger');
+function set(o){d.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');
+ if(o&&!links.classList.contains('open')){nav.classList.add('dd-on')}
+ else if(nav.classList.contains('dd-on')){nav.classList.add('dd-fast');nav.classList.remove('dd-on');setTimeout(function(){nav.classList.remove('dd-fast')},160)}}
+t.addEventListener('click',function(e){e.stopPropagation();set(!d.classList.contains('open'))});
+document.addEventListener('click',function(e){if(!d.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){set(false);t.focus()}});
+if(bg)bg.addEventListener('click',function(){set(false)});})();
 </script>
 </body>
 </html>

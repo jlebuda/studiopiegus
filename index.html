@@ -410,6 +410,29 @@
     .burger{display:flex}
   }
   footer .foot-bottom .lang button.on{background:rgba(46,44,42,.3);color:#fff}
+
+  /* ---- menu „Oferta” (rozwijane po kliknięciu) ---- */
+  .dd{position:relative;display:flex;align-items:center}
+  .dd-t{font:inherit;font-size:14px;font-weight:500;letter-spacing:.01em;color:inherit;background:none;border:0;padding:4px 0;cursor:pointer;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+  .dd-t::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+  .dd.open .dd-t::after{transform:translateY(1px) rotate(225deg)}
+  .dd-m{display:none;position:absolute;top:100%;left:-22px;margin-top:var(--dd-gap,24px);min-width:250px;padding:18px 22px 20px;background:rgba(247,243,238,.98);box-shadow:0 18px 30px -22px rgba(0,0,0,.45);border-radius:0 0 12px 12px;flex-direction:column;gap:15px}
+  .dd.open .dd-m{display:flex}
+  .nav .dd-m a{color:var(--ink)!important;text-shadow:none!important;white-space:nowrap}
+  .nav.solid{--dd-gap:17px}
+  body.foto .nav-links .dd-t{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:600}
+  body.foto .nav:not(.solid):not(.dd-on) .dd-t{color:#F7F3EE;text-shadow:0 1px 7px rgba(20,16,14,.55)}
+  .nav.dd-on{background:rgba(247,243,238,.98);box-shadow:0 1px 0 var(--line)}
+  body.foto .nav.dd-on .nav-links a,body.foto .nav.dd-on .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  body.foto .nav.dd-on .nav-links a::after{background:var(--ink)}
+  body.foto .nav.dd-on .brand img{filter:none}
+  body.foto .nav.dd-on .lang{border-color:rgba(46,44,42,.5);background:rgba(30,26,24,.6)}
+  .nav.dd-fast,.nav.dd-fast *{transition-duration:.08s!important}
+  .nav-links.open .dd{flex-direction:column;align-items:center}
+  .nav-links.open .dd-t{color:var(--ink)!important;text-shadow:none!important}
+  .nav-links.open .dd-m{position:static;margin:12px 0 2px;padding:12px 0 4px;min-width:0;width:240px;max-width:100%;background:none;box-shadow:none;border-radius:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);align-items:center;gap:14px}
+  .nav-links.open .dd-m a{font-size:12px!important;opacity:.85}
+  body.foto .nav .nav-links.open > a{text-shadow:none!important}
 </style>
 <!-- Google Consent Mode v2: stan domyślny (odmowa) przed Cookiebot -->
 <script data-cookieconsent="ignore">
@@ -443,11 +466,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navlinks">
-      <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+      <div class="dd" id="ddOferta">
+        <button type="button" class="dd-t" aria-expanded="false" aria-controls="ddOfertaMenu" data-pl="Oferta" data-en="Offer">Oferta</button>
+        <div class="dd-m" id="ddOfertaMenu">
+          <a href="zajecia.html" data-pl="Zajęcia regularne" data-en="Regular classes">Zajęcia regularne</a>
+          <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
+          <a href="dla-firm.html" data-pl="Warsztaty dla firm" data-en="Corporate workshops">Warsztaty dla firm</a>
+          <a href="voucher.html" data-pl="Voucher prezentowy" data-en="Gift voucher">Voucher prezentowy</a>
+        </div>
+      </div>
       <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
       <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
-      <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
-      <a href="dla-firm.html" data-pl="Dla firm" data-en="Corporate">Dla firm</a>
       <a href="o-nas.html" data-pl="O nas" data-en="About">O nas</a>
       <a href="kontakt.html" data-pl="Kontakt" data-en="Contact">Kontakt</a>
       <a href="https://clayboard.studiopiegus.pl/" class="nav-login" target="_blank" rel="noopener" data-pl="Zaloguj się" data-en="Log in">Zaloguj się</a>
@@ -502,7 +531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg class="dotcluster" viewBox="0 0 54 54" aria-hidden="true"><circle cx="16" cy="14" r="2.2" fill="#C9998F"/><circle cx="28" cy="18" r="3" fill="#C9998F"/><circle cx="22" cy="28" r="1.8" fill="#C9998F"/><circle cx="35" cy="12" r="1.6" fill="#C9998F"/></svg>
         <h3 data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</h3>
         <p data-pl="Ulepcie coś razem - w grupie 2-8 osób albo indywidualnie, tylko dla siebie." data-en="Make something together - in a group of 2-8, or one-to-one, just for you.">Ulepcie coś razem - w grupie 2-8 osób albo indywidualnie, tylko dla siebie.</p>
-        <a class="more" href="zajecia.html#sesje"><span data-pl="Dowiedz się więcej" data-en="Learn more">Dowiedz się więcej</span><span class="sr-only" data-pl=" o pojedynczym warsztacie" data-en=" about single workshops"> o pojedynczym warsztacie</span> <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="more" href="warsztaty.html"><span data-pl="Dowiedz się więcej" data-en="Learn more">Dowiedz się więcej</span><span class="sr-only" data-pl=" o pojedynczym warsztacie" data-en=" about single workshops"> o pojedynczym warsztacie</span> <svg width="16" height="10" viewBox="0 0 16 10" fill="none"><path d="M1 5h13M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </article>
       <article class="tile reveal">
         <svg class="dotcluster" viewBox="0 0 54 54" aria-hidden="true"><circle cx="14" cy="14" r="2" fill="#7BA7BC"/><circle cx="24" cy="20" r="2.6" fill="#9E4A2C"/><circle cx="34" cy="14" r="2" fill="#7BA7BC"/><circle cx="20" cy="30" r="1.6" fill="#C9998F"/></svg>
@@ -588,6 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="foot-col">
         <h2 data-pl="Strona" data-en="Site">Strona</h2>
         <a href="zajecia.html" data-pl="Zajęcia" data-en="Classes">Zajęcia</a>
+        <a href="warsztaty.html" data-pl="Pojedynczy warsztat" data-en="Single workshop">Pojedynczy warsztat</a>
         <a href="zajecia.html#harmonogram" data-pl="Grafik zajęć" data-en="Timetable">Grafik zajęć</a>
         <a href="cennik.html" data-pl="Cennik" data-en="Pricing">Cennik</a>
         <a href="voucher.html" data-pl="Voucher" data-en="Gift voucher">Voucher</a>
@@ -704,6 +734,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 /* Analytics: kliknięcia w telefon i e-mail jako zdarzenia GTM (bez danych osobowych) */
 (function(){window.dataLayer=window.dataLayer||[];document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href^="tel:"],a[href^="mailto:"]'):null;if(!a)return;window.dataLayer.push({event:a.getAttribute('href').indexOf('tel:')===0?'click_phone':'click_email',link_location:a.closest('footer')?'footer':'page'});});})();
+</script>
+<script>
+/* menu „Oferta”: otwieranie po kliknięciu, zamykanie: klik poza, Esc, ☰ */
+(function(){var d=document.getElementById('ddOferta');if(!d)return;
+var t=d.querySelector('.dd-t'),nav=document.getElementById('nav'),links=document.getElementById('navlinks'),bg=document.getElementById('burger');
+function set(o){d.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');
+ if(o&&!links.classList.contains('open')){nav.classList.add('dd-on')}
+ else if(nav.classList.contains('dd-on')){nav.classList.add('dd-fast');nav.classList.remove('dd-on');setTimeout(function(){nav.classList.remove('dd-fast')},160)}}
+t.addEventListener('click',function(e){e.stopPropagation();set(!d.classList.contains('open'))});
+document.addEventListener('click',function(e){if(!d.contains(e.target))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&d.classList.contains('open')){set(false);t.focus()}});
+if(bg)bg.addEventListener('click',function(){set(false)});})();
 </script>
 </body>
 </html>
